@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <!-- Root Pages -->
   <url>
     <loc>https://www.southasianliverinstitute.com/</loc>
     <lastmod>2025-10-08</lastmod>
@@ -12,101 +13,277 @@
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
+  
+  <!-- About Section -->
   <url>
-    <loc>https://www.southasianliverinstitute.com/about-us.html</loc>
+    <loc>https://www.southasianliverinstitute.com/about/about-us.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/appointment.html</loc>
+    <loc>https://www.southasianliverinstitute.com/about/founder.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Services -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/services/liver-transplantation.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/contact-us.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/liver-cirrhosis.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/departments.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/fatty-liver.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/services/liver-cancer.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/services/gallbladder-cancer.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/departments-single.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-grid.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/pancreas-cancer.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-modern.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/interventional-treatments.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-standard.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/laparoscopic-surgery.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-timetable.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/endoscopy.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-single-doctor1.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/in-patient-facility.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/doctors-single-doctor2.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/ICU-facility.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/services.html</loc>
+    <loc>https://www.southasianliverinstitute.com/services/nutrition.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/services/physiotherapy.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Programmes -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/programmes/licap.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/services-single.html</loc>
+    <loc>https://www.southasianliverinstitute.com/programmes/ascites-club.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/programmes/liver-line.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Locations -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/hyderabad.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/mumbai.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/kolkata.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/nagpur.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/pricing.html</loc>
+    <loc>https://www.southasianliverinstitute.com/locations/vijayawada-guntur.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/blog.html</loc>
+    <loc>https://www.southasianliverinstitute.com/locations/visakhapatnam.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/anantapur.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/jabalpur.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/kakinada.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/khammam.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/kurnool.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/rajahmundry.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/locations/rajkot.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Media -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/media/index.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.southasianliverinstitute.com/blog-single-post.html</loc>
+    <loc>https://www.southasianliverinstitute.com/media/videos.html</loc>
     <lastmod>2025-10-08</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Resources -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/resources/risk-calculator.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/resources/guide.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/resources/videos.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- Calendar -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/calendar.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Blog -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/blog/index.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- Contact & Legal -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/contact.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/privacy-policy.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  <url>
+    <loc>https://www.southasianliverinstitute.com/terms-of-service.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <!-- Kept for backwards compatibility -->
+  <url>
+    <loc>https://www.southasianliverinstitute.com/appointment.html</loc>
+    <lastmod>2025-10-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
   </url>
   <url>
     <loc>https://www.southasianliverinstitute.com/gallery.html</loc>
@@ -119,47 +296,5 @@
     <lastmod>2025-10-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/shop.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/shop-single-product.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/cart.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/home-classic.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/home-modern.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/home-dentist.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  <url>
-    <loc>https://www.southasianliverinstitute.com/home-pharmacy.html</loc>
-    <lastmod>2025-10-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
   </url>
 </urlset>

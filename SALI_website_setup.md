@@ -7,27 +7,61 @@ This repo is the starter template to build South Asian Liver Institute's (SALi) 
 ## 📁 Folder Structure
 
 ```bash
-sali-website/
-├── public/
-│   ├── index.html
-│   ├── about.html
-│   └── ...
-├── src/
+SALi/
+├── public/                          # Production-ready files
+│   ├── index.html                   # Homepage
+│   ├── about/                       # About section
+│   │   ├── about-us.html
+│   │   └── founder.html
+│   ├── services/                    # 13 service pages
+│   │   ├── liver-transplantation.html
+│   │   ├── liver-cirrhosis.html
+│   │   └── ... (11 more)
+│   ├── programmes/                  # Programme pages
+│   │   ├── licap.html
+│   │   ├── ascites-club.html
+│   │   └── liver-line.html
+│   ├── locations/                   # 13 location pages
+│   │   ├── hyderabad.html
+│   │   ├── mumbai.html
+│   │   └── ... (11 more)
+│   ├── media/                       # Media section
+│   │   ├── index.html
+│   │   └── videos.html
+│   ├── resources/                   # Resources section
+│   │   ├── risk-calculator.html
+│   │   ├── guide.html
+│   │   └── videos.html
+│   ├── blog/                        # Blog section
+│   │   ├── index.html
+│   │   └── blog-slug.html
+│   ├── calendar.html                # Events calendar
+│   ├── contact.html                 # Contact page
+│   ├── appointment.html             # Booking page
+│   ├── gallery.html                 # Gallery
+│   ├── faqs.html                    # FAQs
+│   ├── privacy-policy.html          # Privacy policy
+│   ├── terms-of-service.html        # Terms of service
+│   ├── sitemap.xml                  # SEO sitemap
+│   └── assets/                      # Static assets
+│       ├── css/
+│       ├── js/
+│       ├── images/
+│       └── fonts/
+├── src/                             # Source files
 │   ├── assets/
-│   │   ├── images/
 │   ├── styles/
 │   │   ├── main.scss
 │   │   └── _variables.scss
 │   ├── components/
-│   │   ├── header.html
-│   │   └── footer.html
-│   ├── tailwind/
-│   │   └── tailwind.css
-├── dist/
+│   └── tailwind/
+├── dist/                            # Build output
+├── medcity/                         # Original template files
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
-├── .gitignore
+├── netlify.toml                     # Netlify config
+├── WEBSITE_STRUCTURE.md             # Complete site structure
 └── README.md
 ```
 
@@ -133,8 +167,33 @@ theme: {
 
 ## 📞 Project Contact
 
-> “Think Liver. Think SALi. Because life depends on it.”  
+> "Think Liver. Think SALi. Because life depends on it."  
 > www.southasianliverinstitute.com  
 > 📞 8070 670 670
+
+---
+
+## 🗂️ Website Structure
+
+The website is organized into the following main sections:
+
+### Main Sections
+1. **About** (`/about/`) - About SALi and founder information
+2. **Services** (`/services/`) - 13 specialized liver care services
+3. **Programmes** (`/programmes/`) - LICAP, Ascites Club, Liver Line
+4. **Locations** (`/locations/`) - 13 locations across India
+5. **Media** (`/media/`) - News and video content
+6. **Resources** (`/resources/`) - Patient tools and guides
+7. **Blog** (`/blog/`) - Blog posts and articles
+
+### Key Pages
+- Homepage: `index.html`
+- Contact: `contact.html`
+- Calendar: `calendar.html`
+- Appointment: `appointment.html`
+- Gallery: `gallery.html`
+- FAQs: `faqs.html`
+
+For detailed structure, see `WEBSITE_STRUCTURE.md`
 
 ---
