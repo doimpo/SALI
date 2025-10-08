@@ -1,0 +1,104 @@
+@import 'variables';
+
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* SALi Custom Styles */
+body {
+  font-family: $font-primary;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: $text-primary;
+  font-weight: 700;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+
+/* SALi Components */
+.sali-btn-primary {
+  background-color: $primary-color;
+  color: $white;
+  padding: 1rem 2rem;
+  border-radius: $border-radius;
+  transition: all $transition-speed;
+  
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+.sali-btn-gold {
+  background-color: $gold-color;
+  color: $white;
+  padding: 1rem 2rem;
+  border-radius: $border-radius;
+  transition: all $transition-speed;
+  
+  &:hover {
+    opacity: 0.9;
+    transform: translateY(-2px);
+  }
+}
+
+.sali-section {
+  padding: $spacing-xl 0;
+}
+
+.sali-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.sali-card {
+  background: $white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: $spacing-lg;
+  transition: all $transition-speed;
+  
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+}
+
+/* Header Styles */
+.sali-header {
+  background-color: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer Styles */
+.sali-footer {
+  background-color: $primary-color;
+  color: $white;
+  padding: $spacing-xl 0;
+  
+  a {
+    color: $gold-color;
+    transition: opacity $transition-speed;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+/* Utility Classes */
+.text-primary { color: $primary-color; }
+.text-gold { color: $gold-color; }
+.bg-primary { background-color: $primary-color; }
+.bg-gold { background-color: $gold-color; }
