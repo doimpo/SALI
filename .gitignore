@@ -39,3 +39,6 @@ Thumbs.db
 .sass-cache/
 *.css.map
 
+
+# Local Netlify folder
+.netlify

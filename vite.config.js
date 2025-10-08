@@ -13,13 +13,15 @@ const htmlFiles = readdirSync('./public')
 
 export default defineConfig({
   root: 'public',
-  publicDir: '../src/assets',
+  publicDir: false, // Disable automatic public directory handling
   build: {
     outDir: '../dist',
     emptyOutDir: true,
     rollupOptions: {
       input: htmlFiles
-    }
+    },
+    assetsInlineLimit: 0, // Don't inline any assets
+    copyPublicDir: false, // Don't copy public dir automatically
   },
   server: {
     port: 5173,
@@ -32,6 +34,21 @@ export default defineConfig({
     alias: {
       '@': resolve(__dirname, 'src')
     }
-  }
+  },
+  plugins: [
+    {
+      name: 'copy-assets',
+      writeBundle() {
+        const { cpSync } = require('fs')
+        const { join } = require('path')
+        // Copy the entire assets folder to dist
+        cpSync(
+          join(__dirname, 'public', 'assets'),
+          join(__dirname, 'dist', 'assets'),
+          { recursive: true }
+        )
+      }
+    }
+  ]
 })
 
