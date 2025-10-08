@@ -1,0 +1,207 @@
+/* Font Face Declarations */
+@font-face {
+  font-family: "BreweryNo2W01-Regular";
+  src: url("../fonts/BreweryNo2W01-Regular.woff2") format("woff2"), url("../fonts/BreweryNo2W01-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Brewery No2 W06 Black";
+  src: url("../fonts/Brewery No2 W06 Black It.woff2") format("woff2"), url("../fonts/Brewery No2 W06 Black It.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+  font-display: swap;
+}
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+/* SALi Custom Styles */
+body {
+  font-family: "Montserrat", "Poppins", sans-serif;
+  color: #666666;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "BreweryNo2W01-Regular", "Brewery No2", serif;
+  color: #22336B;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+h2 {
+  font-size: 2.5rem;
+}
+
+h3 {
+  font-size: 2rem;
+}
+
+h4 {
+  font-size: 1.5rem;
+}
+
+/* SALi Components */
+.sali-btn-primary {
+  background-color: #22336B;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.sali-btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.sali-btn-gold {
+  background-color: #D1A648;
+  color: #FFFFFF;
+  padding: 1rem 2rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s;
+}
+.sali-btn-gold:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+}
+
+.sali-section {
+  padding: 3rem 0;
+}
+
+.sali-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+.sali-card {
+  background: #FFFFFF;
+  border-radius: 0.5rem;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem;
+  transition: all 0.3s;
+}
+.sali-card:hover {
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+/* Header Styles */
+.sali-header {
+  background-color: #FFFFFF;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Footer Styles */
+.sali-footer {
+  background-color: #22336B;
+  color: #FFFFFF;
+  padding: 3rem 0;
+}
+.sali-footer a {
+  color: #D1A648;
+  transition: opacity 0.3s;
+}
+.sali-footer a:hover {
+  opacity: 0.8;
+}
+
+/* Utility Classes */
+.text-primary {
+  color: #22336B;
+}
+
+.text-gold {
+  color: #D1A648;
+}
+
+.bg-primary {
+  background-color: #22336B;
+}
+
+.bg-gold {
+  background-color: #D1A648;
+}
+
+/* Brand Font Utilities */
+.font-brand {
+  font-family: "BreweryNo2W01-Regular", "Brewery No2", serif;
+}
+
+.font-brand-black {
+  font-family: "Brewery No2 W06 Black", "Brewery No2", serif;
+}
+
+.font-secondary {
+  font-family: "Montserrat", "Poppins", sans-serif;
+}
+
+/* Focus and Important Text */
+.focus-text {
+  font-family: "BreweryNo2W01-Regular", "Brewery No2", serif;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.important-text {
+  font-family: "Brewery No2 W06 Black", "Brewery No2", serif;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Menu Display Fix */
+@media (min-width: 992px) {
+  .navbar .navbar-collapse {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+  .navbar .navbar-collapse .navbar-nav {
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  /* Ensure navbar toggler is hidden on desktop */
+  .navbar .navbar-toggler {
+    display: none !important;
+  }
+}
+/* Additional menu visibility fix */
+.navbar .navbar-collapse {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    display: none;
+  }
+  .navbar .navbar-collapse.menu-opened {
+    display: block;
+  }
+}
+
+/*# sourceMappingURL=sali-custom.css.map */

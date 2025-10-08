@@ -1,5 +1,30 @@
 @import 'variables';
 
+/* Font Face Declarations */
+@font-face {
+  font-family: 'BreweryNo2W01-Regular';
+  src: url('../fonts/BreweryNo2W01-Regular.woff2') format('woff2'),
+       url('../fonts/BreweryNo2W01-Regular.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Brewery No2 W06 Black';
+  src: url('../fonts/Brewery No2 W06 Black It.woff2') format('woff2'),
+       url('../fonts/Brewery No2 W06 Black It.ttf') format('truetype');
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Montserrat';
+  src: url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap');
+  font-display: swap;
+}
+
 /* Tailwind Directives */
 @tailwind base;
 @tailwind components;
@@ -7,14 +32,16 @@
 
 /* SALi Custom Styles */
 body {
-  font-family: $font-primary;
+  font-family: $font-secondary;
   color: $text-secondary;
   line-height: 1.6;
 }
 
 h1, h2, h3, h4, h5, h6 {
+  font-family: $font-brand-regular;
   color: $text-primary;
-  font-weight: 700;
+  font-weight: 400;
+  letter-spacing: -0.02em;
 }
 
 h1 { font-size: $font-size-h1; }
@@ -102,3 +129,64 @@ h4 { font-size: $font-size-h4; }
 .text-gold { color: $gold-color; }
 .bg-primary { background-color: $primary-color; }
 .bg-gold { background-color: $gold-color; }
+
+/* Brand Font Utilities */
+.font-brand { font-family: $font-brand-regular; }
+.font-brand-black { font-family: $font-brand-black; }
+.font-secondary { font-family: $font-secondary; }
+
+/* Focus and Important Text */
+.focus-text {
+  font-family: $font-brand-regular;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.important-text {
+  font-family: $font-brand-black;
+  font-weight: 900;
+  font-style: italic;
+}
+
+/* Menu Display Fix */
+@media (min-width: 992px) {
+  .navbar .navbar-collapse {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+  
+  .navbar .navbar-collapse .navbar-nav {
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  
+  /* Ensure navbar toggler is hidden on desktop */
+  .navbar .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Additional menu visibility fix */
+.navbar .navbar-collapse {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    display: none;
+  }
+  
+  .navbar .navbar-collapse.menu-opened {
+    display: block;
+  }
+}

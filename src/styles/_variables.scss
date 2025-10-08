@@ -22,7 +22,16 @@ $spacing-lg: 2rem;
 $spacing-xl: 3rem;
 
 // Typography
+// Brand fonts - Brewery for headings and important elements
+$font-brand: 'Brewery No2', 'Brewery', serif;
+$font-brand-regular: 'BreweryNo2W01-Regular', 'Brewery No2', serif;
+$font-brand-black: 'Brewery No2 W06 Black', 'Brewery No2', serif;
+
+// Secondary font - Montserrat for body text and secondary elements
 $font-primary: 'Montserrat', 'Poppins', sans-serif;
+$font-secondary: 'Montserrat', 'Poppins', sans-serif;
+
+// Font sizes
 $font-size-base: 16px;
 $font-size-h1: 3rem;
 $font-size-h2: 2.5rem;
