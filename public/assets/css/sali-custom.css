@@ -204,4 +204,17 @@ h4 {
   }
 }
 
+/* Add your custom styles here */
+
+.navbar-brand .logo-light,
+.navbar-brand .logo-dark {
+    max-height: 60px; /* Adjust this value as needed */
+}
+
+@media (min-width: 992px) {
+    .navbar-toggler {
+        display: none;
+    }
+}
+
 /*# sourceMappingURL=sali-custom.css.map */

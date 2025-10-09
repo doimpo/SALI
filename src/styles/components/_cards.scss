@@ -1,0 +1,241 @@
+@use '../variables' as *;
+
+// =========================
+// Card Components
+// =========================
+
+// Base Card Mixin
+@mixin card-base {
+  background: $white;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all $transition-speed ease;
+}
+
+// Card Variants
+@mixin card-variant($padding: 2rem, $border: none) {
+  padding: $padding;
+  
+  @if $border != none {
+    border: $border;
+  }
+}
+
+// SALi Card Components
+.sali-card {
+  @include card-base;
+  @include card-variant();
+  
+  &:hover {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+  }
+  
+  &--compact {
+    @include card-variant(1.5rem);
+  }
+  
+  &--spacious {
+    @include card-variant(3rem);
+  }
+  
+  &--bordered {
+    @include card-variant(2rem, 1px solid $border-color);
+    box-shadow: none;
+    
+    &:hover {
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+  }
+  
+  &--elevated {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+    
+    &:hover {
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+    }
+  }
+}
+
+// Card Header
+.sali-card__header {
+  padding: 1.5rem 2rem 1rem;
+  border-bottom: 1px solid $border-color;
+  
+  h3, h4, h5 {
+    margin: 0;
+    color: $text-primary;
+  }
+}
+
+// Card Body
+.sali-card__body {
+  padding: 1.5rem 2rem;
+  
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Card Footer
+.sali-card__footer {
+  padding: 1rem 2rem 1.5rem;
+  border-top: 1px solid $border-color;
+  background-color: $gray-light;
+}
+
+// Service Cards
+.service-card {
+  @include card-base;
+  @include card-variant(2.5rem);
+  text-align: center;
+  height: 100%;
+  
+  &__icon {
+    width: 4rem;
+    height: 4rem;
+    margin: 0 auto 1.5rem;
+    background: linear-gradient(135deg, $primary-color, $gold-color);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: $white;
+    font-size: 1.5rem;
+  }
+  
+  &__title {
+    color: $text-primary;
+    margin-bottom: 1rem;
+  }
+  
+  &__description {
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  
+  &__features {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 2rem;
+    
+    li {
+      padding: 0.25rem 0;
+      color: $text-secondary;
+      
+      &:before {
+        content: "✓";
+        color: $gold-color;
+        font-weight: bold;
+        margin-right: 0.5rem;
+      }
+    }
+  }
+}
+
+// Team Cards
+.team-card {
+  @include card-base;
+  @include card-variant(0);
+  text-align: center;
+  
+  &__image {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  
+  &__content {
+    padding: 2rem;
+  }
+  
+  &__name {
+    color: $text-primary;
+    margin-bottom: 0.5rem;
+  }
+  
+  &__title {
+    color: $gold-color;
+    margin-bottom: 1rem;
+    font-weight: 500;
+  }
+  
+  &__bio {
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+  }
+  
+  &__social {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    
+    a {
+      width: 2.5rem;
+      height: 2.5rem;
+      background-color: $gray-light;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: $text-secondary;
+      transition: all $transition-speed ease;
+      
+      &:hover {
+        background-color: $primary-color;
+        color: $white;
+      }
+    }
+  }
+}
+
+// Testimonial Cards
+.testimonial-card {
+  @include card-base;
+  @include card-variant(2rem);
+  position: relative;
+  
+  &__quote {
+    font-style: italic;
+    color: $text-secondary;
+    margin-bottom: 1.5rem;
+    position: relative;
+    
+    &:before {
+      content: '"';
+      font-size: 3rem;
+      color: $gold-color;
+      position: absolute;
+      top: -1rem;
+      left: -0.5rem;
+      font-family: serif;
+    }
+  }
+  
+  &__author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    &-image {
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    
+    &-info {
+      h6 {
+        margin: 0;
+        color: $text-primary;
+      }
+      
+      p {
+        margin: 0;
+        color: $text-secondary;
+        font-size: 0.875rem;
+      }
+    }
+  }
+}

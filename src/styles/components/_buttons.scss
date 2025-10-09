@@ -1,0 +1,133 @@
+@use "sass:color";
+@use '../variables' as *;
+
+// =========================
+// Button Components
+// =========================
+
+// Base Button Mixin
+@mixin button-base {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 2rem;
+  border: none;
+  border-radius: $border-radius;
+  font-family: $font-secondary;
+  font-size: 1rem;
+  font-weight: 500;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-speed ease;
+  white-space: nowrap;
+  user-select: none;
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+  }
+  
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+}
+
+// Button Variants
+@mixin button-variant($bg-color, $text-color, $border-color: null) {
+  background-color: $bg-color;
+  color: $text-color;
+  
+  @if $border-color {
+    border: 1px solid $border-color;
+  }
+  
+  &:hover {
+    background-color: color.adjust($bg-color, $lightness: -10%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba($bg-color, 0.3);
+  }
+  
+  &:active {
+    transform: translateY(0);
+  }
+}
+
+// SALi Button Components
+.sali-btn {
+  @include button-base;
+  
+  &--primary {
+    @include button-variant($primary-color, $white);
+  }
+  
+  &--secondary {
+    @include button-variant($gold-color, $white);
+  }
+  
+  &--outline {
+    @include button-variant(transparent, $primary-color, $primary-color);
+    
+    &:hover {
+      background-color: $primary-color;
+      color: $white;
+    }
+  }
+  
+  &--ghost {
+    @include button-variant(transparent, $primary-color);
+    
+    &:hover {
+      background-color: rgba($primary-color, 0.1);
+    }
+  }
+  
+  &--large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
+  }
+  
+  &--small {
+    padding: 0.75rem 1.5rem;
+    font-size: 0.875rem;
+  }
+  
+  &--full-width {
+    width: 100%;
+  }
+}
+
+// Icon Buttons
+.sali-btn-icon {
+  @include button-base;
+  width: 3rem;
+  height: 3rem;
+  padding: 0;
+  border-radius: 50%;
+  
+  &--primary {
+    @include button-variant($primary-color, $white);
+  }
+  
+  &--secondary {
+    @include button-variant($gold-color, $white);
+  }
+}
+
+// Button Groups
+.sali-btn-group {
+  display: inline-flex;
+  gap: 0.5rem;
+  
+  &--vertical {
+    flex-direction: column;
+  }
+  
+  &--full-width {
+    width: 100%;
+    
+    .sali-btn {
+      flex: 1;
+    }
+  }
+}

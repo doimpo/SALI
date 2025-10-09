@@ -1,0 +1,268 @@
+@use "sass:color";
+@use '../variables' as *;
+@use 'buttons' as *;
+
+// =========================
+// Form Components
+// =========================
+
+// Base Form Mixin
+@mixin form-base {
+  font-family: $font-secondary;
+  
+  * {
+    box-sizing: border-box;
+  }
+}
+
+// Form Group
+.sali-form-group {
+  margin-bottom: 1.5rem;
+  
+  &__label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: $text-primary;
+    font-weight: 500;
+    
+    &--required:after {
+      content: " *";
+      color: #e74c3c;
+    }
+  }
+  
+  &__input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius;
+    font-size: 1rem;
+    transition: all $transition-speed ease;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+    
+    &:invalid {
+      border-color: #e74c3c;
+    }
+    
+    &::placeholder {
+      color: $text-light;
+    }
+  }
+  
+  &__textarea {
+    @extend .sali-form-group__input;
+    min-height: 120px;
+    resize: vertical;
+  }
+  
+  &__select {
+    @extend .sali-form-group__input;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    appearance: none;
+  }
+  
+  &__error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+    margin-top: 0.25rem;
+    display: none;
+    
+    &--visible {
+      display: block;
+    }
+  }
+  
+  &--error {
+    .sali-form-group__input,
+    .sali-form-group__textarea,
+    .sali-form-group__select {
+      border-color: #e74c3c;
+    }
+  }
+  
+  &--success {
+    .sali-form-group__input,
+    .sali-form-group__textarea,
+    .sali-form-group__select {
+      border-color: #27ae60;
+    }
+  }
+}
+
+// Form Layouts
+.sali-form {
+  @include form-base;
+  
+  &--inline {
+    .sali-form-group {
+      display: inline-block;
+      margin-right: 1rem;
+      margin-bottom: 0;
+      
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+  
+  &--horizontal {
+    .sali-form-group {
+      display: flex;
+      align-items: center;
+      
+      .sali-form-group__label {
+        flex: 0 0 30%;
+        margin-bottom: 0;
+        margin-right: 1rem;
+      }
+      
+      .sali-form-group__input,
+      .sali-form-group__textarea,
+      .sali-form-group__select {
+        flex: 1;
+      }
+    }
+  }
+}
+
+// Checkbox and Radio Components
+.sali-checkbox,
+.sali-radio {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  
+  input[type="checkbox"],
+  input[type="radio"] {
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-right: 0.75rem;
+    accent-color: $primary-color;
+  }
+  
+  label {
+    color: $text-primary;
+    cursor: pointer;
+    user-select: none;
+  }
+}
+
+// File Upload Component
+.sali-file-upload {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  
+  input[type="file"] {
+    position: absolute;
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+  }
+  
+  &__button {
+    @include button-base;
+    @include button-variant($gray-light, $text-primary, $border-color);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    
+    &:hover {
+      background-color: color.adjust($gray-light, $lightness: -5%);
+    }
+  }
+  
+  &__preview {
+    margin-top: 1rem;
+    padding: 1rem;
+    background-color: $gray-light;
+    border-radius: $border-radius;
+    display: none;
+    
+    &--visible {
+      display: block;
+    }
+    
+    img {
+      max-width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+    }
+  }
+}
+
+// Search Form Component
+.sali-search-form {
+  position: relative;
+  display: flex;
+  
+  &__input {
+    flex: 1;
+    padding: 0.75rem 3rem 0.75rem 1rem;
+    border: 1px solid $border-color;
+    border-radius: $border-radius 0 0 $border-radius;
+    font-size: 1rem;
+    
+    &:focus {
+      outline: none;
+      border-color: $primary-color;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.1);
+    }
+  }
+  
+  &__button {
+    padding: 0.75rem 1.5rem;
+    background-color: $primary-color;
+    color: $white;
+    border: none;
+    border-radius: 0 $border-radius $border-radius 0;
+    cursor: pointer;
+    transition: all $transition-speed ease;
+    
+    &:hover {
+      background-color: color.adjust($primary-color, $lightness: -10%);
+    }
+    
+    &:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px rgba($primary-color, 0.3);
+    }
+  }
+}
+
+// Form Validation States
+.sali-form-validation {
+  &--success {
+    .sali-form-group__input,
+    .sali-form-group__textarea,
+    .sali-form-group__select {
+      border-color: #27ae60;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%2327ae60' viewBox='0 0 16 16'%3e%3cpath d='M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem 1rem;
+    }
+  }
+  
+  &--error {
+    .sali-form-group__input,
+    .sali-form-group__textarea,
+    .sali-form-group__select {
+      border-color: #e74c3c;
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23e74c3c' viewBox='0 0 16 16'%3e%3cpath d='M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM5.354 4.646a.5.5 0 1 0-.708.708L7.293 8l-2.647 2.646a.5.5 0 0 0 .708.708L8 8.707l2.646 2.647a.5.5 0 0 0 .708-.708L8.707 8l2.647-2.646a.5.5 0 0 0-.708-.708L8 7.293 5.354 4.646z'/%3e%3c/svg%3e");
+      background-repeat: no-repeat;
+      background-position: right 0.75rem center;
+      background-size: 1rem 1rem;
+    }
+  }
+}

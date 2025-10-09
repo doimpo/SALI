@@ -1,0 +1,289 @@
+// =========================
+// SALi Modular Styles
+// Main SCSS file with component-based architecture
+// =========================
+
+@use 'variables' as *;
+@use 'global/vars' as *;
+@use 'global/mixins' as *;
+@use 'global/global';
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/forms';
+@use 'layout/helpers';
+@use 'layout/typography';
+@use 'layout/buttons' as layout-buttons;
+@use 'layout/forms' as layout-forms;
+@use 'layout/alerts';
+@use 'layout/icons';
+@use 'layout/lists';
+@use 'layout/breadcrumb';
+@use 'layout/pagination';
+@use 'layout/pagetitle';
+@use 'layout/preloader';
+@use 'layout/animation';
+@use 'layout/bg-colors';
+@use 'layout/carousel';
+@use 'layout/tabs';
+@use 'module/header';
+@use 'module/footer';
+@use 'module/about';
+@use 'module/services';
+@use 'module/team';
+@use 'module/testimonial';
+@use 'module/contact';
+@use 'module/blog';
+@use 'module/gallery';
+@use 'module/slider';
+@use 'module/banners';
+@use 'module/features';
+@use 'module/work-process';
+@use 'module/video';
+@use 'module/clients';
+@use 'module/cta';
+@use 'module/pricing';
+@use 'module/accordion';
+@use 'module/progress-bars';
+@use 'module/timeline';
+@use 'module/sidebar';
+@use 'module/shop';
+@use 'module/fancybox';
+
+// Font Face Declarations - Optimized for performance
+@font-face {
+  font-family: "BreweryNo2W01-Regular";
+  src: url("../assets/fonts/BreweryNo2W01-Regular.woff2") format("woff2"), 
+       url("../assets/fonts/BreweryNo2W01-Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Brewery No2 W06 Black";
+  src: url("../assets/fonts/Brewery No2 W06 Black It.woff2") format("woff2"), 
+       url("../assets/fonts/Brewery No2 W06 Black It.ttf") format("truetype");
+  font-weight: 900;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Montserrat";
+  src: url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap");
+  font-display: swap;
+}
+
+// Tailwind Directives (if using Tailwind)
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// SALi Custom Components
+// =========================
+
+// Base Typography
+body {
+  font-family: $font-secondary;
+  color: $text-secondary;
+  line-height: 1.6;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: $font-brand-regular;
+  color: $text-primary;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
+h1 { font-size: $font-size-h1; }
+h2 { font-size: $font-size-h2; }
+h3 { font-size: $font-size-h3; }
+h4 { font-size: $font-size-h4; }
+
+// Utility Classes
+.text-primary { color: $primary-color; }
+.text-gold { color: $gold-color; }
+.bg-primary { background-color: $primary-color; }
+.bg-gold { background-color: $gold-color; }
+
+// Brand Font Utilities
+.font-brand { font-family: $font-brand-regular; }
+.font-brand-black { font-family: $font-brand-black; }
+.font-secondary { font-family: $font-secondary; }
+
+// Focus and Important Text
+.focus-text {
+  font-family: $font-brand-regular;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.important-text {
+  font-family: $font-brand-black;
+  font-weight: 900;
+  font-style: italic;
+}
+
+// Header Styles
+.sali-header {
+  background-color: $white;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+// Footer Styles
+.sali-footer {
+  background-color: $primary-color;
+  color: $white;
+  padding: $spacing-xl 0;
+  
+  a {
+    color: $gold-color;
+    transition: opacity $transition-speed;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Section Styles
+.sali-section {
+  padding: $spacing-xl 0;
+}
+
+.sali-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+// Menu Display Fix
+@media (min-width: 992px) {
+  .navbar .navbar-collapse {
+    display: block !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    position: static !important;
+    background: transparent !important;
+    width: auto !important;
+    height: auto !important;
+    padding: 0 !important;
+  }
+  
+  .navbar .navbar-collapse .navbar-nav {
+    opacity: 1 !important;
+    transform: none !important;
+    width: auto !important;
+    height: auto !important;
+    overflow: visible !important;
+    padding: 0 !important;
+  }
+  
+  .navbar .navbar-toggler {
+    display: none !important;
+  }
+}
+
+// Additional menu visibility fix
+.navbar .navbar-collapse {
+  display: block;
+}
+
+@media (max-width: 991px) {
+  .navbar .navbar-collapse {
+    display: none;
+  }
+  
+  .navbar .navbar-collapse.menu-opened {
+    display: block;
+  }
+}
+
+// Performance Optimizations
+* {
+  box-sizing: border-box;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+// Optimize animations for performance
+.sali-btn-primary,
+.sali-btn-gold,
+.sali-card {
+  will-change: transform;
+  backface-visibility: hidden;
+  transform: translateZ(0);
+}
+
+// Optimize font loading
+.fonts-loaded {
+  font-display: swap;
+}
+
+// Reduce layout shifts
+.logo-light,
+.logo-dark {
+  width: 200px;
+  height: 60px;
+  object-fit: contain;
+}
+
+// Optimize critical above-the-fold content
+.header {
+  contain: layout style paint;
+}
+
+.slider {
+  contain: layout style paint;
+}
+
+// Responsive Design Utilities
+@mixin mobile {
+  @media (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (min-width: 768px) and (max-width: 1023px) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
+// Component Animation Utilities
+@mixin fade-in($duration: 0.3s) {
+  opacity: 0;
+  animation: fadeIn $duration ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+@mixin slide-up($duration: 0.3s) {
+  transform: translateY(20px);
+  opacity: 0;
+  animation: slideUp $duration ease-out forwards;
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

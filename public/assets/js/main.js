@@ -39,10 +39,68 @@ $(function () {
     /*==========   Mobile Menu   ==========*/
     $('.navbar-toggler').on('click', function () {
         $('.navbar-collapse').addClass('menu-opened');
-    })
+    });
 
     $('.close-mobile-menu').on('click', function (e) {
         $('.navbar-collapse').removeClass('menu-opened');
+    });
+
+    /*==========   Dropdown Menu   ==========*/
+    // Ensure synchronization between CSS and JavaScript for dropdown visibility
+    $('.nav__item.has-dropdown').hover(
+        function() {
+            $(this).find('.dropdown-menu').addClass('show').css({
+                'opacity': '1',
+                'visibility': 'visible',
+                'transform': 'translateY(0)',
+                'pointer-events': 'auto'
+            });
+        },
+        function() {
+            $(this).find('.dropdown-menu').removeClass('show').css({
+                'opacity': '0',
+                'visibility': 'hidden',
+                'transform': 'translateY(10px)',
+                'pointer-events': 'none'
+            });
+        }
+    );
+
+    // Mobile: Handle click state with synchronization
+    $('.nav__item.has-dropdown > a').on('click', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+
+        var $parent = $(this).parent();
+        var $dropdown = $(this).next('.dropdown-menu');
+
+        // Close other dropdowns
+        $('.nav__item.has-dropdown').not($parent).removeClass('opened')
+            .find('.dropdown-menu').removeClass('show').css({
+                'display': 'none',
+                'opacity': '0',
+                'visibility': 'hidden',
+                'transform': 'translateY(10px)',
+                'pointer-events': 'none'
+            });
+
+        // Toggle current dropdown
+        $parent.toggleClass('opened');
+        $dropdown.toggleClass('show').css({
+            'display': $dropdown.hasClass('show') ? 'block' : 'none',
+            'opacity': $dropdown.hasClass('show') ? '1' : '0',
+            'visibility': $dropdown.hasClass('show') ? 'visible' : 'hidden',
+            'transform': $dropdown.hasClass('show') ? 'translateY(0)' : 'translateY(10px)',
+            'pointer-events': $dropdown.hasClass('show') ? 'auto' : 'none'
+        });
+    });
+
+    // Close dropdowns when clicking outside
+    $(document).on('click', function(e) {
+        if (!$(e.target).closest('.nav__item.has-dropdown').length) {
+            $('.nav__item.has-dropdown').removeClass('opened')
+                .find('.dropdown-menu').removeClass('show');
+        }
     });
 
     /*==========   Sticky Navbar   ==========*/

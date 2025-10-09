@@ -1,0 +1,35 @@
+/*----------------------------
+      Header Logo Fix
+-----------------------------*/
+
+// Default state: show light logo, hide dark logo
+.navbar {
+  .logo-light {
+    display: inline-block;
+  }
+  .logo-dark {
+    display: none;
+  }
+}
+
+// Sticky state: hide light logo, show dark logo
+.is-sticky {
+  .logo-light {
+    display: none !important;
+  }
+  .logo-dark {
+    display: inline-block !important;
+  }
+}
+
+// Mobile state: show light logo, hide dark logo
+@media (max-width: 991px) {
+  .header .logo-light,
+  .header-transparent .logo-light {
+    display: inline-block;
+  }
+  .header .logo-dark,
+  .header-transparent .logo-dark {
+    display: none;
+  }
+}

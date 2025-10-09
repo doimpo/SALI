@@ -30,6 +30,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'components/header';
+
 /* SALi Custom Styles */
 body {
   font-family: $font-secondary;

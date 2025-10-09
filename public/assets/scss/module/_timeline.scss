@@ -168,3 +168,22 @@
         }
     }
 }
+
+.timeline-item__content {
+  position: relative;
+  padding: 30px;
+  border-radius: 5px;
+  background-color: #F5F5F5 !important;
+}
+.timeline-item__content:before {
+  content: "";
+  position: absolute;
+  top: 20px;
+  right: -9px;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+  border-left: 10px solid #F5F5F5 !important;
+}
+.timeline-item__meta {
+  margin-bottom: 13px;
+}

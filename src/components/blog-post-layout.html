@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="SALi - {{POSTTITLE}}">
+    <link href="../../assets/images/favicon/favicon.png" rel="icon">
+    <title>SALi - {{POSTTITLE}}</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="../../assets/css/libraries.css">
+    <link rel="stylesheet" href="../../assets/css/style.css">
+    <link rel="stylesheet" href="../../assets/css/sali-custom.css">
+</head>
+<body>
+    <div class="wrapper">
+        <div class="preloader">
+            <div class="loading"><span></span><span></span><span></span><span></span></div>
+        </div><!-- /.preloader -->
+
+        <header class="header header-layout1"></header>
+
+        <section class="page-title page-title-layout1 bg-overlay">
+            <div class="bg-img"><img src="../../assets/images/page-titles/1.jpg" alt="background"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-12 col-xl-5">
+                        <h1 class="pagetitle__heading">{{POSTTITLE}}</h1>
+                    </div><!-- /.col-xl-5 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.page-title -->
+
+        <section class="blog blog-single pt-120 pb-120">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-12 col-md-12 col-lg-8">
+                        <div class="post-item mb-0">
+                            <div class="post__img">
+                                <a href="#">
+                                    <img src="{{POSTIMAGE}}" alt="post image">
+                                </a>
+                            </div><!-- /.post-img -->
+                            <div class="post__content">
+                                <div class="post__meta d-flex align-items-center">
+                                    <span class="post__meta-date">{{POSTDATE}}</span>
+                                </div><!-- /.post-meta -->
+                                <h1 class="post__title"><a href="#">{{POSTTITLE}}</a></h1>
+                                <div class="post__desc">
+                                    {{POSTCONTENT}}
+                                </div><!-- /.post-desc -->
+                            </div><!-- /.post-content -->
+                        </div><!-- /.post-item -->
+                    </div><!-- /.col-lg-8 -->
+                </div><!-- /.row -->
+            </div><!-- /.container -->
+        </section><!-- /.blog Single -->
+
+        <footer class="footer"></footer>
+    </div><!-- /.wrapper -->
+    <script src="../../assets/js/jquery-3.5.1.min.js"></script>
+    <script src="../../assets/js/plugins.js"></script>
+    <script src="../../assets/js/main.js"></script>
+</body>
+</html>

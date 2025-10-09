@@ -25,10 +25,6 @@
         line-height: 100px;
     }
 
-    .logo-light {
-        display: none;
-    }
-
     .navbar-toggler {
         padding: 0;
         border: none;
@@ -146,6 +142,7 @@
         border: none;
         margin: 0;
         background-color: $color-white;
+        top: 100%;
 
         .nav__item {
             padding: 0 40px;
@@ -188,6 +185,10 @@
             right: 0;
         }
     }
+}
+
+.nav__item.has-dropdown {
+    z-index: 1100;
 }
 
 /* navbar-actions */
@@ -1039,14 +1040,6 @@
     .header-transparent {
         .navbar {
             background-color: $color-white;
-        }
-
-        .logo-dark {
-            display: inline-block;
-        }
-
-        .logo-light {
-            display: none;
         }
 
         .module__btn {
