@@ -3,20 +3,11 @@
   "version": "1.0.0",
   "scripts": {
     "dev": "vite",
-    "build": "vite build",
-    "build:modular": "npm run build:scss && npm run build:js && npm run build:components",
-    "build:scss": "sass src/styles/main-modular.scss public/assets/css/main-modular.css --style=compressed --source-map",
-    "build:js": "rollup -c rollup.config.js",
-    "build:components": "node scripts/build-components.js",
-    "generate-services": "node scripts/generate-service-pages.js",
-    "generate-locations": "node scripts/generate-location-pages.js",
-    "generate-blog": "node scripts/generate-blog-pages.js",
-    "generate-media": "node scripts/generate-media-pages.js",
-    "apply-layout": "node scripts/apply-layout.js",
-    "watch:sass": "sass src/styles/main.scss dist/css/main.css --watch",
-    "watch:modular": "concurrently \"sass src/styles/main-modular.scss public/assets/css/main-modular.css --watch\" \"rollup -c rollup.config.js --watch\"",
-    "lint:css": "stylelint src/styles/**/*.scss",
-    "lint:js": "eslint src/js/**/*.js",
+    "build": "astro build",
+    "dev:astro": "astro dev",
+    "build:astro": "astro build",
+    "preview:astro": "astro preview",
+    "astro": "astro",
     "test": "jest",
     "netlify:dev": "netlify dev",
     "netlify:deploy": "netlify deploy",
@@ -30,15 +21,8 @@
     "tailwindcss": "^3.3.0"
   },
   "devDependencies": {
-    "@rollup/plugin-node-resolve": "^15.2.3",
-    "@rollup/plugin-terser": "^0.4.4",
-    "concurrently": "^8.2.2",
-    "eslint": "^8.55.0",
+    "astro": "^4.12.2",
     "jest": "^29.7.0",
-    "netlify-cli": "^23.9.1",
-    "rollup": "^4.9.1",
-    "sass": "^1.66.0",
-    "stylelint": "^16.0.2",
-    "vite": "^4.0.0"
+    "netlify-cli": "^23.9.1"
   }
 }
