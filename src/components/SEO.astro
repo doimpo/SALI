@@ -1,0 +1,173 @@
+---
+export interface Props {
+  title?: string;
+  description?: string;
+  keywords?: string;
+  image?: string;
+  url?: string;
+  type?: 'website' | 'article';
+  publishedTime?: string;
+  modifiedTime?: string;
+  author?: string;
+  section?: string;
+  tags?: string[];
+}
+
+const {
+  title = 'South Asian Liver Institute - Premier Liver Care Excellence',
+  description = 'Leading liver care institute providing comprehensive liver transplantation, cirrhosis treatment, and advanced hepatology services across India.',
+  keywords = 'liver transplant, liver cirrhosis, hepatology, liver cancer, fatty liver, liver surgery, gastroenterology, liver care, medical institute',
+  image = '/assets/images/logo/sali-logo-blue.png',
+  url = Astro.url.href,
+  type = 'website',
+  publishedTime,
+  modifiedTime,
+  author = 'South Asian Liver Institute',
+  section,
+  tags = []
+} = Astro.props;
+
+const siteUrl = 'https://southasianliverinstitute.netlify.app';
+const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
+const fullUrl = url.startsWith('http') ? url : `${siteUrl}${url}`;
+---
+
+<!-- Primary Meta Tags -->
+<meta name="title" content={title} />
+<meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
+<meta name="author" content={author} />
+<meta name="robots" content="index, follow" />
+<meta name="language" content="English" />
+<meta name="revisit-after" content="7 days" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content={type} />
+<meta property="og:url" content={fullUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullImageUrl} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="South Asian Liver Institute" />
+<meta property="og:locale" content="en_US" />
+
+<!-- Twitter -->
+<meta property="twitter:card" content="summary_large_image" />
+<meta property="twitter:url" content={fullUrl} />
+<meta property="twitter:title" content={title} />
+<meta property="twitter:description" content={description} />
+<meta property="twitter:image" content={fullImageUrl} />
+
+<!-- Additional Article Meta Tags -->
+{type === 'article' && publishedTime && (
+  <meta property="article:published_time" content={publishedTime} />
+)}
+{type === 'article' && modifiedTime && (
+  <meta property="article:modified_time" content={modifiedTime} />
+)}
+{type === 'article' && author && (
+  <meta property="article:author" content={author} />
+)}
+{type === 'article' && section && (
+  <meta property="article:section" content={section} />
+)}
+{type === 'article' && tags.length > 0 && tags.map(tag => (
+  <meta property="article:tag" content={tag} />
+))}
+
+<!-- Structured Data for Medical Organization -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "MedicalOrganization",
+  "name": "South Asian Liver Institute",
+  "alternateName": "SALi",
+  "description": "Premier liver care institute providing comprehensive liver transplantation, cirrhosis treatment, and advanced hepatology services.",
+  "url": siteUrl,
+  "logo": `${siteUrl}/assets/images/logo/sali-logo-blue.png`,
+  "image": fullImageUrl,
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Plot No. 8-2-269/4/B, 4th Floor, Road No. 2",
+    "addressLocality": "Banjara Hills",
+    "addressRegion": "Hyderabad",
+    "addressCountry": "IN",
+    "postalCode": "500034"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+91-8070-670-670",
+    "contactType": "Emergency Line",
+    "availableLanguage": ["English", "Hindi", "Telugu"]
+  },
+  "medicalSpecialty": [
+    "Hepatology",
+    "Liver Transplantation",
+    "Gastroenterology",
+    "Liver Surgery"
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Liver Care Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Liver Transplantation"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Liver Cirrhosis Treatment"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "MedicalProcedure",
+          "name": "Fatty Liver Treatment"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.facebook.com/southasianliverinstitute/",
+    "https://www.instagram.com/southasianliverinstitute/",
+    "https://twitter.com/southasianliver",
+    "https://in.linkedin.com/company/south-asian-liver-institute",
+    "https://www.youtube.com/c/SouthAsianLiverInstitute"
+  ]
+})} />
+
+<!-- Page-specific structured data -->
+<script type="application/ld+json" set:html={JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": type === 'article' ? 'Article' : 'WebPage',
+  "headline": title,
+  "description": description,
+  "url": fullUrl,
+  "image": fullImageUrl,
+  "author": {
+    "@type": "Organization",
+    "name": author
+  },
+  "publisher": {
+    "@type": "MedicalOrganization",
+    "name": "South Asian Liver Institute",
+    "logo": {
+      "@type": "ImageObject",
+      "url": `${siteUrl}/assets/images/logo/sali-logo-blue.png`
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": fullUrl
+  },
+  ...(type === 'article' && publishedTime && {
+    "datePublished": publishedTime,
+    "dateModified": modifiedTime || publishedTime
+  })
+})} />
