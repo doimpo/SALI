@@ -24,11 +24,11 @@
 /* Template custom icon Font*/
 @font-face {
     font-family: icomoon;
-    src: url(../fonts/icomoon.eot);
-    src: url(../fonts/icomoon.eot) format("embedded-opentype"), url(../fonts/icomoon.ttf) format("truetype"), url(../fonts/icomoon.woff) format("woff"), url(../fonts/icomoon.svg) format("svg");
+    src: url(/assets/fonts/icomoon.eot);
+    src: url(/assets/fonts/icomoon.eot) format("embedded-opentype"), url(/assets/fonts/icomoon.ttf) format("truetype"), url(/assets/fonts/icomoon.woff) format("woff"), url(/assets/fonts/icomoon.svg) format("svg");
     font-weight: 400;
     font-style: normal;
-    font-display: block
+    font-display: swap
 }
 
 [class*=" icon-"],
@@ -41,7 +41,18 @@
     text-transform: none;
     line-height: 1;
     -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale
+    -moz-osx-font-smoothing: grayscale;
+    display: inline-block;
+}
+
+/* Ensure icons are visible */
+i[class*="icon-"] {
+    font-family: icomoon !important;
+    font-style: normal !important;
+    font-weight: 400 !important;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-widget:before {

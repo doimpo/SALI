@@ -129,7 +129,7 @@
 
     .dropdown-toggle:after {
         content: "\f107";
-        font-family: "Font Awesome 5 Free";
+        font-family: "Font Awesome 6 Free";
         font-weight: 900;
         border: none;
         vertical-align: middle;
@@ -219,7 +219,7 @@
         color: $color-white;
 
         &:after {
-            font-family: "Font Awesome 5 Free";
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             content: "\f107";
             border: 0;
@@ -440,7 +440,7 @@
 
     &:after {
         content: "\f078";
-        font-family: "Font Awesome 5 Free";
+        font-family: "Font Awesome 6 Free";
         font-weight: 900;
         font-size: 11px;
         position: absolute;
@@ -968,7 +968,7 @@
         }
 
         .nav__item [data-toggle="dropdown"]:after {
-            font-family: "Font Awesome 5 Free";
+            font-family: "Font Awesome 6 Free";
             font-weight: 900;
             position: absolute;
             right: 0;
@@ -1201,7 +1201,7 @@
             @include prefix(transition, all 0.4s ease, webkit moz ms o);
 
             &:after {
-                font-family: "Font Awesome 5 Free";
+                font-family: "Font Awesome 6 Free";
                 font-weight: 900;
                 content: "\f111";
                 position: absolute;
