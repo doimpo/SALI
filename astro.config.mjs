@@ -11,11 +11,31 @@ export default defineConfig({
       css: true,
       html: true,
       js: true,
-      img: false,
-      svg: false
+      img: true,
+      svg: true,
+      htmlMinifierOptions: {
+        removeComments: true,
+        collapseWhitespace: true,
+        collapseBooleanAttributes: true,
+        removeAttributeQuotes: true,
+        removeEmptyAttributes: true,
+        minifyCSS: true,
+        minifyJS: true
+      }
     })
   ],
   vite: {
+    build: {
+      cssCodeSplit: true,
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            vendor: ['jquery'],
+            plugins: ['slick-carousel', 'fancybox']
+          }
+        }
+      }
+    },
     server: {
       watch: {
         usePolling: true
