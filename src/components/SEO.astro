@@ -33,13 +33,23 @@ const fullUrl = url.startsWith('http') ? url : `${siteUrl}${url}`;
 ---
 
 <!-- Primary Meta Tags -->
+<title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
-<meta name="robots" content="index, follow" />
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
 <meta name="language" content="English" />
 <meta name="revisit-after" content="7 days" />
+<link rel="canonical" href={fullUrl} />
+
+<!-- Performance & Security -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="theme-color" content="#0066cc" />
+<meta name="format-detection" content="telephone=yes" />
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="default" />
+<meta name="apple-mobile-web-app-title" content="SALi" />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content={type} />

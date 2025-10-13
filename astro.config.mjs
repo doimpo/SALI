@@ -27,12 +27,23 @@ export default defineConfig({
   vite: {
     build: {
       cssCodeSplit: true,
+      minify: 'terser',
+      sourcemap: false,
       rollupOptions: {
         output: {
           manualChunks: {
             vendor: ['jquery'],
             plugins: ['slick-carousel', 'fancybox']
-          }
+          },
+          assetFileNames: 'assets/[ext]/[name].[hash][extname]',
+          chunkFileNames: 'assets/js/[name].[hash].js',
+          entryFileNames: 'assets/js/[name].[hash].js'
+        }
+      },
+      terserOptions: {
+        compress: {
+          drop_console: true,
+          drop_debugger: true
         }
       }
     },
@@ -41,5 +52,7 @@ export default defineConfig({
         usePolling: true
       }
     }
-  }
+  },
+  compressHTML: true,
+  scopedStyleStrategy: 'class'
 });
