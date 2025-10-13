@@ -98,9 +98,42 @@ These are configured in both:
 
 | Script | Description |
 |--------|-------------|
-| `npm run dev` | Start Vite development server |
+| `npm run dev` | Start development server |
 | `npm run build` | Build for production |
-| `npm run watch:sass` | Watch and compile SCSS files |
+| `npm run preview:astro` | Preview production build locally |
+| `npm run perf:test` | **Run performance testing** (build + preview) |
+| `npm run netlify:deploy:prod` | Deploy to production |
+
+---
+
+## ⚡ Performance Testing (Required)
+
+**Performance testing MUST be run before every deployment** to ensure the website meets market standards.
+
+### Quick Performance Test
+```bash
+npm run perf:test
+# Then open http://localhost:4321 and run Lighthouse
+```
+
+### Acceptance Criteria
+- ✅ **Lighthouse Performance**: 90+
+- ✅ **Lighthouse Accessibility**: 95+
+- ✅ **Lighthouse Best Practices**: 95+
+- ✅ **Lighthouse SEO**: 100
+- ✅ **Page Load Time**: < 3 seconds
+- ✅ **Page Size**: < 3 MB
+- ✅ **Core Web Vitals**: All "Good" (LCP < 2.5s, FID < 100ms, CLS < 0.1)
+
+### Testing Documentation
+- 📋 **Quick Reference**: See `PERFORMANCE_QUICK_REFERENCE.md`
+- 📚 **Full Checklist**: See `PERFORMANCE_TESTING_CHECKLIST.md`
+
+### When to Test
+- ✅ Before every deployment
+- ✅ Weekly (ongoing monitoring)
+- ✅ After any major code changes
+- ✅ Monthly comprehensive audit
 
 ---
 
