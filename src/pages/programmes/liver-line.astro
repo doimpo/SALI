@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import InquiryForm from '../../components/InquiryForm.astro';
 ---
 <BaseLayout 
   title="Liver Line - Helpline & Support | SALi"
@@ -87,5 +88,28 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
           </div><!-- /.col-lg-4 -->
         </div><!-- /.row -->
       </div><!-- /.container -->
+    </section>
+
+    <!-- ==========================
+        Inquiry Form Section
+    =========================== -->
+    <section class="contact-layout1 pt-60 pb-80 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-40">
+                    <h2 class="heading__title">Get Involved with Liver Line</h2>
+                    <p class="heading__desc">Get in touch with our Liver Line helpline team for support and guidance.</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <InquiryForm 
+                        programme="Liver Line"
+                        formTitle="Inquire About Liver Line Helpline"
+                        formDescription="Fill out this form and our team will provide you with detailed information about the programme."
+                    />
+                </div>
+            </div>
+        </div>
     </section>
 </BaseLayout>

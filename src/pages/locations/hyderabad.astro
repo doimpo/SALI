@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppointmentForm from '../../components/AppointmentForm.astro';
 ---
 <BaseLayout 
   title="SALi Hyderabad - Liver Transplant Center | South Asian Liver Institute"
@@ -19,7 +20,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                         <i class="icon-location"></i>
                     </div>
                     <h1 class="pagetitle__heading">SALi Hyderabad</h1>
-                    <p class="pagetitle__desc mb-30">South Asian Liver Institute flagship center in Hyderabad - Think Liver. Think SALi.</p>
+                    <p class="pagetitle__desc mb-30">South Asian Liver Institute flagship center in Hyderabad - Think Liver, Think SALi. We provide the best liver care.</p>
                     <a href="#content" class="scroll-down"><i class="fas fa-long-arrow-alt-down"></i></a>
                 </div><!-- /.col-xl-8 -->
             </div><!-- /.row -->
@@ -154,5 +155,30 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                 </div><!-- /.col-lg-4 -->
             </div><!-- /.row -->
         </div><!-- /.container -->
+    </section>
+
+    <!-- ==========================
+        Appointment Form Section
+    =========================== -->
+    <section class="contact-layout1 pt-60 pb-80 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-40">
+                    <h2 class="heading__title">Book an Appointment at SALi Hyderabad</h2>
+                    <p class="heading__desc">Schedule your consultation with our expert liver specialists</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <AppointmentForm 
+                        location="hyderabad"
+                        formTitle="Request an Appointment"
+                        formDescription="Our team at Hyderabad will contact you within 24 hours to confirm your appointment."
+                        showClinicSelector={false}
+                        showDoctorSelector={true}
+                    />
+                </div>
+            </div>
+        </div>
     </section>
 </BaseLayout>

@@ -79,6 +79,19 @@ const {
     
     <!-- Google Analytics -->
     <GoogleAnalytics />
+    
+    <!-- Google reCAPTCHA v3 -->
+    <script is:inline>
+      // Store reCAPTCHA site key globally (will be replaced with actual key in production)
+      window.RECAPTCHA_SITE_KEY = import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY || '';
+    </script>
+    {import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY && (
+      <script 
+        src={`https://www.google.com/recaptcha/api.js?render=${import.meta.env.PUBLIC_RECAPTCHA_SITE_KEY}`}
+        async
+        defer
+      ></script>
+    )}
 </head>
 <body>
     <div class="wrapper">

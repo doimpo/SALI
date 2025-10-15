@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import AppointmentForm from '../../components/AppointmentForm.astro';
 ---
 <BaseLayout 
   title="SALi Kolkata - Liver Care Center | South Asian Liver Institute"
@@ -77,6 +78,31 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
                             </div>
                         </div>
                     </aside>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ==========================
+        Appointment Form Section
+    =========================== -->
+    <section class="contact-layout1 pt-60 pb-80 bg-gray">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-center mb-40">
+                    <h2 class="heading__title">Book an Appointment at SALi Kolkata</h2>
+                    <p class="heading__desc">Schedule your consultation with our expert liver specialists</p>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col-sm-12 col-md-10 col-lg-8">
+                    <AppointmentForm 
+                        location="kolkata"
+                        formTitle="Request an Appointment"
+                        formDescription="Our team at Kolkata will contact you within 24 hours to confirm your appointment."
+                        showClinicSelector={false}
+                        showDoctorSelector={true}
+                    />
                 </div>
             </div>
         </div>

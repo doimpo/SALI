@@ -1,0 +1,259 @@
+---
+/**
+ * Programme Inquiry Form Component
+ * For programme-specific inquiries (LICAP, Ascites Club, Liver Line)
+ */
+
+interface Props {
+  programme: string;
+  formTitle?: string;
+  formDescription?: string;
+}
+
+const { 
+  programme,
+  formTitle = `Inquire About ${programme}`,
+  formDescription = 'Please fill out this form to learn more about our programme. We will get back to you with detailed information.',
+} = Astro.props;
+
+const formName = `inquiry-${programme.toLowerCase().replace(/\s+/g, '-')}`;
+---
+
+<div class="contact-panel mb-50">
+  <form 
+    class="contact-panel__form inquiry-form" 
+    method="post" 
+    data-netlify="true" 
+    data-netlify-honeypot="bot-field"
+    name={formName}
+    id={formName}
+  >
+    <!-- Required hidden fields for Netlify Forms -->
+    <input type="hidden" name="form-name" value={formName} />
+    <input type="hidden" name="form-type" value="inquiry" />
+    <input type="hidden" name="programme" value={programme} />
+    
+    <!-- Honeypot field for spam protection -->
+    <p class="hidden" aria-hidden="true">
+      <label>
+        Don't fill this out if you're human: <input name="bot-field" tabindex="-1" />
+      </label>
+    </p>
+    
+    <div class="row">
+      <div class="col-sm-12">
+        <h4 class="contact-panel__title">{formTitle}</h4>
+        <p class="contact-panel__desc mb-30">{formDescription}</p>
+      </div>
+      
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <i class="icon-news form-group-icon"></i>
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Full Name *" 
+            name="contact-name" 
+            required
+            minlength="2"
+            maxlength="100"
+          />
+        </div>
+      </div>
+      
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <i class="icon-email form-group-icon"></i>
+          <input 
+            type="email" 
+            class="form-control" 
+            placeholder="Email Address *" 
+            name="contact-email"
+            required
+          />
+        </div>
+      </div>
+      
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <i class="icon-phone form-group-icon"></i>
+          <input 
+            type="tel" 
+            class="form-control" 
+            placeholder="Phone Number *" 
+            name="contact-phone"
+            required
+            pattern="[0-9+\-\s()]+"
+            title="Please enter a valid phone number"
+          />
+        </div>
+      </div>
+      
+      <div class="col-sm-6 col-md-6 col-lg-6">
+        <div class="form-group">
+          <i class="icon-location form-group-icon"></i>
+          <select class="form-control" name="location" id="inquiry-location" required>
+            <option value="">Preferred Location *</option>
+            <option value="hyderabad">Hyderabad</option>
+            <option value="mumbai">Mumbai</option>
+            <option value="kolkata">Kolkata</option>
+            <option value="visakhapatnam">Visakhapatnam</option>
+            <option value="vijayawada-guntur">Vijayawada-Guntur</option>
+            <option value="rajahmundry">Rajahmundry</option>
+            <option value="kakinada">Kakinada</option>
+            <option value="nagpur">Nagpur</option>
+            <option value="anantapur">Anantapur</option>
+            <option value="khammam">Khammam</option>
+            <option value="kurnool">Kurnool</option>
+            <option value="rajkot">Rajkot</option>
+            <option value="jabalpur">Jabalpur</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="col-12">
+        <div class="form-group">
+          <i class="icon-widget form-group-icon"></i>
+          <select class="form-control" name="inquiry-reason" id="inquiry-reason" required>
+            <option value="">Reason for Inquiry *</option>
+            <option value="enrollment">I want to enroll</option>
+            <option value="information">Need more information</option>
+            <option value="eligibility">Check eligibility</option>
+            <option value="support">Need support/assistance</option>
+            <option value="volunteer">Interested in volunteering</option>
+            <option value="sponsor">Sponsorship inquiry</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+      </div>
+      
+      <div class="col-12">
+        <div class="form-group">
+          <i class="icon-alert form-group-icon"></i>
+          <textarea 
+            class="form-control" 
+            placeholder="Your Message / Questions *" 
+            name="contact-message"
+            rows="5"
+            required
+            minlength="10"
+            maxlength="2000"
+          ></textarea>
+          <small class="form-text text-muted">Please provide details about your inquiry</small>
+        </div>
+      </div>
+      
+      <div class="col-12">
+        <button 
+          type="submit" 
+          class="btn btn__secondary btn__rounded btn__block btn__xhight mt-10"
+        >
+          <span>Submit Inquiry</span> <i class="icon-arrow-right"></i>
+        </button>
+        <div class="contact-result mt-3" role="alert"></div>
+        <small class="form-text text-muted mt-2">
+          By submitting this form, you agree to our privacy policy. We will respond within 24-48 hours.
+        </small>
+      </div>
+    </div>
+  </form>
+</div>
+
+<style>
+  .hidden {
+    display: none;
+  }
+  
+  .contact-result {
+    min-height: 20px;
+  }
+  
+  .contact-result.success {
+    padding: 15px;
+    background-color: #d4edda;
+    border: 1px solid #c3e6cb;
+    border-radius: 4px;
+    color: #155724;
+  }
+  
+  .contact-result.error {
+    padding: 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    color: #721c24;
+  }
+  
+  .contact-result.loading {
+    padding: 15px;
+    background-color: #d1ecf1;
+    border: 1px solid #bee5eb;
+    border-radius: 4px;
+    color: #0c5460;
+  }
+</style>
+
+<script>
+  // Form submission handler with reCAPTCHA v3
+  document.addEventListener('DOMContentLoaded', () => {
+    const forms = document.querySelectorAll('.inquiry-form');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        
+        const resultDiv = form.querySelector('.contact-result');
+        const submitButton = form.querySelector('button[type="submit"]');
+        const originalButtonHTML = submitButton.innerHTML;
+        
+        // Show loading state
+        resultDiv.className = 'contact-result loading';
+        resultDiv.textContent = 'Submitting your inquiry...';
+        submitButton.disabled = true;
+        submitButton.innerHTML = '<span>Sending...</span>';
+        
+        try {
+          // Get reCAPTCHA token
+          let token = '';
+          if (window.grecaptcha) {
+            token = await window.grecaptcha.execute(window.RECAPTCHA_SITE_KEY, { action: 'submit' });
+          }
+          
+          // Add token to form data
+          const formData = new FormData(form);
+          if (token) {
+            formData.append('g-recaptcha-response', token);
+          }
+          
+          // Submit to Netlify
+          const response = await fetch('/', {
+            method: 'POST',
+            body: new URLSearchParams(formData),
+            headers: {
+              'Content-Type': 'application/x-www-form-urlencoded',
+            },
+          });
+          
+          if (response.ok) {
+            resultDiv.className = 'contact-result success';
+            resultDiv.innerHTML = '<strong>✓ Inquiry Submitted!</strong> Thank you for your interest. We will contact you with more information soon.';
+            form.reset();
+          } else {
+            throw new Error('Submission failed');
+          }
+          
+        } catch (error) {
+          resultDiv.className = 'contact-result error';
+          resultDiv.innerHTML = '<strong>✗ Error:</strong> There was a problem submitting your inquiry. Please try again or call us at +91-8070 670 670.';
+        } finally {
+          submitButton.disabled = false;
+          submitButton.innerHTML = originalButtonHTML;
+          
+          // Scroll to result
+          resultDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+      });
+    });
+  });
+</script>
+

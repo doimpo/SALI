@@ -118,3 +118,20 @@
     Cache-Control = "public, max-age=86400"
     Content-Type = "text/plain"
 
+# Netlify Functions Configuration
+[functions]
+  directory = "netlify/functions"
+  node_bundler = "esbuild"
+
+# Form submission webhook to custom function
+[[plugins]]
+  package = "@netlify/plugin-forms"
+
+# Email notifications for form submissions
+[[notifications]]
+  type = "email"
+  event = "submission-created"
+  
+# Environment variables (configure in Netlify UI or .env)
+# See env.example for required variables
+

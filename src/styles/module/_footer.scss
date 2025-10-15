@@ -41,6 +41,9 @@
     .contact-list li {
         line-height: 26px;
         margin-bottom: 0;
+        word-wrap: break-word;
+        overflow-wrap: break-word;
+        hyphens: auto;
     }
 
     .footer-widget-contact {
@@ -49,6 +52,9 @@
         padding: 40px;
         border-radius: 15px;
         background-color: $color-white;
+        max-width: 100%;
+        width: 100%;
+        box-sizing: border-box;
 
         &:before {
             content: "\e916";
@@ -116,6 +122,7 @@
     font-size: 22px;
     line-height: 1;
     color: #3851a2 !important;
+    word-break: break-all;
 
     &:hover {
         color: $color-primary !important;
@@ -124,6 +131,13 @@
     i {
         margin-right: 7px;
     }
+}
+
+.email__address {
+    display: inline-flex;
+    align-items: center;
+    word-break: break-all;
+    overflow-wrap: break-word;
 }
 
 /* Scroll Top Button */
@@ -182,6 +196,8 @@
 
         .footer-widget-contact {
             padding: 20px;
+            max-width: 100%;
+            margin: 0 auto;
 
             &:after {
                 top: 20px;
@@ -212,6 +228,21 @@
     .footer .footer__copyright-links {
         -ms-flex-pack: start !important;
         justify-content: flex-start !important;
+    }
+
+    .footer-widget-contact {
+        margin: 10px 0;
+        padding: 15px;
+    }
+
+    .phone__number {
+        font-size: 18px;
+        margin: 10px 0;
+    }
+
+    .contact-list li {
+        font-size: 13px;
+        line-height: 22px;
     }
 
     #scrollTopBtn {

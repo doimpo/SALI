@@ -1,6 +1,6 @@
 # 🩺 South Asian Liver Institute (SALi) Website
 
-> "Think Liver. Think SALi. Because life depends on it."
+> "Think Liver, Think SALi. We provide the best liver care."
 
 Official website for South Asian Liver Institute - A premier healthcare facility specializing in liver care and treatment.
 
@@ -214,5 +214,5 @@ For medical inquiries, please call: **8070 670 670**
 
 ---
 
-**Think Liver. Think SALi. Because life depends on it.** 🩺
+**Think Liver, Think SALi. We provide the best liver care.** 🩺
 

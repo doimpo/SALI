@@ -36,7 +36,7 @@ const buildConfig = {
     // Template variables that can be replaced
     variables: {
       siteName: 'South Asian Liver Institute',
-      siteTagline: 'Think Liver. Think SALi. Because life depends on it.',
+      siteTagline: 'Think Liver, Think SALi. We provide the best liver care.',
       contactPhone: '+91-8070 670 670',
       contactEmail: 'info@southasianliverinstitute.com',
       address: 'Plot No. 8-2-269/4/B, 4th Floor, Road No. 2, Banjara Hills, Hyderabad, Telangana 500034'
@@ -169,7 +169,7 @@ const buildConfig = {
     // Meta tags
     meta: {
       title: 'SALi - South Asian Liver Institute',
-      description: 'Premier liver care and treatment facility. Think Liver. Think SALi. Because life depends on it.',
+      description: 'Premier liver care and treatment facility. Think Liver, Think SALi. We provide the best liver care.',
       keywords: 'liver transplant, hepatology, liver surgery, liver disease, liver care, South Asian Liver Institute',
       author: 'South Asian Liver Institute',
       robots: 'index, follow',
