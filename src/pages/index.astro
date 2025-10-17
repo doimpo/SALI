@@ -104,59 +104,68 @@ import AppointmentForm from '../components/AppointmentForm.astro';
     </section><!-- /.slider -->
 
     <!-- ============================
-        contact info
+        contact info - Minimal Design
     ============================== -->
-    <section class="contact-info py-0">
+    <section class="contact-info contact-info--minimal py-0">
       <div class="container">
         <div class="row row-no-gutter boxes-wrapper">
           <div class="col-sm-12 col-md-4">
-            <div class="contact-box d-flex">
+            <div class="contact-box contact-box--emergency">
               <div class="contact__icon">
                 <i class="icon-call3"></i>
-              </div><!-- /.contact__icon -->
+              </div>
               <div class="contact__content">
-                <h2 class="contact__title">Emergency Cases</h2>
-                <p class="contact__desc">Please feel free to contact our friendly reception staff with any general or
-                  medical enquiry.</p>
-                <a href="tel:+918070670670" class="phone__number">
-                  <i class="icon-phone"></i> <span>+91-8070 670 670</span>
+                <h3 class="contact__title">Emergency Cases</h3>
+                <p class="contact__desc">Contact our friendly reception staff for any medical enquiry.</p>
+                <a href="tel:+918070670670" class="contact__phone">
+                  <i class="icon-phone"></i>
+                  <span>+91-8070 670 670</span>
                 </a>
-              </div><!-- /.contact__content -->
-            </div><!-- /.contact-box -->
-          </div><!-- /.col-md-4 -->
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-4">
-            <div class="contact-box d-flex">
+            <div class="contact-box contact-box--schedule">
               <div class="contact__icon">
                 <i class="icon-health-report"></i>
-              </div><!-- /.contact__icon -->
+              </div>
               <div class="contact__content">
-                <h2 class="contact__title">Doctors Timetable</h2>
-                <p class="contact__desc">Qualified doctors available six days a week, view our timetable to make an
-                  appointment.</p>
-                <a href="doctors-timetable.html" class="btn btn__white btn__outlined btn__rounded">
-                  <span>View Timetable</span><i class="icon-arrow-right"></i>
+                <h3 class="contact__title">Book an Appointment</h3>
+                <p class="contact__desc">Schedule your consultation with our expert doctors.</p>
+                <a href="/appointment" class="contact__btn">
+                  <span>Book Now</span>
+                  <i class="icon-arrow-right"></i>
                 </a>
-              </div><!-- /.contact__content -->
-            </div><!-- /.contact-box -->
-          </div><!-- /.col-md-4 -->
+              </div>
+            </div>
+          </div>
           <div class="col-sm-12 col-md-4">
-            <div class="contact-box d-flex">
+            <div class="contact-box contact-box--hours">
               <div class="contact__icon">
                 <i class="icon-heart2"></i>
-              </div><!-- /.contact__icon -->
+              </div>
               <div class="contact__content">
-                <h2 class="contact__title">Opening Hours</h2>
-                <ul class="time__list list-unstyled mb-0">
-                  <li><span>Monday - Friday</span><span>8.00 - 7:00 pm</span></li>
-                  <li><span>Saturday</span><span>9.00 - 10:00 pm</span></li>
-                  <li><span>Sunday</span><span>10.00 - 12:00 pm</span></li>
-                </ul>
-              </div><!-- /.contact__content -->
-            </div><!-- /.contact-box -->
-          </div><!-- /.col-md-4 -->
-        </div><!-- /.row -->
-      </div><!-- /.container -->
-    </section><!-- /.contact-info -->
+                <h3 class="contact__title">Opening Hours</h3>
+                <div class="contact__hours">
+                  <div class="hours__item">
+                    <span class="hours__day">Mon - Fri</span>
+                    <span class="hours__time">8:00 AM - 7:00 PM</span>
+                  </div>
+                  <div class="hours__item">
+                    <span class="hours__day">Saturday</span>
+                    <span class="hours__time">9:00 AM - 10:00 PM</span>
+                  </div>
+                  <div class="hours__item">
+                    <span class="hours__day">Sunday</span>
+                    <span class="hours__time">10:00 AM - 12:00 PM</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <!-- ========================
       About Layout 2
@@ -196,13 +205,13 @@ import AppointmentForm from '../components/AppointmentForm.astro';
           </div><!-- /.col-lg-6 -->
           <div class="col-sm-12 col-md-12 col-lg-7">
             <div class="about__text bg-white">
-              <p class="heading__desc mb-30">South Asian Liver Institute (SALi) is dedicated to providing world-class liver care across India. Since 2010, we have been at the forefront of hepatology and liver transplantation, offering comprehensive, patient-centered care that combines clinical excellence with compassion.
+              <p class="heading__desc mb-30">South Asian Liver Institute (SALi) is dedicated to providing world-class liver care across India. Since our founding, we have been at the forefront of hepatology and liver transplantation, offering comprehensive, patient-centered care that combines clinical excellence with compassion.
               </p>
-              <p class="heading__desc mb-30">We develop individualized treatment plans for every liver condition, from fatty liver disease to complex transplantation. Our multidisciplinary team includes internationally trained transplant surgeons, hepatologists, interventional radiologists, and dedicated support staff committed to optimal patient outcomes.</p>
+              <p class="heading__desc mb-30">We develop individualized treatment plans for every liver condition, from fatty liver disease to complex transplantation. Our multidisciplinary team, led by internationally trained specialists, includes expert transplant surgeons, hepatologists, interventional radiologists, and dedicated support staff committed to optimal patient outcomes.</p>
               <ul class="list-items list-unstyled">
                 <li>Advanced diagnostics including FibroScan, MRI, and comprehensive liver function testing to accurately diagnose and stage liver diseases.</li>
-                <li>Expert transplant surgeons and hepatologists with over 2,000 successful liver transplants and decades of combined experience.</li>
-                <li>Complete spectrum of care from prevention and early detection to transplantation and long-term follow-up across 13 centers.</li>
+                <li>Expert transplant surgeons with over 650 successful liver transplants achieving 91% survival rate and 250+ complex liver cancer resections.</li>
+                <li>Complete spectrum of care from prevention and early detection to transplantation and long-term follow-up at our partner hospitals.</li>
               </ul>
             </div>
           </div><!-- /.col-lg-6 -->
@@ -219,8 +228,8 @@ import AppointmentForm from '../components/AppointmentForm.astro';
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
             <div class="heading text-center mb-60">
-              <h2 class="heading__subtitle">The Best Medical And General Practice Care!</h2>
-              <h3 class="heading__title">Providing Medical Care For The Sickest In Our Community.</h3>
+              <h2 class="heading__subtitle">Specialized Liver Care Excellence</h2>
+              <h3 class="heading__title">Comprehensive Liver Care Services for Every Patient Need</h3>
             </div><!-- /.heading -->
           </div><!-- /.col-lg-6 -->
         </div><!-- /.row -->
@@ -369,9 +378,9 @@ import AppointmentForm from '../components/AppointmentForm.astro';
           <div class="col-sm-12 col-md-12 col-lg-6">
             <div class="note font-weight-bold">
               <i class="far fa-file-alt color-primary"></i>
-              <span>Delivering tomorrow's health care for your family.</span>
-              <a href="doctors-timetable.html" class="btn btn__link btn__secondary">
-                <span>View Doctors' Timetable</span><i class="icon-arrow-right"></i>
+              <span>Delivering world-class liver care with expertise and compassion.</span>
+              <a href="/about/about-us" class="btn btn__link btn__secondary">
+                <span>Learn More About SALi</span><i class="icon-arrow-right"></i>
               </a>
             </div>
           </div><!-- /.col-sm-6 -->
@@ -379,15 +388,15 @@ import AppointmentForm from '../components/AppointmentForm.astro';
             <div class="info__meta d-flex flex-wrap justify-content-between align-items-center">
               <div class="testimonials__rating">
                 <div class="testimonials__rating-inner d-flex align-items-center">
-                  <span class="total__rate">4.9</span>
+                  <span class="total__rate">91%</span>
                   <div>
-                    <span class="overall__rate">Zocdoc Overall Rating</span>
-                    <span>, based on 7541 reviews.</span>
+                    <span class="overall__rate">Transplant Survival Rate</span>
+                    <span>, exceeding international standards.</span>
                   </div>
                 </div><!-- /.testimonials__rating-inner -->
               </div><!-- /.testimonials__rating -->
-              <a href="appointment.html" class="btn btn__primary btn__rounded">
-                <span>Make Appointment</span> <i class="icon-arrow-right"></i>
+              <a href="/locations/hyderabad" class="btn btn__primary btn__rounded">
+                <span>Book Consultation</span> <i class="icon-arrow-right"></i>
               </a>
             </div><!-- /.info__meta -->
           </div><!-- /.col-sm-6 -->
@@ -404,7 +413,7 @@ import AppointmentForm from '../components/AppointmentForm.astro';
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-1">
             <div class="heading__layout2 mb-50">
-              <h3 class="heading__title color-white">SALi Has Transformed Lives Through Expert Liver Care Since 2010</h3>
+              <h3 class="heading__title color-white">SALi Has Transformed Lives Through Expert Liver Care</h3>
             </div>
           </div><!-- /col-lg-5 -->
         </div><!-- /.row -->
@@ -415,7 +424,7 @@ import AppointmentForm from '../components/AppointmentForm.astro';
             </div>
           </div><!-- /.col-lg-5 -->
           <div class="col-sm-9 col-md-9 col-lg-6">
-            <p class="heading__desc font-weight-bold color-white mb-30">SALi has been transforming liver care in South Asia since 2010, offering innovative liver transplantation, advanced hepatology services, and comprehensive treatment for all liver diseases. With over 100 medical professionals and 2,000+ successful transplants, we are actively creating better outcomes and hope for patients across 13 centers in India.
+            <p class="heading__desc font-weight-bold color-white mb-30">SALi has been transforming liver care in South Asia, offering innovative liver transplantation, advanced hepatology services, and comprehensive treatment for all liver diseases. With over 650 successful transplants achieving a 91% survival rate and 250+ complex liver cancer resections with 98% survival, we are actively creating better outcomes and hope for patients at our partner hospitals across India.
             </p>
             <a href="/about/about-us" class="btn btn__white btn__link">
               <i class="icon-arrow-right icon-filled"></i>
@@ -582,9 +591,8 @@ import AppointmentForm from '../components/AppointmentForm.astro';
         <div class="row">
           <div class="col-sm-12 col-md-12 col-lg-6 offset-lg-3">
             <div class="heading text-center mb-40">
-              <h3 class="heading__title">Meet Our Doctors</h3>
-              <p class="heading__desc">Our administration and support staff all have exceptional people skills and
-                trained to assist you with all medical enquiries.
+              <h3 class="heading__title">Our Liver Specialists</h3>
+              <p class="heading__desc">Our team of internationally trained liver specialists, hepatologists, and transplant surgeons bring decades of combined experience to provide exceptional care for all liver conditions.
               </p>
             </div><!-- /.heading -->
           </div><!-- /.col-lg-6 -->
@@ -596,22 +604,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #1 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/1.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/1.jpg" alt="Liver Transplant Surgeon" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Mike Dooley</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
-                  <p class="member__desc">Muldoone obtained his undergraduate degree in Biomedical Engineering at Tulane
-                    University prior to attending St George's University School of Medicine</p>
+                  <h5 class="member__name"><a href="/about/founder">Prof. Dr. Tom Cherian</a></h5>
+                  <p class="member__job">Founder & Liver Transplant Surgeon</p>
+                  <p class="member__desc">Internationally trained liver transplant surgeon with over 16 years of experience. Has performed 650+ liver transplants and 250+ complex liver cancer resections.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
+                    <a href="/about/founder" class="btn btn__secondary btn__link btn__rounded">
                       <span>Read More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -619,22 +624,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #2 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/2.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/2.jpg" alt="Hepatology Specialist" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dermatologists</a></h5>
-                  <p class="member__job">Cardiology Specialist</p>
-                  <p class="member__desc">Brian specializes in treating skin, hair, nail, and mucous membrane. He also
-                    address cosmetic issues, helping to revitalize the appearance of the skin</p>
+                  <h5 class="member__name"><a href="/services/liver-cirrhosis">Hepatology Team</a></h5>
+                  <p class="member__job">Hepatology Specialists</p>
+                  <p class="member__desc">Our hepatologists specialize in medical management of liver diseases including cirrhosis, fatty liver, hepatitis, and complex liver conditions requiring specialized care.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
+                    <a href="/services/liver-cirrhosis" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Learn More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -642,22 +644,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #3 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/3.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/3.jpg" alt="Interventional Radiology" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Maria Andaloro</a></h5>
-                  <p class="member__job">Pediatrician</p>
-                  <p class="member__desc">Andaloro graduated from medical school and completed 3 years residency program
-                    in pediatrics. She passed rigorous exams by the American Board of Pediatrics.</p>
+                  <h5 class="member__name"><a href="/services/interventional-treatments">Interventional Team</a></h5>
+                  <p class="member__job">Interventional Radiologists</p>
+                  <p class="member__desc">Our interventional radiology team provides minimally invasive treatments including TACE, RFA, and TIPS procedures for liver cancer and cirrhosis complications.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
+                    <a href="/services/interventional-treatments" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Learn More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -665,23 +664,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #4 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/4.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/4.jpg" alt="Surgical Team" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Dupree Black</a></h5>
-                  <p class="member__job">Urologist</p>
-                  <p class="member__desc">Black diagnose and treat diseases of the urinary tract in both men and women.
-                    He
-                    also diagnose and treat anything involving the reproductive tract in men.</p>
+                  <h5 class="member__name"><a href="/services/laparoscopic-surgery">Surgical Team</a></h5>
+                  <p class="member__job">Laparoscopic & HPB Surgeons</p>
+                  <p class="member__desc">Our surgical team specializes in advanced laparoscopic procedures and complex hepatobiliary surgeries for liver, gallbladder, and pancreatic conditions.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
+                    <a href="/services/laparoscopic-surgery" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Learn More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -689,22 +684,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #5 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/5.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/5.jpg" alt="Endoscopy Team" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Markus skar</a></h5>
-                  <p class="member__job">Laboratory</p>
-                  <p class="member__desc">Skar play a very important role in your health care. People working in the
-                    clinical laboratory are responsible for conducting tests that provide crucial information.</p>
+                  <h5 class="member__name"><a href="/services/endoscopy">Endoscopy Team</a></h5>
+                  <p class="member__job">Therapeutic Endoscopy</p>
+                  <p class="member__desc">Our advanced endoscopy team performs ERCP, EUS, and variceal management procedures, providing both diagnostic and therapeutic interventions for liver and biliary diseases.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
+                    <a href="/services/endoscopy" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Learn More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -712,22 +704,19 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <!-- Member #6 -->
               <div class="member">
                 <div class="member__img">
-                  <img src="/assets/images/team/6.jpg" alt="member img" loading="lazy" width="370" height="450">
+                  <img src="/assets/images/team/6.jpg" alt="Critical Care Team" loading="lazy" width="370" height="450">
                 </div><!-- /.member-img -->
                 <div class="member__info">
-                  <h5 class="member__name"><a href="doctors-single-doctor1.html">Kiano Barker</a></h5>
-                  <p class="member__job">Pathologist </p>
-                  <p class="member__desc">Barker help care for patients every day by providing their doctors with the
-                    information needed to ensure appropriate care. He also valuable resources for other physicians.</p>
+                  <h5 class="member__name"><a href="/services/ICU-facility">Critical Care Team</a></h5>
+                  <p class="member__job">Liver ICU Specialists</p>
+                  <p class="member__desc">Our specialized liver ICU team provides 24/7 critical care for patients with acute liver failure, post-transplant care, and management of severe liver disease complications.</p>
                   <div class="mt-20 d-flex flex-wrap justify-content-between align-items-center">
-                    <a href="doctors-single-doctor1.html" class="btn btn__secondary btn__link btn__rounded">
-                      <span>Read More</span>
+                    <a href="/services/ICU-facility" class="btn btn__secondary btn__link btn__rounded">
+                      <span>Learn More</span>
                       <i class="icon-arrow-right"></i>
                     </a>
                     <ul class="social-icons list-unstyled mb-0">
-                      <li><a href="#" class="facebook"><i class="fab fa-facebook-f"></i></a></li>
-                      <li><a href="#" class="twitter"><i class="fab fa-twitter"></i></a></li>
-                      <li><a href="#" class="phone"><i class="fas fa-phone-alt"></i></a></li>
+                      <li><a href="tel:+918070670670" class="phone"><i class="fas fa-phone-alt"></i></a></li>
                     </ul><!-- /.social-icons -->
                   </div>
                 </div><!-- /.member-info -->
@@ -746,25 +735,21 @@ import AppointmentForm from '../components/AppointmentForm.astro';
       <div class="container">
         <div class="row heading-layout2">
           <div class="col-12">
-            <h2 class="heading__subtitle color-primary">Caring For The Health Of You And Your Family.</h2>
+            <h2 class="heading__subtitle color-primary">Expert Liver Care Every Step Of The Way</h2>
           </div><!-- /.col-12 -->
           <div class="col-sm-12 col-md-12 col-lg-6 col-xl-5">
-            <h3 class="heading__title color-white">We Provide All Aspects Of Medical Practice For Your Whole Family!
+            <h3 class="heading__title color-white">Comprehensive Liver Care From Diagnosis to Recovery
             </h3>
           </div><!-- /.col-xl-5 -->
           <div class="col-sm-12 col-md-12 col-lg-6 col-xl-6 offset-xl-1">
-            <p class="heading__desc font-weight-bold color-gray mb-40">We will work with you to develop individualised
-              care
-              plans, including
-              management of chronic diseases. If we cannot assist, we can provide referrals or advice about the type of
-              practitioner you require. We treat all enquiries sensitively and in the strictest confidence.
+            <p class="heading__desc font-weight-bold color-gray mb-40">We work with you to develop individualized liver care plans, from initial diagnosis through treatment and long-term management. Our multidisciplinary team coordinates all aspects of your care, ensuring comprehensive support for you and your family. We treat all enquiries sensitively and in the strictest confidence.
             </p>
             <ul class="list-items list-items-layout2 list-items-light list-horizontal list-unstyled">
-              <li>Fractures and dislocations</li>
-              <li>Health Assessments</li>
-              <li>Desensitisation injections</li>
-              <li>High Quality Care</li>
-              <li>Desensitisation injections</li>
+              <li>Liver Transplantation</li>
+              <li>Cirrhosis Management</li>
+              <li>Liver Cancer Treatment</li>
+              <li>Advanced Diagnostics</li>
+              <li>24/7 Emergency Care</li>
             </ul>
           </div><!-- /.col-xl-6 -->
         </div><!-- /.row -->
@@ -779,12 +764,10 @@ import AppointmentForm from '../components/AppointmentForm.astro';
                   <div class="process__icon">
                     <i class="icon-health-report"></i>
                   </div><!-- /.process__icon -->
-                  <h4 class="process__title">Fill In Our Medical Application</h4>
-                  <p class="process__desc">SALi offers comprehensive liver care coverage for patients with liver conditions, you
-                    can
-                    enroll.</p>
-                  <a href="#" class="btn btn__secondary btn__link">
-                    <span>Doctors' Timetable</span>
+                  <h4 class="process__title">Initial Consultation & Assessment</h4>
+                  <p class="process__desc">Schedule your consultation with our liver specialists. We'll assess your condition and discuss your treatment options.</p>
+                  <a href="/locations/hyderabad" class="btn btn__secondary btn__link">
+                    <span>Book Appointment</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.process-item -->
@@ -794,11 +777,10 @@ import AppointmentForm from '../components/AppointmentForm.astro';
                   <div class="process__icon">
                     <i class="icon-dna"></i>
                   </div><!-- /.process__icon -->
-                  <h4 class="process__title">Review Your Family Medical History</h4>
-                  <p class="process__desc">Regular health exams can help find all the problems, also can find it early
-                    chances.</p>
-                  <a href="#" class="btn btn__secondary btn__link">
-                    <span>Start A Check Up</span>
+                  <h4 class="process__title">Comprehensive Liver Evaluation</h4>
+                  <p class="process__desc">Advanced diagnostic tests including blood work, imaging, and FibroScan to accurately assess your liver health.</p>
+                  <a href="/services/liver-cirrhosis" class="btn btn__secondary btn__link">
+                    <span>Learn More</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.process-item -->
@@ -808,12 +790,10 @@ import AppointmentForm from '../components/AppointmentForm.astro';
                   <div class="process__icon">
                     <i class="icon-medicine"></i>
                   </div><!-- /.process__icon -->
-                  <h4 class="process__title">Choose Between Our Care Programs</h4>
-                  <p class="process__desc">We have protocols to protect our patients while continuing to provide
-                    necessary
-                    care.</p>
-                  <a href="#" class="btn btn__secondary btn__link">
-                    <span>Explore Programs</span>
+                  <h4 class="process__title">Personalized Treatment Plan</h4>
+                  <p class="process__desc">Our multidisciplinary team creates a customized treatment plan based on your specific condition and needs.</p>
+                  <a href="/services" class="btn btn__secondary btn__link">
+                    <span>View Services</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.process-item -->
@@ -823,11 +803,10 @@ import AppointmentForm from '../components/AppointmentForm.astro';
                   <div class="process__icon">
                     <i class="icon-stethoscope"></i>
                   </div><!-- /.process__icon -->
-                  <h4 class="process__title">Introduce You To Highly Qualified Doctors</h4>
-                  <p class="process__desc">Our administration and support staff have exceptional skills and trained to
-                    assist you. </p>
-                  <a href="#" class="btn btn__secondary btn__link">
-                    <span>Meet Our Doctors</span>
+                  <h4 class="process__title">Expert Treatment & Ongoing Care</h4>
+                  <p class="process__desc">Receive treatment from our internationally trained specialists with continuous monitoring and support.</p>
+                  <a href="/about/founder" class="btn btn__secondary btn__link">
+                    <span>Our Team</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.process-item -->
@@ -837,11 +816,11 @@ import AppointmentForm from '../components/AppointmentForm.astro';
                   <div class="process__icon">
                     <i class="icon-head"></i>
                   </div><!-- /.process__icon -->
-                  <h4 class="process__title">Your custom Next process</h4>
-                  <p class="process__desc">Our administration and support staff have exceptional skills to assist you.
+                  <h4 class="process__title">Post-Treatment Follow-Up</h4>
+                  <p class="process__desc">Comprehensive follow-up care and long-term monitoring to ensure optimal outcomes and quality of life.
                   </p>
-                  <a href="#" class="btn btn__secondary btn__link">
-                    <span>Meet Our Doctors</span>
+                  <a href="/programmes/liver-line" class="btn btn__secondary btn__link">
+                    <span>Support Programs</span>
                     <i class="icon-arrow-right"></i>
                   </a>
                 </div><!-- /.process-item -->
@@ -857,14 +836,13 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <img src="/assets/images/icons/alert2.png" class="cta__img" alt="Emergency Alert - Call SALi" loading="lazy" width="80" height="80">
             </div><!-- /.col-lg-2 -->
             <div class="col-sm-12 col-md-7 col-lg-7">
-              <h4 class="cta__title">True Healthcare For Your Family!</h4>
-              <p class="cta__desc">Serve the community by improving the quality of life through better health. We have
-                put protocols to protect our patients and staff while continuing to provide medically necessary care.
+              <h4 class="cta__title">Expert Liver Care When You Need It Most!</h4>
+              <p class="cta__desc">Dedicated to improving lives through world-class liver care. We provide 24/7 emergency services for acute liver conditions and comprehensive support for patients and families.
               </p>
             </div><!-- /.col-lg-7 -->
             <div class="col-sm-12 col-md-12 col-lg-3">
-              <a href="appointment.html" class="btn btn__primary btn__secondary-style2 btn__rounded">
-                <span>Healthcare Programs</span>
+              <a href="/programmes/licap" class="btn btn__primary btn__secondary-style2 btn__rounded">
+                <span>Patient Programs</span>
                 <i class="icon-arrow-right"></i>
               </a>
             </div><!-- /.col-lg-3 -->
@@ -889,55 +867,46 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               <div class="slider-with-navs">
                 <!-- Testimonial #1 -->
                 <div class="testimonial-item">
-                  <h3 class="testimonial__title">"Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills"
+                  <h3 class="testimonial__title">"The liver transplant team at SALi gave me a second chance at life. From the initial consultation to post-surgery care, every step was handled with professionalism and compassion. The doctors explained everything clearly and were always available to answer my questions. Today, I'm living a healthy, normal life thanks to their expertise."
                   </h3>
                 </div><!-- /. testimonial-item -->
                 <!-- Testimonial #2 -->
                 <div class="testimonial-item">
-                  <h3 class="testimonial__title">"Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills"
+                  <h3 class="testimonial__title">"When I was diagnosed with liver cirrhosis, I was devastated. But SALi's hepatology team not only provided excellent medical care but also emotional support. They helped me understand my condition and guided me through lifestyle changes. Their multidisciplinary approach and patient support programs made all the difference in my recovery."
                   </h3>
                 </div><!-- /. testimonial-item -->
                 <!-- Testimonial #3 -->
                 <div class="testimonial-item">
-                  <h3 class="testimonial__title">"Their doctors include highly qualified practitioners who come from a
-                    range of backgrounds and bring with them a diversity of skills and special interests. They also have
-                    registered nurses on staff who are available to triage any urgent matters, and the administration
-                    and support staff all have exceptional people skills"
+                  <h3 class="testimonial__title">"Professor Cherian and his team performed a complex liver cancer resection that other doctors said was too risky. The surgery was successful, and I'm cancer-free today. The post-operative care was outstanding, with dedicated nurses and coordinators ensuring my recovery went smoothly. SALi truly lives up to its reputation for excellence."
                   </h3>
                 </div><!-- /. testimonial-item -->
               </div><!-- /.slick-carousel -->
               <div class="slider-nav mb-60">
                 <div class="testimonial__meta">
                   <div class="testimonial__thmb">
-                    <img src="/assets/images/testimonials/thumbs/1.png" alt="author thumb" loading="lazy" width="120" height="120">
+                    <img src="/assets/images/testimonials/thumbs/1.png" alt="Liver transplant patient" loading="lazy" width="120" height="120">
                   </div><!-- /.testimonial-thumb -->
                   <div>
-                    <h4 class="testimonial__meta-title">Sami Wade</h4>
-                    <p class="testimonial__meta-desc">7oroof Inc</p>
+                    <h4 class="testimonial__meta-title">Rajesh Kumar</h4>
+                    <p class="testimonial__meta-desc">Liver Transplant Patient</p>
                   </div>
                 </div><!-- /.testimonial-meta -->
                 <div class="testimonial__meta">
                   <div class="testimonial__thmb">
-                    <img src="/assets/images/testimonials/thumbs/2.png" alt="author thumb" loading="lazy" width="120" height="120">
+                    <img src="/assets/images/testimonials/thumbs/2.png" alt="Cirrhosis patient" loading="lazy" width="120" height="120">
                   </div><!-- /.testimonial-thumb -->
                   <div>
-                    <h4 class="testimonial__meta-title">Ahmed</h4>
-                    <p class="testimonial__meta-desc">Web Inc</p>
+                    <h4 class="testimonial__meta-title">Priya Sharma</h4>
+                    <p class="testimonial__meta-desc">Cirrhosis Recovery</p>
                   </div>
                 </div><!-- /.testimonial-meta -->
                 <div class="testimonial__meta">
                   <div class="testimonial__thmb">
-                    <img src="/assets/images/testimonials/thumbs/3.png" alt="author thumb" loading="lazy" width="120" height="120">
+                    <img src="/assets/images/testimonials/thumbs/3.png" alt="Liver cancer survivor" loading="lazy" width="120" height="120">
                   </div><!-- /.testimonial-thumb -->
                   <div>
-                    <h4 class="testimonial__meta-title">Sonia Blake</h4>
-                    <p class="testimonial__meta-desc">Web Inc</p>
+                    <h4 class="testimonial__meta-title">Mohammed Ali</h4>
+                    <p class="testimonial__meta-desc">Liver Cancer Survivor</p>
                   </div>
                 </div><!-- /.testimonial-meta -->
               </div><!-- /.slider-nav -->
@@ -998,14 +967,13 @@ import AppointmentForm from '../components/AppointmentForm.astro';
           </div><!-- /.col-lg-7 -->
           <div class="col-sm-12 col-md-12 col-lg-5">
             <div class="heading heading-light mb-30">
-              <h3 class="heading__title mb-30">Helping Patients From Around the Globe!!</h3>
-              <p class="heading__desc">Our staff strives to make each interaction with patients clear, concise, and
-                inviting. Support the important work of Medicsh Hospital by making a much-needed donation today.
+              <h3 class="heading__title mb-30">Helping Liver Patients From Across India and Beyond</h3>
+              <p class="heading__desc">Our team strives to make each interaction clear, compassionate, and supportive. We provide world-class liver care at our partner hospitals in major cities, ensuring access to specialized treatment when you need it most.
               </p>
             </div>
             <div class="d-flex align-items-center">
-              <a href="contact.html" class="btn btn__white btn__rounded mr-30">
-                <i class="fas fa-heart"></i> <span>Make A Gift</span>
+              <a href="/locations/hyderabad" class="btn btn__white btn__rounded mr-30">
+                <i class="fas fa-map-marker-alt"></i> <span>Find A Location</span>
               </a>
               <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
                 <div class="video__player">
@@ -1015,10 +983,9 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               </a>
             </div>
             <div class="text__block">
-              <p class="text__block-desc color-white font-weight-bold">We provide a comprehensive range of plans for
-                families and individuals at every stage of life, with annual limits ranging from £1.5m to unlimited.</p>
+              <p class="text__block-desc color-white font-weight-bold">We provide comprehensive liver care services for patients at every stage of their liver health journey, from prevention and early detection to transplantation and long-term follow-up care.</p>
               <div class="sinature color-white">
-                <span class="font-weight-bold">Dr. Suresh Kumar</span><span>, SALi Director</span>
+                <span class="font-weight-bold">Prof. Dr. Tom Cherian</span><span>, Founder & Lead Surgeon</span>
               </div>
             </div><!-- /.text__block -->
             <div class="slick-carousel clients-light mt-20"
@@ -1081,18 +1048,17 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               </div><!-- /.post__img -->
               <div class="post__body">
                 <div class="post__meta-cat">
-                  <a href="#">Mental Health</a>
+                  <a href="#">Liver Health</a>
                 </div><!-- /.blog-meta-cat -->
                 <div class="post__meta d-flex">
-                  <span class="post__meta-date">Jan 30, 2022</span>
-                  <a class="post__meta-author" href="#">Martin King</a>
+                  <span class="post__meta-date">Latest Article</span>
+                  <a class="post__meta-author" href="#">SALi Experts</a>
                 </div>
-                <h4 class="post__title"><a href="#">6 Tips to Protect Your Mental Health When You're Sick</a></h4>
+                <h4 class="post__title"><a href="#">Understanding Fatty Liver Disease: Prevention and Management</a></h4>
 
-                <p class="post__desc">It's normal to feel anxiety, worry and grief any time you're diagnosed with a
-                  condition that's certainly true if you test positive for COVID-19, or are presumed to be positive...
+                <p class="post__desc">Fatty liver disease affects millions worldwide. Learn about risk factors, early warning signs, dietary modifications, and lifestyle changes that can prevent progression to more serious liver conditions...
                 </p>
-                <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
+                <a href="/services/fatty-liver" class="btn btn__secondary btn__link btn__rounded">
                   <span>Read More</span>
                   <i class="icon-arrow-right"></i>
                 </a>
@@ -1109,17 +1075,16 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               </div><!-- /.post__img -->
               <div class="post__body">
                 <div class="post__meta-cat">
-                  <a href="#">Infectious</a><a href="#">Tips</a>
+                  <a href="#">Liver Transplant</a><a href="#">Recovery</a>
                 </div><!-- /.blog-meta-cat -->
                 <div class="post__meta d-flex">
-                  <span class="post__meta-date">Jan 30, 2022</span>
-                  <a class="post__meta-author" href="#">John Ezak</a>
+                  <span class="post__meta-date">Latest Article</span>
+                  <a class="post__meta-author" href="#">SALi Experts</a>
                 </div>
-                <h4 class="post__title"><a href="#">Unsure About Wearing a Face Mask? Here's How and Why</a></h4>
-                <p class="post__desc">That means that you should still be following any shelter-in-place orders in your
-                  community. But when you're venturing out to the grocery store, pharmacy or hospital..
+                <h4 class="post__title"><a href="#">Life After Liver Transplant: What to Expect During Recovery</a></h4>
+                <p class="post__desc">Recovering from a liver transplant involves multiple stages. Our comprehensive guide covers post-operative care, immunosuppression management, dietary guidelines, and long-term health monitoring..
                 </p>
-                <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
+                <a href="/services/liver-transplantation" class="btn btn__secondary btn__link btn__rounded">
                   <span>Read More</span>
                   <i class="icon-arrow-right"></i>
                 </a>
@@ -1136,18 +1101,17 @@ import AppointmentForm from '../components/AppointmentForm.astro';
               </div><!-- /.post__img -->
               <div class="post__body">
                 <div class="post__meta-cat">
-                  <a href="#">Life Style</a><a href="#">Nutrition</a>
+                  <a href="#">Cirrhosis</a><a href="#">Nutrition</a>
                 </div><!-- /.blog-meta-cat -->
                 <div class="post__meta d-flex">
-                  <span class="post__meta-date">Jan 28, 2022</span>
-                  <a class="post__meta-author" href="#">Saul Wade</a>
+                  <span class="post__meta-date">Latest Article</span>
+                  <a class="post__meta-author" href="#">SALi Experts</a>
                 </div>
-                <h4 class="post__title"><a href="#">Tips for Eating Healthy When You're Working From Home </a></h4>
+                <h4 class="post__title"><a href="#">Managing Liver Cirrhosis: Diet, Lifestyle, and Treatment Options</a></h4>
 
-                <p class="post__desc">It's normal to feel anxiety, worry and grief any time you're diagnosed with a
-                  condition that's certainly true if you test positive for COVID-19, or are presumed to be positive...
+                <p class="post__desc">Living with cirrhosis requires careful management of diet, medications, and regular monitoring. Discover evidence-based strategies to slow disease progression and improve quality of life...
                 </p>
-                <a href="blog-single-post.html" class="btn btn__secondary btn__link btn__rounded">
+                <a href="/services/liver-cirrhosis" class="btn btn__secondary btn__link btn__rounded">
                   <span>Read More</span>
                   <i class="icon-arrow-right"></i>
                 </a>

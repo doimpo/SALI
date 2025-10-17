@@ -257,10 +257,17 @@
         color: $color-white;
     }
 
+    .widget__desc {
+        color: rgba($color-white, 0.95);
+        font-weight: 400;
+        line-height: 1.5;
+    }
+
     .phone__number {
         font-size: 24px;
         margin-top: 5px;
         color: $color-white !important;
+        font-weight: 600;
 
         .icon-phone {
             font-size: 17px;
@@ -270,7 +277,8 @@
             border-radius: 50%;
             text-align: center;
             margin-right: 10px;
-            background-color: #3851a2;
+            background-color: rgba($color-white, 0.2);
+            color: $color-white;
         }
     }
 }

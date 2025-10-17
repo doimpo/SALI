@@ -1,54 +1,63 @@
 <!-- ============================
-    Contact Info Component
+    Contact Info Component - Minimal Design
 ============================ -->
-<section class="contact-info py-0">
+<section class="contact-info contact-info--minimal py-0">
   <div class="container">
     <div class="row row-no-gutter boxes-wrapper">
       <div class="col-sm-12 col-md-4">
-        <div class="contact-box d-flex">
+        <div class="contact-box contact-box--emergency">
           <div class="contact__icon">
             <i class="icon-call3"></i>
-          </div><!-- /.contact__icon -->
+          </div>
           <div class="contact__content">
-            <h2 class="contact__title">Emergency Cases</h2>
-            <p class="contact__desc">Please feel free to contact our friendly reception staff with any general or
-              medical enquiry.</p>
-            <a href="tel:+918070670670" class="phone__number">
-              <i class="icon-phone"></i> <span>+91-8070 670 670</span>
+            <h3 class="contact__title">Emergency Cases</h3>
+            <p class="contact__desc">Contact our friendly reception staff for any medical enquiry.</p>
+            <a href="tel:+918070670670" class="contact__phone">
+              <i class="icon-phone"></i>
+              <span>+91-8070 670 670</span>
             </a>
-          </div><!-- /.contact__content -->
-        </div><!-- /.contact-box -->
-      </div><!-- /.col-md-4 -->
+          </div>
+        </div>
+      </div>
       <div class="col-sm-12 col-md-4">
-        <div class="contact-box d-flex">
+        <div class="contact-box contact-box--schedule">
           <div class="contact__icon">
             <i class="icon-health-report"></i>
-          </div><!-- /.contact__icon -->
+          </div>
           <div class="contact__content">
-            <h2 class="contact__title">Doctors Timetable</h2>
-            <p class="contact__desc">Qualified doctors available six days a week, view our timetable to make an
-              appointment.</p>
-            <a href="doctors-timetable.html" class="btn btn__white btn__outlined btn__rounded">
-              <span>View Timetable</span><i class="icon-arrow-right"></i>
+            <h3 class="contact__title">Book an Appointment</h3>
+            <p class="contact__desc">Schedule your consultation with our expert doctors.</p>
+            <a href="/appointment" class="contact__btn">
+              <span>Book Now</span>
+              <i class="icon-arrow-right"></i>
             </a>
-          </div><!-- /.contact__content -->
-        </div><!-- /.contact-box -->
-      </div><!-- /.col-md-4 -->
+          </div>
+        </div>
+      </div>
       <div class="col-sm-12 col-md-4">
-        <div class="contact-box d-flex">
+        <div class="contact-box contact-box--hours">
           <div class="contact__icon">
             <i class="icon-heart2"></i>
-          </div><!-- /.contact__icon -->
+          </div>
           <div class="contact__content">
-            <h2 class="contact__title">Opening Hours</h2>
-            <ul class="time__list list-unstyled mb-0">
-              <li><span>Monday - Friday</span><span>8.00 - 7:00 pm</span></li>
-              <li><span>Saturday</span><span>9.00 - 10:00 pm</span></li>
-              <li><span>Sunday</span><span>10.00 - 12:00 pm</span></li>
-            </ul>
-          </div><!-- /.contact__content -->
-        </div><!-- /.contact-box -->
-      </div><!-- /.col-md-4 -->
-    </div><!-- /.row -->
-  </div><!-- /.container -->
-</section><!-- /.contact-info -->
+            <h3 class="contact__title">Opening Hours</h3>
+            <div class="contact__hours">
+              <div class="hours__item">
+                <span class="hours__day">Mon - Fri</span>
+                <span class="hours__time">8:00 AM - 7:00 PM</span>
+              </div>
+              <div class="hours__item">
+                <span class="hours__day">Saturday</span>
+                <span class="hours__time">9:00 AM - 10:00 PM</span>
+              </div>
+              <div class="hours__item">
+                <span class="hours__day">Sunday</span>
+                <span class="hours__time">10:00 AM - 12:00 PM</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

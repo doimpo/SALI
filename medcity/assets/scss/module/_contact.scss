@@ -52,6 +52,13 @@
             color: $color-white;
         }
 
+        .contact__desc {
+            color: rgba($color-white, 0.95);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+            font-weight: 400;
+            line-height: 1.5;
+        }
+
         .phone__number {
             font-size: 23px;
             margin-top: 5px;
@@ -73,6 +80,97 @@
         .btn__white.btn__outlined {
             height: 42px;
             border: 1px solid rgba($color-white, 0.25);
+        }
+
+        .contact__phone {
+            display: inline-flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: $color-white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: rgba($color-white, 0.8);
+                text-decoration: none;
+            }
+
+            .icon-phone {
+                font-size: 14px;
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
+                border-radius: 50%;
+                text-align: center;
+                margin-right: 12px;
+                background-color: rgba($color-white, 0.2);
+                color: $color-white;
+                transition: background-color 0.3s ease;
+            }
+
+            &:hover .icon-phone {
+                background-color: rgba($color-white, 0.3);
+            }
+        }
+
+        .contact__btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: $color-white;
+            text-decoration: none;
+            border: 2px solid rgba($color-white, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: rgba($color-white, 0.1);
+                border-color: rgba($color-white, 0.5);
+                color: $color-white;
+                text-decoration: none;
+                transform: translateY(-1px);
+            }
+
+            .icon-arrow-right {
+                margin-left: 8px;
+                font-size: 12px;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover .icon-arrow-right {
+                transform: translateX(3px);
+            }
+        }
+
+        .contact__hours {
+            .hours__item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba($color-white, 0.1);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .hours__day {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: rgba($color-white, 0.95);
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                }
+
+                .hours__time {
+                    font-size: 13px;
+                    color: rgba($color-white, 0.9);
+                    font-weight: 500;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                }
+            }
         }
     }
 }
@@ -156,6 +254,77 @@ textarea.form-control {
 
         .text__block-desc {
             font-size: 17px;
+        }
+    }
+
+    // Minimal design variant
+    &.contact-info--minimal {
+        .contact-box {
+            padding: 30px 25px;
+            border-radius: 8px;
+            background: $color-white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+
+            .contact__icon {
+                color: $color-primary;
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+
+            .contact__title {
+                color: $color-heading;
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+
+            .contact__desc {
+                color: darken($color-body, 15%);
+                font-size: 13px;
+                margin-bottom: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+            }
+
+            .contact__phone {
+                color: $color-primary;
+                font-size: 16px;
+
+                .icon-phone {
+                    background-color: rgba($color-primary, 0.1);
+                    color: $color-primary;
+                }
+
+                &:hover {
+                    color: darken($color-primary, 10%);
+                }
+            }
+
+            .contact__btn {
+                color: $color-primary;
+                border-color: $color-primary;
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $color-white;
+                }
+            }
+
+            .contact__hours {
+                .hours__item {
+                    border-bottom-color: rgba(0, 0, 0, 0.1);
+
+                    .hours__day {
+                        color: darken($color-heading, 10%);
+                        font-weight: 600;
+                    }
+
+                    .hours__time {
+                        color: darken($color-body, 20%);
+                        font-weight: 500;
+                    }
+                }
+            }
         }
     }
 }

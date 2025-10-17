@@ -10,24 +10,25 @@
         z-index: 3;
         margin-top: -40px;
         overflow: hidden;
-        border-radius: 10px;
+        border-radius: 12px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
 
         >[class*="col-"] {
             &:nth-of-type(1) {
                 .contact-box {
-                    background-color: $color-primary;
+                    background: linear-gradient(135deg, $color-primary 0%, darken($color-primary, 10%) 100%);
                 }
             }
 
             &:nth-of-type(2) {
                 .contact-box {
-                    background-color: #3851a2;
+                    background: linear-gradient(135deg, #3851a2 0%, darken(#3851a2, 10%) 100%);
                 }
             }
 
             &:nth-of-type(3) {
                 .contact-box {
-                    background-color: #2d4990;
+                    background: linear-gradient(135deg, #2d4990 0%, darken(#2d4990, 10%) 100%);
                 }
             }
         }
@@ -35,47 +36,202 @@
 
     .contact-box {
         position: relative;
-        padding: 45px;
+        padding: 35px 30px;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
 
-        .contact__title {
-            font-size: 19px;
+        &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 15px 50px rgba(0, 0, 0, 0.15);
         }
 
         .contact__icon {
-            font-size: 50px;
-            flex: 0 0 80px;
-            max-width: 80px;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: rgba($color-white, 0.9);
+            transition: transform 0.3s ease;
         }
 
-        .contact__title,
-        .contact__icon,
-        .time__list li,
-        .contact__desc {
-            color: $color-white;
-        }
-
-        .phone__number {
-            font-size: 23px;
-            margin-top: 5px;
+        .contact__title {
+            font-size: 18px;
             font-weight: 600;
-            color: $color-white !important;
+            margin-bottom: 12px;
+            color: $color-white;
+            line-height: 1.3;
+        }
+
+        .contact__desc {
+            font-size: 14px;
+            line-height: 1.5;
+            color: rgba($color-white, 0.95);
+            margin-bottom: 20px;
+            flex-grow: 1;
+            font-weight: 400;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact__phone {
+            display: inline-flex;
+            align-items: center;
+            font-size: 18px;
+            font-weight: 600;
+            color: $color-white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+
+            &:hover {
+                color: rgba($color-white, 0.8);
+                text-decoration: none;
+            }
 
             .icon-phone {
-                font-size: 17px;
-                width: 40px;
-                height: 40px;
-                line-height: 40px;
+                font-size: 14px;
+                width: 32px;
+                height: 32px;
+                line-height: 32px;
                 border-radius: 50%;
                 text-align: center;
-                margin-right: 10px;
-                background-color: #1ebaae;
+                margin-right: 12px;
+                background-color: rgba($color-white, 0.2);
+                color: $color-white;
+                transition: background-color 0.3s ease;
+            }
+
+            &:hover .icon-phone {
+                background-color: rgba($color-white, 0.3);
             }
         }
 
-        .btn__white.btn__outlined {
-            height: 42px;
-            border: 1px solid rgba($color-white, 0.25);
+        .contact__btn {
+            display: inline-flex;
+            align-items: center;
+            padding: 10px 20px;
+            font-size: 14px;
+            font-weight: 500;
+            color: $color-white;
+            text-decoration: none;
+            border: 2px solid rgba($color-white, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+
+            &:hover {
+                background-color: rgba($color-white, 0.1);
+                border-color: rgba($color-white, 0.5);
+                color: $color-white;
+                text-decoration: none;
+                transform: translateY(-1px);
+            }
+
+            .icon-arrow-right {
+                margin-left: 8px;
+                font-size: 12px;
+                transition: transform 0.3s ease;
+            }
+
+            &:hover .icon-arrow-right {
+                transform: translateX(3px);
+            }
+        }
+
+        .contact__hours {
+            .hours__item {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding: 8px 0;
+                border-bottom: 1px solid rgba($color-white, 0.1);
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                .hours__day {
+                    font-size: 14px;
+                    font-weight: 600;
+                    color: rgba($color-white, 0.95);
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                }
+
+                .hours__time {
+                    font-size: 13px;
+                    color: rgba($color-white, 0.9);
+                    font-weight: 500;
+                    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+                }
+            }
+        }
+    }
+
+    // Minimal design variant
+    &.contact-info--minimal {
+        .contact-box {
+            padding: 30px 25px;
+            border-radius: 8px;
+            background: $color-white;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+
+            .contact__icon {
+                color: $color-primary;
+                font-size: 32px;
+                margin-bottom: 16px;
+            }
+
+            .contact__title {
+                color: $color-heading;
+                font-size: 17px;
+                margin-bottom: 10px;
+            }
+
+            .contact__desc {
+                color: darken($color-body, 15%);
+                font-size: 13px;
+                margin-bottom: 18px;
+                font-weight: 400;
+                line-height: 1.5;
+            }
+
+            .contact__phone {
+                color: $color-primary;
+                font-size: 16px;
+
+                .icon-phone {
+                    background-color: rgba($color-primary, 0.1);
+                    color: $color-primary;
+                }
+
+                &:hover {
+                    color: darken($color-primary, 10%);
+                }
+            }
+
+            .contact__btn {
+                color: $color-primary;
+                border-color: $color-primary;
+
+                &:hover {
+                    background-color: $color-primary;
+                    color: $color-white;
+                }
+            }
+
+            .contact__hours {
+                .hours__item {
+                    border-bottom-color: rgba(0, 0, 0, 0.1);
+
+                    .hours__day {
+                        color: darken($color-heading, 10%);
+                        font-weight: 600;
+                    }
+
+                    .hours__time {
+                        color: darken($color-body, 20%);
+                        font-weight: 500;
+                    }
+                }
+            }
         }
     }
 }
@@ -208,7 +364,73 @@ textarea.form-control {
 @media (max-width:992px) {
     .contact-info {
         .contact-box {
-            padding: 25px;
+            padding: 25px 20px;
+
+            .contact__icon {
+                font-size: 28px;
+                margin-bottom: 16px;
+            }
+
+            .contact__title {
+                font-size: 16px;
+                margin-bottom: 10px;
+            }
+
+            .contact__desc {
+                font-size: 13px;
+                margin-bottom: 16px;
+            }
+
+            .contact__phone {
+                font-size: 16px;
+
+                .icon-phone {
+                    width: 28px;
+                    height: 28px;
+                    line-height: 28px;
+                    font-size: 12px;
+                }
+            }
+
+            .contact__btn {
+                padding: 8px 16px;
+                font-size: 13px;
+            }
+
+            .contact__hours {
+                .hours__item {
+                    padding: 6px 0;
+
+                    .hours__day {
+                        font-size: 13px;
+                    }
+
+                    .hours__time {
+                        font-size: 12px;
+                    }
+                }
+            }
+        }
+
+        &.contact-info--minimal {
+            .contact-box {
+                padding: 20px 18px;
+
+                .contact__icon {
+                    font-size: 26px;
+                    margin-bottom: 14px;
+                }
+
+                .contact__title {
+                    font-size: 15px;
+                    margin-bottom: 8px;
+                }
+
+                .contact__desc {
+                    font-size: 12px;
+                    margin-bottom: 14px;
+                }
+            }
         }
     }
 
@@ -247,19 +469,78 @@ textarea.form-control {
         margin-top: -20px;
 
         .contact-box {
-            padding: 15px;
+            padding: 18px 15px;
 
             .contact__icon {
-                font-size: 40px;
-                -webkit-box-flex: 0;
-                -ms-flex: 0 0 50px;
-                flex: 0 0 50px;
-                max-width: 50px;
+                font-size: 24px;
+                margin-bottom: 12px;
             }
 
             .contact__title {
-                font-size: 16px;
-                margin-bottom: 10px;
+                font-size: 15px;
+                margin-bottom: 8px;
+            }
+
+            .contact__desc {
+                font-size: 12px;
+                margin-bottom: 12px;
+                line-height: 1.4;
+            }
+
+            .contact__phone {
+                font-size: 14px;
+
+                .icon-phone {
+                    width: 26px;
+                    height: 26px;
+                    line-height: 26px;
+                    font-size: 11px;
+                    margin-right: 8px;
+                }
+            }
+
+            .contact__btn {
+                padding: 7px 14px;
+                font-size: 12px;
+            }
+
+            .contact__hours {
+                .hours__item {
+                    padding: 5px 0;
+
+                    .hours__day {
+                        font-size: 12px;
+                    }
+
+                    .hours__time {
+                        font-size: 11px;
+                    }
+                }
+            }
+        }
+
+        &.contact-info--minimal {
+            .contact-box {
+                padding: 16px 12px;
+
+                .contact__icon {
+                    font-size: 22px;
+                    margin-bottom: 10px;
+                }
+
+                .contact__title {
+                    font-size: 14px;
+                    margin-bottom: 6px;
+                }
+
+                .contact__desc {
+                    font-size: 11px;
+                    margin-bottom: 10px;
+                }
+
+                .contact__phone {
+                    font-size: 13px;
+                }
             }
         }
     }

@@ -116,11 +116,12 @@
 
             &.active,
             &:hover {
-                color: $color-primary;
+                color: #FFD700; // Gold color for hover
 
                 &:before,
                 &:before {
                     width: 100%;
+                    background-color: #FFD700; // Gold color for underline
                 }
             }
         }
@@ -174,11 +175,12 @@
                 }
 
                 &:hover {
-                    color: $color-primary;
+                    color: #FFD700; // Gold color for hover
 
                     &:after {
                         opacity: 1;
                         left: -15px;
+                        background-color: #FFD700; // Gold color for indicator
                     }
                 }
             }
@@ -508,7 +510,7 @@
         }
 
         &.active {
-            color: $color-primary;
+            color: #FFD700; // Gold color for active state
 
 
             span {
@@ -518,7 +520,7 @@
             &:before,
             &:after {
                 top: 7px;
-                background-color: $color-primary;
+                background-color: #FFD700; // Gold color for active state
             }
 
             &:before {
@@ -536,7 +538,7 @@
         color: $color-secondary;
 
         &:hover {
-            color: $color-primary;
+            color: #FFD700; // Gold color for hover
         }
     }
 }
