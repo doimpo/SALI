@@ -124,8 +124,7 @@
   node_bundler = "esbuild"
 
 # Form submission webhook to custom function
-[[plugins]]
-  package = "@netlify/plugin-forms"
+# Note: Forms are handled via Netlify Functions instead
 
 # Email notifications for form submissions
 [[notifications]]
