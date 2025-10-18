@@ -9,6 +9,7 @@ const keywords = "SALi news, liver health news, medical press releases, health c
 const newsArticles = [
   {
     id: 1,
+    slug: "sali-achieves-milestone-2000-transplants",
     title: "SALi Achieves Milestone: 2,000 Successful Liver Transplants",
     excerpt: "South Asian Liver Institute celebrates a major milestone with 2,000 successful liver transplant procedures, maintaining a 91% survival rate that exceeds international standards.",
     date: "2025-01-18",
@@ -17,6 +18,7 @@ const newsArticles = [
   },
   {
     id: 2,
+    slug: "free-liver-screening-camp-hyderabad",
     title: "Free Liver Screening Camp in Hyderabad Benefits 500+ Patients",
     excerpt: "SALi organizes comprehensive liver health screening camp in Hyderabad, providing free FibroScan tests and consultations to over 500 community members.",
     date: "2025-01-12",
@@ -25,6 +27,7 @@ const newsArticles = [
   },
   {
     id: 3,
+    slug: "world-liver-day-2025-awareness-campaign",
     title: "World Liver Day 2025: SALi Launches Awareness Campaign",
     excerpt: "In observance of World Liver Day, SALi launches a nationwide awareness campaign focusing on fatty liver disease prevention and early detection.",
     date: "2025-01-05",
@@ -33,6 +36,7 @@ const newsArticles = [
   },
   {
     id: 4,
+    slug: "advanced-diagnostic-center-mumbai",
     title: "New Advanced Diagnostic Center Opens in Mumbai",
     excerpt: "SALi expands its services with a state-of-the-art diagnostic center in Mumbai, equipped with the latest liver imaging and diagnostic technologies.",
     date: "2024-12-28",
@@ -41,6 +45,7 @@ const newsArticles = [
   },
   {
     id: 5,
+    slug: "dr-tom-cherian-honored-excellence",
     title: "Dr. Tom Cherian Honored for Excellence in Liver Transplantation",
     excerpt: "Prof. Dr. Tom Cherian receives national recognition for his outstanding contributions to liver transplantation and hepatology in India.",
     date: "2024-12-20",
@@ -49,6 +54,7 @@ const newsArticles = [
   },
   {
     id: 6,
+    slug: "licap-programme-1000-patients",
     title: "LICAP Programme Helps 1,000+ Cirrhosis Patients",
     excerpt: "SALi's Liver Cirrhosis Awareness Programme (LICAP) successfully provides education and support to over 1,000 patients across India.",
     date: "2024-12-15",
@@ -114,7 +120,7 @@ const newsArticles = [
                   </div>
                   <h2 class="featured-news__title">{newsArticles[0].title}</h2>
                   <p class="featured-news__excerpt">{newsArticles[0].excerpt}</p>
-                  <a href="#" class="btn btn__primary btn__rounded">
+                  <a href={`/media/${newsArticles[0].slug}`} class="btn btn__primary btn__rounded">
                     <span>Read Full Story</span>
                     <i class="icon-arrow-right"></i>
                   </a>
@@ -147,7 +153,7 @@ const newsArticles = [
                 </div>
                 <h4 class="news__title">{article.title}</h4>
                 <p class="news__excerpt">{article.excerpt}</p>
-                <a href="#" class="btn btn__link btn__primary">
+                <a href={`/media/${article.slug}`} class="btn btn__link btn__primary">
                   <span>Read More</span>
                   <i class="icon-arrow-right"></i>
                 </a>

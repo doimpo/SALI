@@ -1,0 +1,485 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// Generate static paths for all news articles
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'sali-achieves-milestone-2000-transplants' } },
+    { params: { slug: 'free-liver-screening-camp-hyderabad' } },
+    { params: { slug: 'world-liver-day-2025-awareness-campaign' } },
+    { params: { slug: 'advanced-diagnostic-center-mumbai' } },
+    { params: { slug: 'dr-tom-cherian-honored-excellence' } },
+    { params: { slug: 'licap-programme-1000-patients' } },
+  ];
+}
+
+// Sample news articles data (in production, this would come from a CMS)
+const newsArticles = {
+  'sali-achieves-milestone-2000-transplants': {
+    title: "SALi Achieves Milestone: 2,000 Successful Liver Transplants",
+    excerpt: "South Asian Liver Institute celebrates a major milestone with 2,000 successful liver transplant procedures, maintaining a 91% survival rate that exceeds international standards.",
+    date: "2025-01-18",
+    category: "Milestone",
+    image: "/assets/images/blog/grid/1.jpg",
+    author: "SALi Communications Team",
+    content: `
+      <p>South Asian Liver Institute (SALi) has reached a historic milestone by successfully completing 2,000 liver transplant procedures, solidifying its position as India's premier liver care institute.</p>
+      
+      <h3>Outstanding Success Rate</h3>
+      <p>With a remarkable 91% survival rate, SALi's liver transplant program has consistently exceeded international standards. This achievement reflects the institute's commitment to excellence in liver care and surgical innovation.</p>
+      
+      <h3>Comprehensive Care Approach</h3>
+      <p>Led by Prof. Dr. Tom Cherian, SALi's transplant program combines advanced surgical techniques with comprehensive pre and post-operative care. The institute's multidisciplinary team ensures optimal outcomes for patients from across India and internationally.</p>
+      
+      <h3>Impact on Liver Care</h3>
+      <p>This milestone represents more than just numbers - it signifies hope restored for thousands of families and advancement in liver transplantation techniques that benefit the global medical community.</p>
+      
+      <h3>Future Vision</h3>
+      <p>SALi continues to push boundaries in liver care, with ongoing research in living donor transplantation, minimally invasive techniques, and personalized treatment protocols.</p>
+    `
+  },
+  'free-liver-screening-camp-hyderabad': {
+    title: "Free Liver Screening Camp in Hyderabad Benefits 500+ Patients",
+    excerpt: "SALi organizes comprehensive liver health screening camp in Hyderabad, providing free FibroScan tests and consultations to over 500 community members.",
+    date: "2025-01-12",
+    category: "Community Service",
+    image: "/assets/images/blog/grid/2.jpg",
+    author: "SALi Community Outreach",
+    content: `
+      <p>SALi's commitment to community health was demonstrated through a comprehensive free liver screening camp held in Hyderabad, benefiting over 500 patients with essential liver health assessments.</p>
+      
+      <h3>Camp Highlights</h3>
+      <p>The screening camp provided free FibroScan tests, liver function assessments, and consultations with hepatologists. Many participants discovered liver conditions in early stages, enabling timely intervention.</p>
+      
+      <h3>Community Impact</h3>
+      <p>Over 500 community members received free liver health evaluations, with follow-up care arranged for those requiring further treatment. The camp particularly focused on fatty liver disease detection and prevention education.</p>
+      
+      <h3>Educational Component</h3>
+      <p>In addition to screening, participants received education on liver health, dietary recommendations, and lifestyle modifications to prevent liver disease progression.</p>
+      
+      <h3>Future Initiatives</h3>
+      <p>Building on this success, SALi plans to expand community screening programs across all 13 partner locations, making liver health accessible to underserved communities.</p>
+    `
+  },
+  'world-liver-day-2025-awareness-campaign': {
+    title: "World Liver Day 2025: SALi Launches Awareness Campaign",
+    excerpt: "In observance of World Liver Day, SALi launches a nationwide awareness campaign focusing on fatty liver disease prevention and early detection.",
+    date: "2025-01-05",
+    category: "Awareness",
+    image: "/assets/images/services/1.jpg",
+    author: "SALi Public Health Team",
+    content: `
+      <p>In celebration of World Liver Day 2025, SALi launched a comprehensive nationwide awareness campaign to educate the public about liver health and disease prevention.</p>
+      
+      <h3>Campaign Objectives</h3>
+      <p>The campaign focuses on raising awareness about fatty liver disease, which affects millions of Indians. Early detection and lifestyle modifications can prevent progression to more serious liver conditions.</p>
+      
+      <h3>Educational Initiatives</h3>
+      <p>SALi's awareness campaign includes educational workshops, social media content, and community presentations about liver health, nutrition, and the importance of regular health check-ups.</p>
+      
+      <h3>Prevention Focus</h3>
+      <p>The campaign emphasizes preventive measures including maintaining healthy weight, regular exercise, limiting alcohol consumption, and managing diabetes and other risk factors.</p>
+      
+      <h3>Community Engagement</h3>
+      <p>Through partnerships with local organizations and healthcare providers, SALi is reaching diverse communities to spread liver health awareness and encourage proactive health management.</p>
+    `
+  },
+  'advanced-diagnostic-center-mumbai': {
+    title: "New Advanced Diagnostic Center Opens in Mumbai",
+    excerpt: "SALi expands its services with a state-of-the-art diagnostic center in Mumbai, equipped with the latest liver imaging and diagnostic technologies.",
+    date: "2024-12-28",
+    category: "Expansion",
+    image: "/assets/images/services/2.jpg",
+    author: "SALi Development Team",
+    content: `
+      <p>SALi has expanded its presence in Mumbai with the opening of a cutting-edge diagnostic center, bringing advanced liver care services to Western India.</p>
+      
+      <h3>Advanced Technology</h3>
+      <p>The new center features state-of-the-art diagnostic equipment including high-resolution ultrasound, FibroScan, MRI, and CT imaging systems specifically optimized for liver disease detection and monitoring.</p>
+      
+      <h3>Comprehensive Services</h3>
+      <p>Patients can access a full range of diagnostic services including liver function tests, viral hepatitis screening, tumor markers, and specialized imaging for liver cancer detection.</p>
+      
+      <h3>Expert Team</h3>
+      <p>The Mumbai center is staffed by experienced hepatologists, radiologists, and specialized technicians trained in the latest liver diagnostic techniques.</p>
+      
+      <h3>Regional Impact</h3>
+      <p>This expansion makes advanced liver care more accessible to patients in Maharashtra and surrounding states, reducing travel time for specialized diagnostic services.</p>
+    `
+  },
+  'dr-tom-cherian-honored-excellence': {
+    title: "Dr. Tom Cherian Honored for Excellence in Liver Transplantation",
+    excerpt: "Prof. Dr. Tom Cherian receives national recognition for his outstanding contributions to liver transplantation and hepatology in India.",
+    date: "2024-12-20",
+    category: "Awards",
+    image: "/assets/images/team/1.jpg",
+    author: "SALi Recognition Team",
+    content: `
+      <p>Prof. Dr. Tom Cherian, Founder and Chief Hepatologist of SALi, has been honored with national recognition for his exceptional contributions to liver transplantation and hepatology in India.</p>
+      
+      <h3>Recognition Details</h3>
+      <p>Dr. Cherian received the prestigious award for his pioneering work in liver transplantation, having performed over 650 successful liver transplants and 250+ complex liver cancer resections with a 98% survival rate.</p>
+      
+      <h3>Professional Achievements</h3>
+      <p>With over 20 years of experience in hepatology, Dr. Cherian has been instrumental in advancing liver care in India, training numerous specialists and establishing protocols that have become standard practice.</p>
+      
+      <h3>Impact on Liver Care</h3>
+      <p>Dr. Cherian's contributions have significantly improved liver transplant outcomes in India, making advanced liver care accessible to patients across the country and internationally.</p>
+      
+      <h3>Future Vision</h3>
+      <p>This recognition reinforces SALi's commitment to excellence in liver care and Dr. Cherian's continued dedication to advancing hepatology and training the next generation of liver specialists.</p>
+    `
+  },
+  'licap-programme-1000-patients': {
+    title: "LICAP Programme Helps 1,000+ Cirrhosis Patients",
+    excerpt: "SALi's Liver Cirrhosis Awareness Programme (LICAP) successfully provides education and support to over 1,000 patients across India.",
+    date: "2024-12-15",
+    category: "Programme Success",
+    image: "/assets/images/services/3.jpg",
+    author: "SALi Programme Team",
+    content: `
+      <p>SALi's Liver Cirrhosis Awareness Programme (LICAP) has reached a significant milestone, providing comprehensive education and support to over 1,000 cirrhosis patients across India.</p>
+      
+      <h3>Programme Impact</h3>
+      <p>LICAP has successfully educated patients about cirrhosis management, dietary modifications, medication adherence, and lifestyle changes that can slow disease progression and improve quality of life.</p>
+      
+      <h3>Educational Components</h3>
+      <p>The programme includes patient education sessions, dietary counseling, medication management training, and regular follow-up care to ensure optimal disease management.</p>
+      
+      <h3>Patient Outcomes</h3>
+      <p>Participants in the LICAP programme have shown improved medication adherence, better dietary compliance, and enhanced understanding of their condition, leading to better health outcomes.</p>
+      
+      <h3>Expansion Plans</h3>
+      <p>Building on this success, SALi plans to expand LICAP to reach more patients across all partner locations, making cirrhosis education and support accessible to more communities.</p>
+    `
+  }
+};
+
+const { slug } = Astro.params;
+
+const article = newsArticles[slug];
+
+if (!article) {
+  return Astro.redirect('/404');
+}
+
+const title = `${article.title} | SALi News`;
+const description = article.excerpt;
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  type="article"
+  publishedTime={article.date}
+  author={article.author}
+  tags={[article.category, 'liver health', 'medical news']}
+  image={article.image}
+>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax">
+    <div class="bg-img"><img src={article.image} alt={article.title}></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
+          <div class="page-title__content text-center">
+            <span class="page-title__category">{article.category}</span>
+            <h1 class="pagetitle__heading">{article.title}</h1>
+            <div class="page-title__meta">
+              <span class="meta-author">By {article.author}</span>
+              <span class="meta-date">{new Date(article.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Article Content -->
+  <section class="article-content pt-130 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+          <article class="article-body">
+            <div class="article-content" set:html={article.content}></div>
+
+            <!-- Share Article -->
+            <div class="article-share">
+              <h4>Share This Article</h4>
+              <div class="share-buttons">
+                <a href="#" class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="#" class="share-btn share-email"><i class="fas fa-envelope"></i> Email</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Related Articles -->
+          <div class="related-articles mt-60">
+            <h3 class="related-articles__title">Related News</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="related-article-item">
+                  <div class="related-article__img">
+                    <a href="/media/world-liver-day-2025-awareness-campaign">
+                      <img src="/assets/images/services/1.jpg" alt="World Liver Day Campaign">
+                    </a>
+                  </div>
+                  <div class="related-article__content">
+                    <span class="related-article__cat">Awareness</span>
+                    <h5 class="related-article__title">
+                      <a href="/media/world-liver-day-2025-awareness-campaign">World Liver Day 2025 Campaign</a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="related-article-item">
+                  <div class="related-article__img">
+                    <a href="/media/licap-programme-1000-patients">
+                      <img src="/assets/images/services/3.jpg" alt="LICAP Programme">
+                    </a>
+                  </div>
+                  <div class="related-article__content">
+                    <span class="related-article__cat">Programme Success</span>
+                    <h5 class="related-article__title">
+                      <a href="/media/licap-programme-1000-patients">LICAP Programme Success</a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-sm-12 col-md-12 col-lg-4">
+          <aside class="sidebar">
+            <!-- Latest News -->
+            <div class="widget widget-latest-news">
+              <h5 class="widget__title">Latest News</h5>
+              <div class="widget__content">
+                <div class="latest-news-item">
+                  <h6><a href="/media/sali-achieves-milestone-2000-transplants">SALi Achieves 2,000 Transplants</a></h6>
+                  <span class="news-date">Jan 18, 2025</span>
+                </div>
+                <div class="latest-news-item">
+                  <h6><a href="/media/free-liver-screening-camp-hyderabad">Free Screening Camp Benefits 500+</a></h6>
+                  <span class="news-date">Jan 12, 2025</span>
+                </div>
+                <div class="latest-news-item">
+                  <h6><a href="/media/world-liver-day-2025-awareness-campaign">World Liver Day Campaign</a></h6>
+                  <span class="news-date">Jan 5, 2025</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Contact Widget -->
+            <div class="widget widget-contact">
+              <h5 class="widget__title">Media Contact</h5>
+              <p>For press inquiries and media partnerships:</p>
+              <a href="mailto:media@southasianliverinstitute.com" class="contact-link">
+                <i class="icon-email"></i>
+                <span>media@southasianliverinstitute.com</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title__category {
+    background: #D1A648;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .page-title__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .article-body {
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .article-content h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #22336B;
+    margin-top: 30px;
+    margin-bottom: 15px;
+  }
+  
+  .article-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .article-share {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 30px;
+    margin-top: 40px;
+  }
+  
+  .share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .share-btn {
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .share-facebook { background: #1877f2; }
+  .share-twitter { background: #1da1f2; }
+  .share-linkedin { background: #0077b5; }
+  .share-email { background: #666; }
+  
+  .share-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  
+  .related-articles__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 30px;
+  }
+  
+  .related-article-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+  }
+  
+  .related-article__img {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .related-article__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .related-article-item:hover .related-article__img img {
+    transform: scale(1.1);
+  }
+  
+  .related-article__content {
+    padding: 20px;
+  }
+  
+  .related-article__cat {
+    background: #D1A648;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .related-article__title {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .related-article__title a {
+    color: #22336B;
+    text-decoration: none;
+  }
+  
+  .related-article__title a:hover {
+    color: #D1A648;
+  }
+  
+  .sidebar .widget {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+  }
+  
+  .widget__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #D1A648;
+  }
+  
+  .latest-news-item {
+    padding: 15px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .latest-news-item:last-child {
+    border-bottom: none;
+  }
+  
+  .latest-news-item h6 a {
+    color: #22336B;
+    text-decoration: none;
+    font-weight: 600;
+    transition: color 0.3s ease;
+  }
+  
+  .latest-news-item h6 a:hover {
+    color: #D1A648;
+  }
+  
+  .news-date {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #22336B;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    color: #D1A648;
+  }
+</style>
+
