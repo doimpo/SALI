@@ -1,0 +1,94 @@
+---
+/**
+ * SkeletonLoader Component
+ * 
+ * Generic skeleton loader for various content types
+ * Provides visual feedback while content is loading
+ */
+
+export interface Props {
+  width?: string;
+  height?: string;
+  borderRadius?: string;
+  class?: string;
+  variant?: 'pulse' | 'wave';
+}
+
+const {
+  width = '100%',
+  height = '20px',
+  borderRadius = '4px',
+  class: className = '',
+  variant = 'wave'
+} = Astro.props;
+---
+
+<div 
+  class={`skeleton skeleton--${variant} ${className}`}
+  style={`width: ${width}; height: ${height}; border-radius: ${borderRadius};`}
+  aria-busy="true"
+  aria-live="polite"
+  role="status"
+>
+  <span class="sr-only">Loading...</span>
+</div>
+
+<style>
+  .skeleton {
+    display: block;
+    background-color: #e0e0e0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skeleton--wave::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.5),
+      transparent
+    );
+    animation: skeleton-wave 1.5s infinite;
+  }
+
+  .skeleton--pulse {
+    animation: skeleton-pulse 1.5s ease-in-out infinite;
+  }
+
+  @keyframes skeleton-wave {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(100%);
+    }
+  }
+
+  @keyframes skeleton-pulse {
+    0%, 100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border-width: 0;
+  }
+</style>
+

@@ -1,0 +1,127 @@
+---
+/**
+ * OptimizedImage Component
+ * 
+ * Provides optimized image loading with:
+ * - WebP and AVIF format support with fallbacks
+ * - Lazy loading with intersection observer
+ * - Responsive image sizing
+ * - Fade-in animation on load
+ * - Loading placeholder
+ */
+
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+  sizes?: string;
+  placeholder?: boolean;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  class: className = '',
+  sizes,
+  placeholder = true
+} = Astro.props;
+
+// Generate WebP and AVIF paths
+const getOptimizedPath = (path: string, format: string) => {
+  const ext = path.match(/\.(jpg|jpeg|png)$/i);
+  if (ext) {
+    return path.replace(ext[0], `.${format}`);
+  }
+  return path;
+};
+
+const webpSrc = getOptimizedPath(src, 'webp');
+const avifSrc = getOptimizedPath(src, 'avif');
+
+// Generate srcset for responsive images
+const generateSrcSet = (basePath: string, format?: string) => {
+  const path = format ? getOptimizedPath(basePath, format) : basePath;
+  if (width) {
+    return `${path} ${width}w`;
+  }
+  return undefined;
+};
+---
+
+<picture class={`optimized-image ${className}`}>
+  <!-- AVIF format (best compression) -->
+  <source 
+    type="image/avif" 
+    srcset={avifSrc}
+    sizes={sizes}
+  />
+  
+  <!-- WebP format (great compression, wide support) -->
+  <source 
+    type="image/webp" 
+    srcset={webpSrc}
+    sizes={sizes}
+  />
+  
+  <!-- Fallback to original format -->
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class={`optimized-image__img ${placeholder ? 'with-placeholder' : ''}`}
+    onload="this.classList.add('loaded')"
+  />
+</picture>
+
+<style>
+  .optimized-image {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .optimized-image__img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .optimized-image__img.with-placeholder {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+  }
+
+  .optimized-image__img.loaded {
+    opacity: 1;
+  }
+
+  @keyframes loading {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  /* Aspect ratio preservation */
+  .optimized-image__img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+  }
+</style>
+

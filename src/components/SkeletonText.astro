@@ -1,0 +1,76 @@
+---
+/**
+ * SkeletonText Component
+ * 
+ * Skeleton loader for text content
+ * Automatically generates multiple lines with realistic widths
+ */
+
+import SkeletonLoader from './SkeletonLoader.astro';
+
+export interface Props {
+  lines?: number;
+  variant?: 'heading' | 'paragraph' | 'caption';
+  class?: string;
+}
+
+const {
+  lines = 3,
+  variant = 'paragraph',
+  class: className = ''
+} = Astro.props;
+
+// Define heights and widths based on variant
+const config = {
+  heading: {
+    height: '32px',
+    widths: ['90%', '70%']
+  },
+  paragraph: {
+    height: '16px',
+    widths: ['100%', '100%', '100%', '85%']
+  },
+  caption: {
+    height: '14px',
+    widths: ['60%', '50%']
+  }
+};
+
+const { height, widths } = config[variant];
+const lineWidths = lines <= widths.length 
+  ? widths.slice(0, lines)
+  : [...widths, ...Array(lines - widths.length).fill('100%')];
+---
+
+<div class={`skeleton-text skeleton-text--${variant} ${className}`}>
+  {lineWidths.map((width, index) => (
+    <SkeletonLoader 
+      height={height} 
+      width={width}
+      class="skeleton-text__line"
+    />
+  ))}
+</div>
+
+<style>
+  .skeleton-text {
+    width: 100%;
+  }
+
+  .skeleton-text__line {
+    margin-bottom: 12px;
+  }
+
+  .skeleton-text__line:last-child {
+    margin-bottom: 0;
+  }
+
+  .skeleton-text--heading .skeleton-text__line {
+    margin-bottom: 16px;
+  }
+
+  .skeleton-text--caption .skeleton-text__line {
+    margin-bottom: 8px;
+  }
+</style>
+

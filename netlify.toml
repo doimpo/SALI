@@ -99,11 +99,11 @@
   [headers.values]
     Cache-Control = "public, max-age=2592000"
 
-# HTML caching
+# HTML caching with stale-while-revalidate
 [[headers]]
   for = "/*.html"
   [headers.values]
-    Cache-Control = "public, max-age=3600"
+    Cache-Control = "public, max-age=3600, stale-while-revalidate=86400"
 
 # Sitemap and robots
 [[headers]]
@@ -131,6 +131,40 @@
   type = "email"
   event = "submission-created"
   
+# Serverless Functions with cache headers
+[[headers]]
+  for = "/.netlify/functions/*"
+  [headers.values]
+    Cache-Control = "public, max-age=60, stale-while-revalidate=300"
+
+# On-Demand Builders for semi-static content
+[[edge_functions]]
+  path = "/programmes/*"
+  function = "cache-builder"
+
+[[edge_functions]]
+  path = "/blog/*"
+  function = "cache-builder"
+
+[[edge_functions]]
+  path = "/media/*"
+  function = "cache-builder"
+
+# Post-processing optimization
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.images]
+  compress = true
+
 # Environment variables (configure in Netlify UI or .env)
 # See env.example for required variables
 

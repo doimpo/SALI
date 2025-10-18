@@ -1,0 +1,135 @@
+{
+  "budgets": [
+    {
+      "resourceSizes": [
+        {
+          "resourceType": "script",
+          "budget": 300
+        },
+        {
+          "resourceType": "stylesheet",
+          "budget": 150
+        },
+        {
+          "resourceType": "image",
+          "budget": 500
+        },
+        {
+          "resourceType": "font",
+          "budget": 100
+        },
+        {
+          "resourceType": "total",
+          "budget": 1000
+        }
+      ],
+      "resourceCounts": [
+        {
+          "resourceType": "script",
+          "budget": 10
+        },
+        {
+          "resourceType": "stylesheet",
+          "budget": 5
+        },
+        {
+          "resourceType": "third-party",
+          "budget": 5
+        }
+      ]
+    }
+  ],
+  "timings": [
+    {
+      "metric": "first-contentful-paint",
+      "budget": 2000,
+      "tolerance": 500
+    },
+    {
+      "metric": "largest-contentful-paint",
+      "budget": 2500,
+      "tolerance": 1000
+    },
+    {
+      "metric": "cumulative-layout-shift",
+      "budget": 0.1,
+      "tolerance": 0.05
+    },
+    {
+      "metric": "first-input-delay",
+      "budget": 100,
+      "tolerance": 50
+    },
+    {
+      "metric": "time-to-interactive",
+      "budget": 3500,
+      "tolerance": 1000
+    },
+    {
+      "metric": "total-blocking-time",
+      "budget": 300,
+      "tolerance": 200
+    },
+    {
+      "metric": "speed-index",
+      "budget": 3000,
+      "tolerance": 1000
+    }
+  ],
+  "lighthouse": {
+    "performance": 90,
+    "accessibility": 95,
+    "best-practices": 90,
+    "seo": 95,
+    "pwa": 80
+  },
+  "images": {
+    "maxSizeKB": 500,
+    "maxDimensionsW": 2560,
+    "maxDimensionsH": 1440,
+    "formats": ["avif", "webp", "jpg"],
+    "quality": {
+      "avif": 80,
+      "webp": 85,
+      "jpg": 80
+    }
+  },
+  "network": {
+    "requests": {
+      "total": 50,
+      "scripts": 10,
+      "stylesheets": 5,
+      "images": 25,
+      "fonts": 5
+    },
+    "sizes": {
+      "totalKB": 1000,
+      "scriptsKB": 300,
+      "stylesheetsKB": 150,
+      "imagesKB": 500,
+      "fontsKB": 100
+    }
+  },
+  "description": "Performance budget for SALi website. These targets ensure fast, efficient page loads across all devices.",
+  "testing": {
+    "tools": [
+      "Lighthouse",
+      "WebPageTest",
+      "Chrome DevTools",
+      "PageSpeed Insights"
+    ],
+    "devices": [
+      "Desktop",
+      "Mobile (slow 4G)",
+      "Mobile (fast 3G)",
+      "Tablet"
+    ],
+    "browsers": [
+      "Chrome",
+      "Firefox",
+      "Safari",
+      "Edge"
+    ]
+  }
+}
+

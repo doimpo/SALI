@@ -24,6 +24,14 @@ export default defineConfig({
       }
     })
   ],
+  // Image optimization configuration
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    },
+    domains: ['southasianliverinstitute.netlify.app'],
+    formats: ['avif', 'webp', 'jpg']
+  },
   vite: {
     build: {
       cssCodeSplit: true,

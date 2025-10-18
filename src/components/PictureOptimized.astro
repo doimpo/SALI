@@ -1,0 +1,136 @@
+---
+/**
+ * PictureOptimized Component
+ * 
+ * Advanced picture element with:
+ * - Multiple format support (AVIF, WebP, fallback)
+ * - Art direction (different images per breakpoint)
+ * - Automatic format detection
+ * - Priority loading system
+ * - Blur placeholder support
+ */
+
+export interface Source {
+  srcset: string;
+  media?: string;
+  type?: string;
+  sizes?: string;
+}
+
+export interface Props {
+  src: string;
+  alt: string;
+  width?: number;
+  height?: number;
+  sources?: Source[];
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+  objectFit?: 'cover' | 'contain' | 'fill' | 'none' | 'scale-down';
+  blurDataUrl?: string;
+}
+
+const {
+  src,
+  alt,
+  width,
+  height,
+  sources = [],
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  class: className = '',
+  objectFit = 'cover',
+  blurDataUrl
+} = Astro.props;
+
+// Helper to generate format variants
+const getFormatVariants = (srcPath: string) => {
+  const webp = srcPath.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+  const avif = srcPath.replace(/\.(jpg|jpeg|png)$/i, '.avif');
+  return { webp, avif };
+};
+
+const mainFormats = getFormatVariants(src);
+---
+
+<picture class={`picture-optimized ${className}`}>
+  {/* Custom sources with format variants */}
+  {sources.map(source => {
+    const formats = getFormatVariants(source.srcset);
+    return (
+      <>
+        {/* AVIF version */}
+        <source
+          srcset={formats.avif}
+          media={source.media}
+          type="image/avif"
+          sizes={source.sizes}
+        />
+        {/* WebP version */}
+        <source
+          srcset={formats.webp}
+          media={source.media}
+          type="image/webp"
+          sizes={source.sizes}
+        />
+        {/* Original format */}
+        <source
+          srcset={source.srcset}
+          media={source.media}
+          type={source.type}
+          sizes={source.sizes}
+        />
+      </>
+    );
+  })}
+
+  {/* Default sources (AVIF, WebP, fallback) */}
+  <source srcset={mainFormats.avif} type="image/avif" />
+  <source srcset={mainFormats.webp} type="image/webp" />
+  
+  {/* Fallback image */}
+  <img
+    src={src}
+    alt={alt}
+    width={width}
+    height={height}
+    loading={loading}
+    fetchpriority={fetchpriority}
+    decoding="async"
+    class="picture-optimized__img"
+    style={blurDataUrl ? `background-image: url('${blurDataUrl}'); background-size: cover;` : ''}
+    onload="this.classList.add('loaded')"
+  />
+</picture>
+
+<style define:vars={{ objectFit }}>
+  .picture-optimized {
+    display: block;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .picture-optimized__img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: var(--objectFit);
+    transition: opacity 0.3s ease-in-out, filter 0.3s ease-in-out;
+  }
+
+  .picture-optimized__img:not(.loaded) {
+    opacity: 0.8;
+    filter: blur(10px);
+  }
+
+  .picture-optimized__img.loaded {
+    opacity: 1;
+    filter: blur(0);
+  }
+
+  /* Aspect ratio preservation */
+  .picture-optimized__img[width][height] {
+    aspect-ratio: attr(width) / attr(height);
+  }
+</style>
+

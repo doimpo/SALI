@@ -1,0 +1,162 @@
+/**
+ * Skeleton Styles
+ * 
+ * Global skeleton loading animations and utilities
+ * Used across all skeleton components
+ */
+
+// Skeleton base styles
+.skeleton-wrapper {
+  position: relative;
+  min-height: 100px;
+}
+
+// Page-level skeleton layouts
+.skeleton-page {
+  &__header {
+    margin-bottom: 40px;
+  }
+
+  &__content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+  }
+
+  &__grid {
+    display: grid;
+    gap: 30px;
+    
+    &--2-col {
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    }
+
+    &--3-col {
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    }
+
+    &--4-col {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    }
+  }
+}
+
+// Skeleton animations
+@keyframes skeleton-loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes skeleton-pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+// Utility classes for skeleton states
+.skeleton-show {
+  display: block !important;
+}
+
+.skeleton-hide {
+  display: none !important;
+}
+
+.content-loading {
+  .skeleton-show {
+    display: block;
+  }
+  
+  .content-show {
+    display: none;
+  }
+}
+
+.content-loaded {
+  .skeleton-show {
+    display: none;
+  }
+  
+  .content-show {
+    display: block;
+    animation: fade-in 0.3s ease-in-out;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Responsive skeleton adjustments
+@media (max-width: 768px) {
+  .skeleton-page__grid {
+    &--2-col,
+    &--3-col,
+    &--4-col {
+      grid-template-columns: 1fr;
+    }
+  }
+}
+
+// Accessibility
+.skeleton-loading-message {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Dark mode support
+@media (prefers-color-scheme: dark) {
+  .skeleton {
+    background-color: #2a2a2a;
+  }
+
+  .skeleton--wave::after {
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+  }
+}
+
+// Reduced motion support
+@media (prefers-reduced-motion: reduce) {
+  .skeleton--wave::after,
+  .skeleton--pulse {
+    animation: none;
+  }
+
+  .skeleton {
+    opacity: 0.6;
+  }
+}
+

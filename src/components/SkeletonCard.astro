@@ -1,0 +1,94 @@
+---
+/**
+ * SkeletonCard Component
+ * 
+ * Skeleton loader specifically designed for card layouts
+ * (blog posts, service cards, team members, etc.)
+ */
+
+import SkeletonLoader from './SkeletonLoader.astro';
+
+export interface Props {
+  showImage?: boolean;
+  showTitle?: boolean;
+  showDescription?: boolean;
+  showButton?: boolean;
+  lines?: number;
+  class?: string;
+}
+
+const {
+  showImage = true,
+  showTitle = true,
+  showDescription = true,
+  showButton = true,
+  lines = 3,
+  class: className = ''
+} = Astro.props;
+---
+
+<div class={`skeleton-card ${className}`}>
+  {showImage && (
+    <div class="skeleton-card__image">
+      <SkeletonLoader height="200px" borderRadius="8px 8px 0 0" />
+    </div>
+  )}
+  
+  <div class="skeleton-card__content">
+    {showTitle && (
+      <div class="skeleton-card__title">
+        <SkeletonLoader height="24px" width="80%" />
+      </div>
+    )}
+    
+    {showDescription && (
+      <div class="skeleton-card__description">
+        {Array.from({ length: lines }).map(() => (
+          <SkeletonLoader height="16px" width="100%" class="skeleton-card__line" />
+        ))}
+        <SkeletonLoader height="16px" width="60%" class="skeleton-card__line" />
+      </div>
+    )}
+    
+    {showButton && (
+      <div class="skeleton-card__button">
+        <SkeletonLoader height="40px" width="120px" borderRadius="20px" />
+      </div>
+    )}
+  </div>
+</div>
+
+<style>
+  .skeleton-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .skeleton-card__image {
+    width: 100%;
+  }
+
+  .skeleton-card__content {
+    padding: 20px;
+  }
+
+  .skeleton-card__title {
+    margin-bottom: 16px;
+  }
+
+  .skeleton-card__description {
+    margin-bottom: 20px;
+  }
+
+  .skeleton-card__line {
+    margin-bottom: 8px;
+  }
+
+  .skeleton-card__button {
+    display: flex;
+    justify-content: flex-start;
+  }
+</style>
+
