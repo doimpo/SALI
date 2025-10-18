@@ -1,0 +1,429 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Frequently Asked Questions | South Asian Liver Institute";
+const description = "Find answers to common questions about liver care, treatments, appointments, and services at SALi. Expert answers from our hepatology specialists.";
+const keywords = "liver care FAQ, liver transplant questions, hepatology answers, liver disease information, SALi FAQ, liver treatment questions";
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/3.jpg" alt="FAQs"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Frequently Asked Questions</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">FAQs</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Introduction -->
+  <section class="faq-intro pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Got Questions?</h2>
+            <h3 class="heading__title">We Have Answers</h3>
+            <p class="heading__desc">Find comprehensive answers to the most commonly asked questions about liver care, treatments, and our services at SALi.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ Categories -->
+  <section class="faq-categories pb-90">
+    <div class="container">
+      <div class="row">
+        <!-- General Questions -->
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-50">
+          <h3 class="faq-category__title">General Questions</h3>
+          <div class="accordion" id="accordionGeneral">
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="general1">
+                <button class="accordion-button" type="button" data-toggle="collapse" data-target="#collapseGeneral1" aria-expanded="true" aria-controls="collapseGeneral1">
+                  What services does SALi provide?
+                </button>
+              </h4>
+              <div id="collapseGeneral1" class="accordion-collapse collapse show" aria-labelledby="general1">
+                <div class="accordion-body">
+                  SALi provides comprehensive liver care services including liver transplantation, treatment for liver cirrhosis, fatty liver disease, liver cancer, hepatitis, and other hepatobiliary conditions. We also offer diagnostic services, endoscopy, interventional radiology procedures, and specialized ICU care.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="general2">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneral2" aria-expanded="false" aria-controls="collapseGeneral2">
+                  How do I book an appointment?
+                </button>
+              </h4>
+              <div id="collapseGeneral2" class="accordion-collapse collapse" aria-labelledby="general2">
+                <div class="accordion-body">
+                  You can book an appointment by calling our 24/7 helpline at +91-8070 670 670, using our <a href="/appointment">online appointment form</a>, or visiting any of our clinic locations directly. Our team will confirm your appointment within 24 hours.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="general3">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneral3" aria-expanded="false" aria-controls="collapseGeneral3">
+                  Do you accept insurance?
+                </button>
+              </h4>
+              <div id="collapseGeneral3" class="accordion-collapse collapse" aria-labelledby="general3">
+                <div class="accordion-body">
+                  Yes, we work with most major insurance providers. We recommend contacting our billing department with your insurance details to verify coverage before your appointment. Please bring your insurance card to your first visit.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="general4">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseGeneral4" aria-expanded="false" aria-controls="collapseGeneral4">
+                  Where are SALi locations?
+                </button>
+              </h4>
+              <div id="collapseGeneral4" class="accordion-collapse collapse" aria-labelledby="general4">
+                <div class="accordion-body">
+                  SALi has 13 partner hospital locations across India including Hyderabad, Mumbai, Kolkata, Nagpur, Visakhapatnam, Vijayawada, Rajkot, Kakinada, Rajahmundry, Anantapur, Khammam, Kurnool, and Jabalpur. Visit our <a href="/locations/hyderabad">locations page</a> for detailed address information.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Liver Transplant Questions -->
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-50">
+          <h3 class="faq-category__title">Liver Transplant Questions</h3>
+          <div class="accordion" id="accordionTransplant">
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="transplant1">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTransplant1" aria-expanded="false" aria-controls="collapseTransplant1">
+                  What is a liver transplant?
+                </button>
+              </h4>
+              <div id="collapseTransplant1" class="accordion-collapse collapse" aria-labelledby="transplant1">
+                <div class="accordion-body">
+                  A liver transplant is a surgical procedure that replaces a diseased or failing liver with a healthy liver from a donor. The donor can be deceased (cadaveric transplant) or living (living donor transplant). SALi has performed over 2,000 successful liver transplants with a 91% survival rate.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="transplant2">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTransplant2" aria-expanded="false" aria-controls="collapseTransplant2">
+                  Who needs a liver transplant?
+                </button>
+              </h4>
+              <div id="collapseTransplant2" class="accordion-collapse collapse" aria-labelledby="transplant2">
+                <div class="accordion-body">
+                  Liver transplants are recommended for patients with end-stage liver disease, acute liver failure, certain liver cancers, or metabolic liver diseases. Common conditions include cirrhosis from hepatitis, alcoholic liver disease, non-alcoholic fatty liver disease (NAFLD), and primary biliary cholangitis. Your hepatologist will assess your specific condition and recommend appropriate treatment.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="transplant3">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTransplant3" aria-expanded="false" aria-controls="collapseTransplant3">
+                  What is the success rate of liver transplants at SALi?
+                </button>
+              </h4>
+              <div id="collapseTransplant3" class="accordion-collapse collapse" aria-labelledby="transplant3">
+                <div class="accordion-body">
+                  SALi has an excellent liver transplant success rate of 91%, which exceeds international standards. Our experienced team, led by Prof. Dr. Tom Cherian, has performed over 650 successful liver transplants and 250+ complex liver cancer resections with a 98% survival rate.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="transplant4">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTransplant4" aria-expanded="false" aria-controls="collapseTransplant4">
+                  How long is the recovery after liver transplant?
+                </button>
+              </h4>
+              <div id="collapseTransplant4" class="accordion-collapse collapse" aria-labelledby="transplant4">
+                <div class="accordion-body">
+                  Most patients stay in the hospital for 2-3 weeks after surgery. Initial recovery takes about 3-6 months, with gradual return to normal activities. Complete recovery can take up to a year. Lifelong immunosuppression medication and regular follow-up visits are required to prevent rejection.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Treatment Questions -->
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-50">
+          <h3 class="faq-category__title">Treatment & Procedures</h3>
+          <div class="accordion" id="accordionTreatment">
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="treatment1">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTreatment1" aria-expanded="false" aria-controls="collapseTreatment1">
+                  What is liver cirrhosis and how is it treated?
+                </button>
+              </h4>
+              <div id="collapseTreatment1" class="accordion-collapse collapse" aria-labelledby="treatment1">
+                <div class="accordion-body">
+                  Liver cirrhosis is scarring of the liver caused by long-term damage. Treatment depends on the stage and cause. Early-stage cirrhosis can be managed with lifestyle changes, medications, and treating the underlying cause. Advanced cirrhosis may require procedures to manage complications or liver transplantation. Learn more about our <a href="/services/liver-cirrhosis">cirrhosis treatment program</a>.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="treatment2">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTreatment2" aria-expanded="false" aria-controls="collapseTreatment2">
+                  What is fatty liver disease?
+                </button>
+              </h4>
+              <div id="collapseTreatment2" class="accordion-collapse collapse" aria-labelledby="treatment2">
+                <div class="accordion-body">
+                  Fatty liver disease occurs when fat builds up in liver cells. Non-alcoholic fatty liver disease (NAFLD) is common and often linked to obesity, diabetes, and metabolic syndrome. Treatment includes weight loss, exercise, dietary changes, and managing underlying conditions. NASH (non-alcoholic steatohepatitis) is a more serious form that may progress to cirrhosis. Visit our <a href="/services/fatty-liver">fatty liver treatment page</a> for more information.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="treatment3">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTreatment3" aria-expanded="false" aria-controls="collapseTreatment3">
+                  What treatments are available for liver cancer?
+                </button>
+              </h4>
+              <div id="collapseTreatment3" class="accordion-collapse collapse" aria-labelledby="treatment3">
+                <div class="accordion-body">
+                  Treatment options for liver cancer (hepatocellular carcinoma) include surgical resection, liver transplantation, ablation therapy (RFA), transarterial chemoembolization (TACE), targeted therapy, and immunotherapy. The best treatment depends on tumor size, location, liver function, and overall health. Our multidisciplinary team creates personalized treatment plans. Learn more at our <a href="/services/liver-cancer">liver cancer treatment page</a>.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="treatment4">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseTreatment4" aria-expanded="false" aria-controls="collapseTreatment4">
+                  What is TACE procedure?
+                </button>
+              </h4>
+              <div id="collapseTreatment4" class="accordion-collapse collapse" aria-labelledby="treatment4">
+                <div class="accordion-body">
+                  TACE (Transarterial Chemoembolization) is a minimally invasive procedure for treating liver cancer. It delivers chemotherapy directly to the tumor while blocking its blood supply. TACE is often used for patients who aren't candidates for surgery. The procedure is performed by our interventional radiology team. Visit our <a href="/services/interventional-treatments">interventional treatments page</a> for details.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Appointment & Visit Questions -->
+        <div class="col-sm-12 col-md-12 col-lg-12 mb-50">
+          <h3 class="faq-category__title">Appointments & Visits</h3>
+          <div class="accordion" id="accordionVisit">
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="visit1">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseVisit1" aria-expanded="false" aria-controls="collapseVisit1">
+                  What should I bring to my first appointment?
+                </button>
+              </h4>
+              <div id="collapseVisit1" class="accordion-collapse collapse" aria-labelledby="visit1">
+                <div class="accordion-body">
+                  Please bring: valid photo ID, insurance card, list of current medications, previous medical records and test results (if available), imaging studies (CT/MRI/ultrasound), and referral letter from your primary physician (if applicable). This helps our team provide the most comprehensive evaluation.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="visit2">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseVisit2" aria-expanded="false" aria-controls="collapseVisit2">
+                  What are your office hours?
+                </button>
+              </h4>
+              <div id="collapseVisit2" class="accordion-collapse collapse" aria-labelledby="visit2">
+                <div class="accordion-body">
+                  Our office hours are Monday-Friday: 8:00 AM - 7:00 PM, Saturday: 9:00 AM - 5:00 PM, and Sunday: 10:00 AM - 2:00 PM. Emergency services are available 24/7. Please call +91-8070 670 670 for urgent medical needs.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="visit3">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseVisit3" aria-expanded="false" aria-controls="collapseVisit3">
+                  Do you provide second opinions?
+                </button>
+              </h4>
+              <div id="collapseVisit3" class="accordion-collapse collapse" aria-labelledby="visit3">
+                <div class="accordion-body">
+                  Yes, we provide comprehensive second opinions for liver conditions and treatment plans. Please bring all relevant medical records, imaging studies, pathology reports, and previous treatment plans to your consultation.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item">
+              <h4 class="accordion-header" id="visit4">
+                <button class="accordion-button collapsed" type="button" data-toggle="collapse" data-target="#collapseVisit4" aria-expanded="false" aria-controls="collapseVisit4">
+                  Can family members accompany patients?
+                </button>
+              </h4>
+              <div id="collapseVisit4" class="accordion-collapse collapse" aria-labelledby="visit4">
+                <div class="accordion-body">
+                  Yes, we encourage family members to accompany patients, especially for initial consultations and follow-up visits. Family involvement is important for understanding treatment plans and providing support. However, the number of visitors may be limited in certain areas for patient comfort and safety.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Still Have Questions -->
+      <div class="row mt-50">
+        <div class="col-12">
+          <div class="faq-cta text-center bg-primary p-50" style="border-radius: 8px;">
+            <h3 class="color-white mb-30">Still Have Questions?</h3>
+            <p class="color-white mb-40">Can't find the answer you're looking for? Our team is here to help.</p>
+            <div class="cta-buttons">
+              <a href="/contact" class="btn btn__white btn__rounded mr-20 mb-20">
+                <i class="icon-email"></i>
+                <span>Contact Us</span>
+              </a>
+              <a href="tel:+918070670670" class="btn btn__secondary btn__rounded mb-20">
+                <i class="icon-phone"></i>
+                <span>Call: +91-8070 670 670</span>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .faq-category__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 30px;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #D1A648;
+  }
+  
+  .accordion-item {
+    background: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+  }
+  
+  .accordion-button {
+    width: 100%;
+    padding: 20px 25px;
+    background: #fff;
+    border: none;
+    text-align: left;
+    font-size: 18px;
+    font-weight: 600;
+    color: #22336B;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+  }
+  
+  .accordion-button:hover {
+    background: #f8f9fa;
+    color: #D1A648;
+  }
+  
+  .accordion-button::after {
+    content: "+";
+    font-size: 24px;
+    font-weight: 700;
+    color: #D1A648;
+    transition: transform 0.3s ease;
+  }
+  
+  .accordion-button:not(.collapsed)::after {
+    transform: rotate(45deg);
+  }
+  
+  .accordion-collapse {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .accordion-collapse.show {
+    max-height: 1000px;
+  }
+  
+  .accordion-body {
+    padding: 20px 25px;
+    color: #666;
+    line-height: 1.8;
+    font-size: 16px;
+    border-top: 1px solid #f0f0f0;
+  }
+  
+  .accordion-body a {
+    color: #D1A648;
+    text-decoration: none;
+  }
+  
+  .accordion-body a:hover {
+    text-decoration: underline;
+  }
+  
+  .faq-cta {
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+  }
+</style>
+
+<script is:inline>
+  // Accordion functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const accordionButtons = document.querySelectorAll('.accordion-button');
+    
+    accordionButtons.forEach(button => {
+      button.addEventListener('click', function() {
+        const target = this.getAttribute('data-target');
+        const collapse = document.querySelector(target);
+        const isExpanded = this.getAttribute('aria-expanded') === 'true';
+        
+        // Close all other accordions in the same group
+        const accordion = this.closest('.accordion');
+        const allCollapses = accordion.querySelectorAll('.accordion-collapse');
+        const allButtons = accordion.querySelectorAll('.accordion-button');
+        
+        allCollapses.forEach(c => {
+          if (c !== collapse) {
+            c.classList.remove('show');
+          }
+        });
+        
+        allButtons.forEach(b => {
+          if (b !== this) {
+            b.classList.add('collapsed');
+            b.setAttribute('aria-expanded', 'false');
+          }
+        });
+        
+        // Toggle current accordion
+        if (isExpanded) {
+          collapse.classList.remove('show');
+          this.classList.add('collapsed');
+          this.setAttribute('aria-expanded', 'false');
+        } else {
+          collapse.classList.add('show');
+          this.classList.remove('collapsed');
+          this.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  });
+</script>
+

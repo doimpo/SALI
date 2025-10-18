@@ -1,0 +1,172 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "404 - Page Not Found | South Asian Liver Institute";
+const description = "The page you're looking for cannot be found. Return to SALi homepage or explore our liver care services.";
+---
+
+<BaseLayout title={title} description={description}>
+  <!-- 404 Error Page -->
+  <section class="error-404 pt-130 pb-130">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="error-404__content text-center">
+            <div class="error-404__icon mb-40">
+              <i class="icon-hospital" style="font-size: 120px; color: #22336B;"></i>
+            </div>
+            <h1 class="error-404__title mb-30">404 - Page Not Found</h1>
+            <p class="error-404__desc mb-40">
+              We're sorry, but the page you're looking for cannot be found. It may have been moved, deleted, or the URL might be incorrect.
+            </p>
+            
+            <!-- Quick Links -->
+            <div class="error-404__links mb-50">
+              <a href="/" class="btn btn__primary btn__rounded mr-20 mb-20">
+                <i class="icon-arrow-left"></i>
+                <span>Back to Home</span>
+              </a>
+              <a href="/appointment" class="btn btn__secondary btn__rounded mb-20">
+                <i class="icon-calendar"></i>
+                <span>Book Appointment</span>
+              </a>
+            </div>
+
+            <!-- Helpful Resources -->
+            <div class="error-404__resources">
+              <h3 class="heading__subtitle mb-30">Helpful Resources</h3>
+              <div class="row">
+                <div class="col-sm-6 col-md-3">
+                  <div class="feature-item mb-30">
+                    <div class="feature__icon">
+                      <i class="icon-heart2"></i>
+                    </div>
+                    <h5 class="feature__title mb-10">
+                      <a href="/services/liver-transplantation">Liver Transplant</a>
+                    </h5>
+                    <p class="feature__desc">World-class transplant services</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="feature-item mb-30">
+                    <div class="feature__icon">
+                      <i class="icon-microscope"></i>
+                    </div>
+                    <h5 class="feature__title mb-10">
+                      <a href="/services/liver-cirrhosis">Liver Cirrhosis</a>
+                    </h5>
+                    <p class="feature__desc">Comprehensive cirrhosis care</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="feature-item mb-30">
+                    <div class="feature__icon">
+                      <i class="icon-location"></i>
+                    </div>
+                    <h5 class="feature__title mb-10">
+                      <a href="/locations/hyderabad">Our Locations</a>
+                    </h5>
+                    <p class="feature__desc">Find a clinic near you</p>
+                  </div>
+                </div>
+                <div class="col-sm-6 col-md-3">
+                  <div class="feature-item mb-30">
+                    <div class="feature__icon">
+                      <i class="icon-phone"></i>
+                    </div>
+                    <h5 class="feature__title mb-10">
+                      <a href="tel:+918070670670">Emergency Line</a>
+                    </h5>
+                    <p class="feature__desc">+91-8070 670 670</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- All Services -->
+            <div class="error-404__all-services mt-50">
+              <h4 class="mb-20">Or explore all our services:</h4>
+              <nav>
+                <ul class="list-unstyled d-flex flex-wrap justify-content-center">
+                  <li class="mr-20 mb-10"><a href="/services/liver-transplantation">Liver Transplantation</a></li>
+                  <li class="mr-20 mb-10"><a href="/services/liver-cirrhosis">Liver Cirrhosis</a></li>
+                  <li class="mr-20 mb-10"><a href="/services/fatty-liver">Fatty Liver</a></li>
+                  <li class="mr-20 mb-10"><a href="/services/liver-cancer">Liver Cancer</a></li>
+                  <li class="mr-20 mb-10"><a href="/programmes/licap">LICAP Programme</a></li>
+                  <li class="mr-20 mb-10"><a href="/about/about-us">About SALi</a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .error-404__content {
+    padding: 40px 20px;
+  }
+  
+  .error-404__title {
+    font-size: 48px;
+    font-weight: 700;
+    color: #22336B;
+  }
+  
+  .error-404__desc {
+    font-size: 18px;
+    color: #666;
+    line-height: 1.8;
+  }
+  
+  .feature-item {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+  }
+  
+  .feature-item:hover {
+    background-color: #f8f9fa;
+    transform: translateY(-5px);
+  }
+  
+  .feature__icon {
+    font-size: 48px;
+    color: #D1A648;
+    margin-bottom: 15px;
+  }
+  
+  .feature__title a {
+    color: #22336B;
+    text-decoration: none;
+  }
+  
+  .feature__title a:hover {
+    color: #D1A648;
+  }
+  
+  .feature__desc {
+    font-size: 14px;
+    color: #666;
+  }
+  
+  .error-404__all-services ul {
+    gap: 10px;
+  }
+  
+  .error-404__all-services a {
+    color: #22336B;
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+  }
+  
+  .error-404__all-services a:hover {
+    color: #D1A648;
+    border-bottom-color: #D1A648;
+  }
+</style>
+

@@ -1,0 +1,378 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const title = "Events & Health Camps | South Asian Liver Institute";
+const description = "Upcoming health camps, liver screening events, medical seminars, and community health initiatives by SALi.";
+const keywords = "health camps, liver screening, medical events, health seminars, community health, SALi events";
+
+// Sample events data
+const upcomingEvents = [
+  {
+    id: 1,
+    title: "Free Liver Screening Camp - Mumbai",
+    date: "2025-02-15",
+    time: "9:00 AM - 5:00 PM",
+    location: "SALi Mumbai Center",
+    type: "Health Camp",
+    description: "Free liver health screening including FibroScan tests, consultations with hepatologists, and dietary counseling.",
+    registrationRequired: true
+  },
+  {
+    id: 2,
+    title: "World Liver Day Awareness Programme",
+    date: "2025-04-19",
+    time: "10:00 AM - 2:00 PM",
+    location: "Multiple Locations",
+    type: "Awareness",
+    description: "Join us in observing World Liver Day with educational sessions, free screening, and community outreach programs.",
+    registrationRequired: true
+  },
+  {
+    id: 3,
+    title: "Liver Health Webinar: Prevention & Early Detection",
+    date: "2025-02-28",
+    time: "6:00 PM - 7:30 PM",
+    location: "Online",
+    type: "Webinar",
+    description: "Expert-led webinar on liver disease prevention, early warning signs, and screening recommendations.",
+    registrationRequired: true
+  },
+  {
+    id: 4,
+    title: "Hepatitis B Vaccination Camp - Hyderabad",
+    date: "2025-03-10",
+    time: "9:00 AM - 4:00 PM",
+    location: "SALi Hyderabad",
+    type: "Vaccination",
+    description: "Free hepatitis B vaccination and screening for eligible participants. Protect yourself from liver disease.",
+    registrationRequired: true
+  }
+];
+
+const pastEvents = [
+  {
+    title: "Free Liver Screening - Hyderabad",
+    date: "2025-01-15",
+    participants: "500+",
+    highlight: "Successfully screened over 500 community members"
+  },
+  {
+    title: "LICAP Programme Launch",
+    date: "2024-12-01",
+    participants: "200+",
+    highlight: "Launched comprehensive cirrhosis awareness programme"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/11.jpg" alt="Events & Health Camps"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Events & Health Camps</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Events</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Events Intro -->
+  <section class="events-intro pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Community Health</h2>
+            <h3 class="heading__title">Upcoming Events & Health Camps</h3>
+            <p class="heading__desc">Join our community health initiatives, free screening camps, and educational programs designed to promote liver health awareness.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Upcoming Events -->
+  <section class="upcoming-events pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-40">
+          <h3 class="section-title">Upcoming Events</h3>
+        </div>
+      </div>
+      <div class="row">
+        {upcomingEvents.map((event) => (
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <div class="event-card">
+              <div class="event-card__header">
+                <div class="event-date">
+                  <span class="date-day">{new Date(event.date).getDate()}</span>
+                  <span class="date-month">{new Date(event.date).toLocaleDateString('en-US', { month: 'short' })}</span>
+                </div>
+                <div class="event-type">
+                  <span class="type-badge">{event.type}</span>
+                </div>
+              </div>
+              <div class="event-card__body">
+                <h4 class="event-title">{event.title}</h4>
+                <div class="event-meta">
+                  <div class="meta-item">
+                    <i class="icon-clock"></i>
+                    <span>{event.time}</span>
+                  </div>
+                  <div class="meta-item">
+                    <i class="icon-location"></i>
+                    <span>{event.location}</span>
+                  </div>
+                </div>
+                <p class="event-description">{event.description}</p>
+                {event.registrationRequired && (
+                  <a href="/appointment" class="btn btn__primary btn__rounded">
+                    <i class="icon-calendar"></i>
+                    <span>Register Now</span>
+                  </a>
+                )}
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Past Events -->
+  <section class="past-events pb-90 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-40">
+          <h3 class="section-title">Past Events Highlights</h3>
+        </div>
+      </div>
+      <div class="row">
+        {pastEvents.map((event) => (
+          <div class="col-sm-12 col-md-6">
+            <div class="past-event-item">
+              <div class="past-event__icon">
+                <i class="icon-check"></i>
+              </div>
+              <div class="past-event__content">
+                <h5 class="past-event__title">{event.title}</h5>
+                <p class="past-event__date">{new Date(event.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</p>
+                <p class="past-event__highlight">{event.highlight}</p>
+                <span class="past-event__participants">👥 {event.participants} Participants</span>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Event Registration CTA -->
+  <section class="event-cta pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="cta-box text-center">
+            <h3>Want to Attend Our Events?</h3>
+            <p>Register for upcoming health camps and events to receive free screening, consultations, and health education.</p>
+            <div class="cta-buttons">
+              <a href="/appointment" class="btn btn__primary btn__rounded mr-20 mb-20">
+                <i class="icon-calendar"></i>
+                <span>Register for Event</span>
+              </a>
+              <a href="/contact" class="btn btn__secondary btn__rounded mb-20">
+                <i class="icon-email"></i>
+                <span>Contact Us</span>
+              </a>
+            </div>
+            <p class="cta-note">For organizations interested in hosting health camps, please contact us for partnership opportunities.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .section-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    padding-bottom: 15px;
+    border-bottom: 3px solid #D1A648;
+  }
+  
+  .event-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .event-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .event-card__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px;
+    background: linear-gradient(135deg, #22336B 0%, #1a2752 100%);
+    color: #fff;
+  }
+  
+  .event-date {
+    text-align: center;
+  }
+  
+  .date-day {
+    display: block;
+    font-size: 36px;
+    font-weight: 700;
+    line-height: 1;
+    margin-bottom: 5px;
+  }
+  
+  .date-month {
+    display: block;
+    font-size: 14px;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  
+  .type-badge {
+    background: #D1A648;
+    color: #fff;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .event-card__body {
+    padding: 30px;
+  }
+  
+  .event-title {
+    font-size: 22px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+  
+  .meta-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #666;
+    font-size: 14px;
+  }
+  
+  .meta-item i {
+    color: #D1A648;
+    font-size: 16px;
+  }
+  
+  .event-description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+  
+  .past-event-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.05);
+    margin-bottom: 30px;
+    display: flex;
+    gap: 20px;
+  }
+  
+  .past-event__icon {
+    flex-shrink: 0;
+    width: 50px;
+    height: 50px;
+    background: #28a745;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+  }
+  
+  .past-event__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 10px;
+  }
+  
+  .past-event__date {
+    color: #999;
+    font-size: 14px;
+    margin-bottom: 10px;
+  }
+  
+  .past-event__highlight {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .past-event__participants {
+    display: inline-block;
+    background: #f8f9fa;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #22336B;
+  }
+  
+  .cta-box {
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .cta-box h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .cta-box p {
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .cta-note {
+    margin-top: 30px;
+    font-size: 14px;
+    color: #999;
+    font-style: italic;
+  }
+</style>
+

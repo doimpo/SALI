@@ -1,0 +1,379 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import AppointmentForm from '../components/AppointmentForm.astro';
+
+const title = "Book an Appointment | South Asian Liver Institute";
+const description = "Schedule your consultation with SALi's expert liver specialists. Easy online booking for liver transplantation, cirrhosis treatment, and hepatology consultations.";
+const keywords = "book appointment, liver consultation, hepatology appointment, liver transplant consultation, liver specialist booking, SALi appointment";
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/1.jpg" alt="Book Appointment"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Book an Appointment</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Appointment</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="why-choose-us pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">World-Class Liver Care</h2>
+            <h3 class="heading__title">Why Choose South Asian Liver Institute?</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="feature-item text-center mb-40">
+            <div class="feature__icon">
+              <i class="icon-doctor"></i>
+            </div>
+            <h4 class="feature__title">Expert Specialists</h4>
+            <p class="feature__desc">Internationally trained liver specialists with decades of experience in hepatology and transplantation.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="feature-item text-center mb-40">
+            <div class="feature__icon">
+              <i class="icon-hospital"></i>
+            </div>
+            <h4 class="feature__title">Advanced Facilities</h4>
+            <p class="feature__desc">State-of-the-art diagnostic and treatment facilities at our partner hospitals across India.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="feature-item text-center mb-40">
+            <div class="feature__icon">
+              <i class="icon-heart2"></i>
+            </div>
+            <h4 class="feature__title">Comprehensive Care</h4>
+            <p class="feature__desc">Complete liver care from diagnosis to post-treatment follow-up with personalized treatment plans.</p>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-3">
+          <div class="feature-item text-center mb-40">
+            <div class="feature__icon">
+              <i class="icon-first-aid-kit"></i>
+            </div>
+            <h4 class="feature__title">24/7 Emergency</h4>
+            <p class="feature__desc">Round-the-clock emergency services for acute liver conditions and post-transplant care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Appointment Form Section -->
+  <section class="appointment-section pb-130 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-7">
+          <div class="appointment-panel bg-white p-40" style="border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.08);">
+            <div class="heading mb-30">
+              <h2 class="heading__subtitle">Schedule Your Consultation</h2>
+              <h3 class="heading__title">Book Your Appointment</h3>
+              <p class="heading__desc">Please fill out the form below to schedule your appointment. Our team will contact you within 24 hours to confirm your appointment details.</p>
+            </div>
+            
+            <AppointmentForm 
+              location="appointment-page"
+              formTitle="Appointment Request Form"
+              formDescription="Fill in your details and we'll get back to you shortly."
+              showClinicSelector={true}
+              showDoctorSelector={true}
+            />
+          </div>
+        </div>
+
+        <div class="col-sm-12 col-md-12 col-lg-5">
+          <!-- What to Expect -->
+          <div class="info-panel bg-white p-40 mb-40" style="border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.08);">
+            <h4 class="mb-30 color-primary">What to Expect</h4>
+            <div class="timeline-item mb-30">
+              <div class="timeline__icon">
+                <i class="icon-check"></i>
+              </div>
+              <div class="timeline__content">
+                <h5 class="timeline__title">1. Submit Request</h5>
+                <p class="timeline__desc">Fill out the appointment form with your details and preferred date/time.</p>
+              </div>
+            </div>
+            <div class="timeline-item mb-30">
+              <div class="timeline__icon">
+                <i class="icon-check"></i>
+              </div>
+              <div class="timeline__content">
+                <h5 class="timeline__title">2. Confirmation Call</h5>
+                <p class="timeline__desc">Our team will call you within 24 hours to confirm your appointment.</p>
+              </div>
+            </div>
+            <div class="timeline-item mb-30">
+              <div class="timeline__icon">
+                <i class="icon-check"></i>
+              </div>
+              <div class="timeline__content">
+                <h5 class="timeline__title">3. Consultation</h5>
+                <p class="timeline__desc">Meet with our specialists for comprehensive evaluation and treatment planning.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- What to Bring -->
+          <div class="info-panel bg-white p-40 mb-40" style="border-radius: 8px; box-shadow: 0 0 40px rgba(0,0,0,0.08);">
+            <h4 class="mb-30 color-primary">What to Bring</h4>
+            <ul class="list-items list-unstyled mb-0">
+              <li><i class="icon-check"></i> Valid Photo ID</li>
+              <li><i class="icon-check"></i> Insurance Card</li>
+              <li><i class="icon-check"></i> Medical Records</li>
+              <li><i class="icon-check"></i> Previous Test Results</li>
+              <li><i class="icon-check"></i> List of Current Medications</li>
+              <li><i class="icon-check"></i> Referral Letter (if applicable)</li>
+            </ul>
+          </div>
+
+          <!-- Emergency Contact -->
+          <div class="info-panel bg-primary p-40" style="border-radius: 8px;">
+            <h4 class="mb-20 color-white">Need Immediate Assistance?</h4>
+            <p class="color-white mb-30">For urgent medical needs or emergency consultations, please call our 24/7 helpline.</p>
+            <a href="tel:+918070670670" class="btn btn__white btn__rounded btn__block">
+              <i class="icon-phone"></i>
+              <span>Call Now: +91-8070 670 670</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Our Services -->
+  <section class="services-grid pt-90 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Specialized Liver Care</h2>
+            <h3 class="heading__title">Services We Offer</h3>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-heart2"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/liver-transplantation">Liver Transplantation</a></h4>
+              <p class="service__desc">Comprehensive liver transplant program with over 2,000 successful procedures.</p>
+              <a href="/services/liver-transplantation" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-microscope"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/liver-cirrhosis">Liver Cirrhosis</a></h4>
+              <p class="service__desc">Advanced management of cirrhosis with proven treatment protocols.</p>
+              <a href="/services/liver-cirrhosis" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-doctor"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/fatty-liver">Fatty Liver Treatment</a></h4>
+              <p class="service__desc">Holistic approach to managing NAFLD and NASH conditions.</p>
+              <a href="/services/fatty-liver" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-drugs"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/liver-cancer">Liver Cancer</a></h4>
+              <p class="service__desc">Multidisciplinary approach to hepatocellular carcinoma treatment.</p>
+              <a href="/services/liver-cancer" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-stethoscope"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/laparoscopic-surgery">Laparoscopic Surgery</a></h4>
+              <p class="service__desc">Minimally invasive surgical techniques for faster recovery.</p>
+              <a href="/services/laparoscopic-surgery" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-12 col-md-6 col-lg-4">
+          <div class="service-item mb-30">
+            <div class="service__icon">
+              <i class="icon-ambulance"></i>
+            </div>
+            <div class="service__content">
+              <h4 class="service__title"><a href="/services/interventional-treatments">Interventional Treatments</a></h4>
+              <p class="service__desc">Advanced image-guided procedures including TACE and RFA.</p>
+              <a href="/services/interventional-treatments" class="btn btn__secondary btn__link">
+                <span>Learn More</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-12 text-center mt-30">
+          <a href="/services" class="btn btn__primary btn__rounded">
+            <span>View All Services</span>
+            <i class="icon-arrow-right"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .feature-item {
+    padding: 30px 20px;
+    transition: all 0.3s ease;
+  }
+  
+  .feature__icon {
+    font-size: 60px;
+    color: #D1A648;
+    margin-bottom: 20px;
+  }
+  
+  .feature__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+  }
+  
+  .feature__desc {
+    color: #666;
+    line-height: 1.8;
+  }
+  
+  .timeline-item {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+  }
+  
+  .timeline__icon {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: #D1A648;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+  
+  .timeline__title {
+    font-size: 18px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 10px;
+  }
+  
+  .timeline__desc {
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  
+  .list-items li {
+    padding: 8px 0;
+    color: #666;
+  }
+  
+  .list-items li i {
+    color: #D1A648;
+    margin-right: 10px;
+  }
+  
+  .service-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    height: 100%;
+  }
+  
+  .service-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .service__icon {
+    font-size: 50px;
+    color: #D1A648;
+    margin-bottom: 20px;
+  }
+  
+  .service__title a {
+    color: #22336B;
+    text-decoration: none;
+  }
+  
+  .service__title a:hover {
+    color: #D1A648;
+  }
+  
+  .service__desc {
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+</style>
+

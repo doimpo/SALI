@@ -1,0 +1,535 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Blog | South Asian Liver Institute";
+const description = "Read the latest articles, health tips, and medical insights about liver care from SALi's expert hepatologists and liver specialists.";
+const keywords = "liver health blog, hepatology articles, liver disease information, liver care tips, SALi blog, medical insights";
+
+// Sample blog posts (in production, this would come from a CMS or markdown files)
+const blogPosts = [
+  {
+    slug: "understanding-fatty-liver-disease",
+    title: "Understanding Fatty Liver Disease: Prevention and Management",
+    excerpt: "Fatty liver disease affects millions worldwide. Learn about risk factors, early warning signs, dietary modifications, and lifestyle changes that can prevent progression to more serious liver conditions.",
+    category: "Liver Health",
+    author: "SALi Medical Team",
+    date: "2025-01-15",
+    image: "/assets/images/blog/grid/1.jpg",
+    readTime: "8 min read"
+  },
+  {
+    slug: "life-after-liver-transplant",
+    title: "Life After Liver Transplant: What to Expect During Recovery",
+    excerpt: "Recovering from a liver transplant involves multiple stages. Our comprehensive guide covers post-operative care, immunosuppression management, dietary guidelines, and long-term health monitoring.",
+    category: "Liver Transplant",
+    author: "Prof. Dr. Tom Cherian",
+    date: "2025-01-10",
+    image: "/assets/images/blog/grid/2.jpg",
+    readTime: "12 min read"
+  },
+  {
+    slug: "managing-liver-cirrhosis",
+    title: "Managing Liver Cirrhosis: Diet, Lifestyle, and Treatment Options",
+    excerpt: "Living with cirrhosis requires careful management of diet, medications, and regular monitoring. Discover evidence-based strategies to slow disease progression and improve quality of life.",
+    category: "Cirrhosis",
+    author: "SALi Hepatology Team",
+    date: "2025-01-05",
+    image: "/assets/images/blog/grid/3.jpg",
+    readTime: "10 min read"
+  },
+  {
+    slug: "liver-cancer-early-detection",
+    title: "Liver Cancer: Early Detection Saves Lives",
+    excerpt: "Early detection of liver cancer significantly improves treatment outcomes. Learn about screening guidelines, risk factors, symptoms to watch for, and the latest diagnostic technologies.",
+    category: "Liver Cancer",
+    author: "SALi Oncology Team",
+    date: "2024-12-28",
+    image: "/assets/images/services/4.jpg",
+    readTime: "7 min read"
+  },
+  {
+    slug: "hepatitis-prevention-guide",
+    title: "Complete Guide to Hepatitis Prevention and Treatment",
+    excerpt: "Hepatitis can lead to serious liver damage. Learn about hepatitis A, B, and C, vaccination recommendations, prevention strategies, and available treatment options.",
+    category: "Prevention",
+    author: "SALi Medical Team",
+    date: "2024-12-20",
+    image: "/assets/images/services/2.jpg",
+    readTime: "9 min read"
+  },
+  {
+    slug: "nutrition-for-liver-health",
+    title: "Nutrition for Optimal Liver Health: A Dietitian's Guide",
+    excerpt: "Your diet plays a crucial role in liver health. Discover the best foods for liver function, nutrients to support detoxification, and meal plans for various liver conditions.",
+    category: "Nutrition",
+    author: "SALi Nutrition Team",
+    date: "2024-12-15",
+    image: "/assets/images/services/3.jpg",
+    readTime: "11 min read"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/8.jpg" alt="Blog"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Liver Health Blog</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Blog</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Intro -->
+  <section class="blog-intro pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Stay Informed</h2>
+            <h3 class="heading__title">Expert Insights on Liver Health</h3>
+            <p class="heading__desc">Explore our collection of articles written by liver specialists, covering everything from disease prevention to advanced treatment options.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Post -->
+  <section class="featured-post pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="featured-post-card">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="featured-post__img">
+                  <img src={blogPosts[0].image} alt={blogPosts[0].title} loading="eager">
+                  <span class="badge badge-featured">Featured</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="featured-post__content">
+                  <div class="post__meta">
+                    <span class="post__meta-cat">{blogPosts[0].category}</span>
+                    <span class="post__meta-date">{new Date(blogPosts[0].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                    <span class="post__meta-read">{blogPosts[0].readTime}</span>
+                  </div>
+                  <h2 class="featured-post__title">{blogPosts[0].title}</h2>
+                  <p class="featured-post__excerpt">{blogPosts[0].excerpt}</p>
+                  <div class="post__author">
+                    <span>By {blogPosts[0].author}</span>
+                  </div>
+                  <a href={`/blog/${blogPosts[0].slug}`} class="btn btn__primary btn__rounded mt-20">
+                    <span>Read Article</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Grid -->
+  <section class="blog-grid pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 mb-40">
+          <div class="blog-filter">
+            <button class="filter-btn active" data-filter="all">All Articles</button>
+            <button class="filter-btn" data-filter="Liver Health">Liver Health</button>
+            <button class="filter-btn" data-filter="Liver Transplant">Liver Transplant</button>
+            <button class="filter-btn" data-filter="Cirrhosis">Cirrhosis</button>
+            <button class="filter-btn" data-filter="Prevention">Prevention</button>
+            <button class="filter-btn" data-filter="Nutrition">Nutrition</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="row blog-posts">
+        {blogPosts.slice(1).map((post) => (
+          <div class="col-sm-12 col-md-6 col-lg-4 blog-post-item" data-category={post.category}>
+            <div class="post-item">
+              <div class="post__img">
+                <a href={`/blog/${post.slug}`}>
+                  <img src={post.image} alt={post.title} loading="lazy">
+                </a>
+              </div>
+              <div class="post__body">
+                <div class="post__meta">
+                  <span class="post__meta-cat">{post.category}</span>
+                  <span class="post__meta-date">{new Date(post.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}</span>
+                </div>
+                <h4 class="post__title">
+                  <a href={`/blog/${post.slug}`}>{post.title}</a>
+                </h4>
+                <p class="post__desc">{post.excerpt}</p>
+                <div class="post__footer">
+                  <span class="post__author">By {post.author}</span>
+                  <span class="post__read">{post.readTime}</span>
+                </div>
+                <a href={`/blog/${post.slug}`} class="btn btn__secondary btn__link btn__rounded">
+                  <span>Read More</span>
+                  <i class="icon-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <!-- Pagination -->
+      <div class="row mt-50">
+        <div class="col-12">
+          <nav class="pagination-area">
+            <ul class="pagination">
+              <li class="page-item disabled">
+                <a class="page-link" href="#" aria-label="Previous">
+                  <i class="icon-arrow-left"></i>
+                </a>
+              </li>
+              <li class="page-item active"><a class="page-link" href="#">1</a></li>
+              <li class="page-item"><a class="page-link" href="#">2</a></li>
+              <li class="page-item"><a class="page-link" href="#">3</a></li>
+              <li class="page-item">
+                <a class="page-link" href="#" aria-label="Next">
+                  <i class="icon-arrow-right"></i>
+                </a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Signup -->
+  <section class="newsletter-section pb-90 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="newsletter-box text-center">
+            <h3 class="newsletter__title">Subscribe to Our Newsletter</h3>
+            <p class="newsletter__desc">Get the latest liver health tips, research updates, and medical insights delivered to your inbox.</p>
+            <form class="newsletter-form">
+              <div class="form-group">
+                <input type="email" class="form-control" placeholder="Enter your email address" required>
+                <button type="submit" class="btn btn__primary btn__rounded">
+                  <span>Subscribe</span>
+                  <i class="icon-arrow-right"></i>
+                </button>
+              </div>
+              <p class="newsletter__privacy">We respect your privacy. Unsubscribe anytime.</p>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .featured-post-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  }
+  
+  .featured-post__img {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .featured-post__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .badge-featured {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #D1A648;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 14px;
+  }
+  
+  .featured-post__content {
+    padding: 40px;
+  }
+  
+  .featured-post__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin: 20px 0;
+    line-height: 1.3;
+  }
+  
+  .featured-post__excerpt {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .blog-filter {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+  }
+  
+  .filter-btn {
+    padding: 10px 25px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    color: #22336B;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #22336B;
+    color: #fff;
+    border-color: #22336B;
+  }
+  
+  .post-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .post__img {
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .post__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .post-item:hover .post__img img {
+    transform: scale(1.1);
+  }
+  
+  .post__body {
+    padding: 30px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .post__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 15px;
+  }
+  
+  .post__meta-cat {
+    background: #D1A648;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .post__meta-date,
+  .post__meta-read {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .post__title {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .post__title a {
+    color: #22336B;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .post__title a:hover {
+    color: #D1A648;
+  }
+  
+  .post__desc {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    flex: 1;
+  }
+  
+  .post__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0;
+    margin-bottom: 20px;
+  }
+  
+  .post__author {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .post__read {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .newsletter-box {
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .newsletter__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+  }
+  
+  .newsletter__desc {
+    color: #666;
+    margin-bottom: 30px;
+  }
+  
+  .newsletter-form .form-group {
+    display: flex;
+    gap: 15px;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+  
+  .newsletter-form .form-control {
+    flex: 1;
+    padding: 15px 25px;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    font-size: 16px;
+  }
+  
+  .newsletter__privacy {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #999;
+  }
+  
+  .pagination-area {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .pagination {
+    display: flex;
+    gap: 10px;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .page-item .page-link {
+    display: block;
+    padding: 10px 18px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    color: #22336B;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  
+  .page-item.active .page-link,
+  .page-item .page-link:hover {
+    background: #22336B;
+    color: #fff;
+    border-color: #22336B;
+  }
+  
+  .page-item.disabled .page-link {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+</style>
+
+<script is:inline>
+  // Blog filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const blogItems = document.querySelectorAll('.blog-post-item');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        blogItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+    
+    // Newsletter form submission
+    const newsletterForm = document.querySelector('.newsletter-form');
+    if (newsletterForm) {
+      newsletterForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Thank you for subscribing! You will receive our latest updates.');
+        this.reset();
+      });
+    }
+  });
+</script>
+

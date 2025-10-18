@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Patient Guides | South Asian Liver Institute";
+const description = "Comprehensive patient guides covering liver diseases, treatments, pre and post-operative care, dietary recommendations, and lifestyle management.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/13.jpg" alt="Patient Guides"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="pagetitle__heading">Patient Guides & Resources</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item">Resources</li>
+              <li class="breadcrumb-item active">Patient Guides</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-130 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2>Comprehensive Patient Resources</h2>
+            <p>Download our patient guides for detailed information on liver conditions, treatments, and care instructions.</p>
+          </div>
+
+          <!-- Guide Categories -->
+          <div class="guide-item">
+            <h3><i class="icon-heart2"></i> Liver Transplant Guide</h3>
+            <p>Complete guide to liver transplantation including pre-operative preparation, surgery details, recovery process, and long-term care.</p>
+            <a href="/services/liver-transplantation" class="btn btn__link btn__primary">View Guide <i class="icon-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-item">
+            <h3><i class="icon-drugs"></i> Medication Guide</h3>
+            <p>Information about immunosuppression medications, potential side effects, drug interactions, and medication management.</p>
+            <a href="/appointment" class="btn btn__link btn__primary">Consult Specialist <i class="icon-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-item">
+            <h3><i class="icon-first-aid-kit"></i> Dietary Guidelines</h3>
+            <p>Nutrition recommendations for various liver conditions including cirrhosis, fatty liver, and post-transplant dietary needs.</p>
+            <a href="/services/fatty-liver" class="btn btn__link btn__primary">Learn More <i class="icon-arrow-right"></i></a>
+          </div>
+
+          <div class="guide-item">
+            <h3><i class="icon-stethoscope"></i> Post-Operative Care</h3>
+            <p>Essential information about post-surgical care, wound management, physical activity guidelines, and warning signs to watch for.</p>
+            <a href="/services/liver-transplantation" class="btn btn__link btn__primary">View Guide <i class="icon-arrow-right"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .guide-item {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 25px;
+  }
+  
+  .guide-item h3 {
+    font-size: 24px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+  }
+  
+  .guide-item h3 i {
+    color: #D1A648;
+    margin-right: 10px;
+  }
+  
+  .guide-item p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+</style>
+

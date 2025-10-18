@@ -1,0 +1,348 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "News & Media | South Asian Liver Institute";
+const description = "Latest news, press releases, and media coverage about SALi's medical achievements, health camps, and community initiatives.";
+const keywords = "SALi news, liver health news, medical press releases, health campaigns, liver transplant success stories";
+
+// Sample news articles
+const newsArticles = [
+  {
+    id: 1,
+    title: "SALi Achieves Milestone: 2,000 Successful Liver Transplants",
+    excerpt: "South Asian Liver Institute celebrates a major milestone with 2,000 successful liver transplant procedures, maintaining a 91% survival rate that exceeds international standards.",
+    date: "2025-01-18",
+    category: "Milestone",
+    image: "/assets/images/blog/grid/1.jpg"
+  },
+  {
+    id: 2,
+    title: "Free Liver Screening Camp in Hyderabad Benefits 500+ Patients",
+    excerpt: "SALi organizes comprehensive liver health screening camp in Hyderabad, providing free FibroScan tests and consultations to over 500 community members.",
+    date: "2025-01-12",
+    category: "Community Service",
+    image: "/assets/images/blog/grid/2.jpg"
+  },
+  {
+    id: 3,
+    title: "World Liver Day 2025: SALi Launches Awareness Campaign",
+    excerpt: "In observance of World Liver Day, SALi launches a nationwide awareness campaign focusing on fatty liver disease prevention and early detection.",
+    date: "2025-01-05",
+    category: "Awareness",
+    image: "/assets/images/services/1.jpg"
+  },
+  {
+    id: 4,
+    title: "New Advanced Diagnostic Center Opens in Mumbai",
+    excerpt: "SALi expands its services with a state-of-the-art diagnostic center in Mumbai, equipped with the latest liver imaging and diagnostic technologies.",
+    date: "2024-12-28",
+    category: "Expansion",
+    image: "/assets/images/services/2.jpg"
+  },
+  {
+    id: 5,
+    title: "Dr. Tom Cherian Honored for Excellence in Liver Transplantation",
+    excerpt: "Prof. Dr. Tom Cherian receives national recognition for his outstanding contributions to liver transplantation and hepatology in India.",
+    date: "2024-12-20",
+    category: "Awards",
+    image: "/assets/images/team/1.jpg"
+  },
+  {
+    id: 6,
+    title: "LICAP Programme Helps 1,000+ Cirrhosis Patients",
+    excerpt: "SALi's Liver Cirrhosis Awareness Programme (LICAP) successfully provides education and support to over 1,000 patients across India.",
+    date: "2024-12-15",
+    category: "Programme Success",
+    image: "/assets/images/services/3.jpg"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/9.jpg" alt="News & Media"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">News & Media</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/media">Media</a></li>
+              <li class="breadcrumb-item active" aria-current="page">News</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Introduction -->
+  <section class="news-intro pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Stay Updated</h2>
+            <h3 class="heading__title">Latest News from SALi</h3>
+            <p class="heading__desc">Explore our latest achievements, community initiatives, and medical breakthroughs in liver care.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured News -->
+  <section class="featured-news pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="featured-news-card">
+            <div class="row align-items-center">
+              <div class="col-md-6">
+                <div class="featured-news__img">
+                  <img src={newsArticles[0].image} alt={newsArticles[0].title}>
+                  <span class="badge badge-featured">Latest</span>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="featured-news__content">
+                  <div class="news__meta">
+                    <span class="news__category">{newsArticles[0].category}</span>
+                    <span class="news__date">{new Date(newsArticles[0].date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+                  </div>
+                  <h2 class="featured-news__title">{newsArticles[0].title}</h2>
+                  <p class="featured-news__excerpt">{newsArticles[0].excerpt}</p>
+                  <a href="#" class="btn btn__primary btn__rounded">
+                    <span>Read Full Story</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- News Grid -->
+  <section class="news-grid pb-90">
+    <div class="container">
+      <div class="row">
+        {newsArticles.slice(1).map((article) => (
+          <div class="col-sm-12 col-md-6 col-lg-4">
+            <div class="news-item">
+              <div class="news__img">
+                <img src={article.image} alt={article.title}>
+                <span class="news__badge">{article.category}</span>
+              </div>
+              <div class="news__content">
+                <div class="news__meta">
+                  <span class="news__date">
+                    <i class="icon-calendar"></i>
+                    {new Date(article.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' })}
+                  </span>
+                </div>
+                <h4 class="news__title">{article.title}</h4>
+                <p class="news__excerpt">{article.excerpt}</p>
+                <a href="#" class="btn btn__link btn__primary">
+                  <span>Read More</span>
+                  <i class="icon-arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Media Contact -->
+  <section class="media-contact pb-90 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="media-contact-box text-center">
+            <h3>Media & Press Inquiries</h3>
+            <p>For press releases, interviews, or media partnerships, please contact our communications team.</p>
+            <div class="contact-info">
+              <p><strong>Email:</strong> <a href="mailto:media@southasianliverinstitute.com">media@southasianliverinstitute.com</a></p>
+              <p><strong>Phone:</strong> <a href="tel:+918070670670">+91-8070 670 670</a></p>
+            </div>
+            <a href="/contact" class="btn btn__primary btn__rounded mt-20">
+              <span>Contact Us</span>
+              <i class="icon-arrow-right"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .featured-news-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 40px rgba(0,0,0,0.1);
+  }
+  
+  .featured-news__img {
+    position: relative;
+    height: 400px;
+    overflow: hidden;
+  }
+  
+  .featured-news__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .badge-featured {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    background: #dc3545;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-weight: 600;
+  }
+  
+  .featured-news__content {
+    padding: 40px;
+  }
+  
+  .news__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .news__category {
+    background: #D1A648;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .news__date {
+    color: #999;
+    font-size: 14px;
+  }
+  
+  .featured-news__title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .featured-news__excerpt {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 25px;
+  }
+  
+  .news-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .news-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .news__img {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .news__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  
+  .news-item:hover .news__img img {
+    transform: scale(1.1);
+  }
+  
+  .news__badge {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: rgba(34, 51, 107, 0.9);
+    color: #fff;
+    padding: 6px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .news__content {
+    padding: 25px;
+  }
+  
+  .news__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .news__excerpt {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .media-contact-box {
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .media-contact-box h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .media-contact-box p {
+    color: #666;
+    margin-bottom: 15px;
+  }
+  
+  .contact-info {
+    margin: 30px 0;
+  }
+  
+  .contact-info a {
+    color: #D1A648;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  
+  .contact-info a:hover {
+    text-decoration: underline;
+  }
+</style>
+

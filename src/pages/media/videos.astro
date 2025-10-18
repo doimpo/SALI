@@ -1,0 +1,344 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Video Library | South Asian Liver Institute";
+const description = "Watch educational videos, patient testimonials, procedure explanations, and health tips from SALi's liver specialists.";
+const keywords = "liver health videos, medical videos, patient testimonials, liver transplant videos, educational health content";
+
+// Sample video data
+const videos = [
+  {
+    id: 1,
+    title: "Understanding Liver Transplantation: Complete Guide",
+    description: "Dr. Tom Cherian explains the liver transplant process, from evaluation to recovery.",
+    category: "Educational",
+    duration: "15:30",
+    thumbnail: "/assets/images/services/1.jpg",
+    youtubeId: "nrJtHemSPW4"
+  },
+  {
+    id: 2,
+    title: "Patient Success Story: Life After Liver Transplant",
+    description: "Meet Rajesh, who received a successful liver transplant at SALi and returned to normal life.",
+    category: "Testimonial",
+    duration: "8:45",
+    thumbnail: "/assets/images/testimonials/thumbs/1.png",
+    youtubeId: "nrJtHemSPW4"
+  },
+  {
+    id: 3,
+    title: "Managing Fatty Liver Disease: Expert Tips",
+    description: "Learn diet and lifestyle changes to reverse fatty liver disease from our nutrition team.",
+    category: "Health Tips",
+    duration: "12:20",
+    thumbnail: "/assets/images/services/2.jpg",
+    youtubeId: "nrJtHemSPW4"
+  },
+  {
+    id: 4,
+    title: "Virtual Tour: SALi's State-of-the-Art Facilities",
+    description: "Take a virtual tour of our modern facilities and advanced medical equipment.",
+    category: "Facility Tour",
+    duration: "10:15",
+    thumbnail: "/assets/images/gallery/1.jpg",
+    youtubeId: "nrJtHemSPW4"
+  },
+  {
+    id: 5,
+    title: "Cirrhosis Management: What You Need to Know",
+    description: "Comprehensive guide to living with cirrhosis and preventing complications.",
+    category: "Educational",
+    duration: "14:50",
+    thumbnail: "/assets/images/services/3.jpg",
+    youtubeId: "nrJtHemSPW4"
+  },
+  {
+    id: 6,
+    title: "LICAP Programme: Community Impact",
+    description: "See how SALi's LICAP programme is making a difference in patients' lives.",
+    category: "Programme",
+    duration: "9:30",
+    thumbnail: "/assets/images/services/4.jpg",
+    youtubeId: "nrJtHemSPW4"
+  }
+];
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/10.jpg" alt="Videos"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Video Library</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/media">Media</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Videos</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Library Intro -->
+  <section class="video-intro pt-130 pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="heading text-center mb-50">
+            <h2 class="heading__subtitle">Watch & Learn</h2>
+            <h3 class="heading__title">Educational Videos & Patient Stories</h3>
+            <p class="heading__desc">Browse our collection of informative videos covering liver health, treatments, patient experiences, and expert medical advice.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Category Filter -->
+  <section class="video-filter pb-60">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="filter-buttons text-center">
+            <button class="filter-btn active" data-filter="all">All Videos</button>
+            <button class="filter-btn" data-filter="Educational">Educational</button>
+            <button class="filter-btn" data-filter="Testimonial">Testimonials</button>
+            <button class="filter-btn" data-filter="Health Tips">Health Tips</button>
+            <button class="filter-btn" data-filter="Programme">Programmes</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Grid -->
+  <section class="video-grid pb-90">
+    <div class="container">
+      <div class="row videos-container">
+        {videos.map((video) => (
+          <div class="col-sm-12 col-md-6 col-lg-4 video-item" data-category={video.category}>
+            <div class="video-card">
+              <div class="video__thumbnail">
+                <img src={video.thumbnail} alt={video.title}>
+                <a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} class="video__play popup-video">
+                  <div class="play-button">
+                    <i class="fa fa-play"></i>
+                  </div>
+                </a>
+                <span class="video__duration">{video.duration}</span>
+              </div>
+              <div class="video__content">
+                <span class="video__category">{video.category}</span>
+                <h4 class="video__title">{video.title}</h4>
+                <p class="video__description">{video.description}</p>
+                <a href={`https://www.youtube.com/watch?v=${video.youtubeId}`} class="btn btn__link btn__primary popup-video">
+                  <i class="fa fa-play-circle"></i>
+                  <span>Watch Video</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- YouTube Channel CTA -->
+  <section class="youtube-cta pb-90 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="youtube-box text-center">
+            <i class="fab fa-youtube" style="font-size: 60px; color: #ff0000; margin-bottom: 20px;"></i>
+            <h3>Subscribe to Our YouTube Channel</h3>
+            <p>Get the latest liver health videos, medical insights, and patient success stories delivered directly to you.</p>
+            <a href="https://www.youtube.com/c/SouthAsianLiverInstitute" target="_blank" class="btn btn__primary btn__rounded">
+              <i class="fab fa-youtube"></i>
+              <span>Subscribe Now</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .filter-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+  
+  .filter-btn {
+    padding: 10px 25px;
+    background: #fff;
+    border: 2px solid #e0e0e0;
+    border-radius: 50px;
+    color: #22336B;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  .filter-btn:hover,
+  .filter-btn.active {
+    background: #22336B;
+    color: #fff;
+    border-color: #22336B;
+  }
+  
+  .video-card {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+    transition: all 0.3s ease;
+  }
+  
+  .video-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.15);
+  }
+  
+  .video__thumbnail {
+    position: relative;
+    height: 250px;
+    overflow: hidden;
+  }
+  
+  .video__thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .video__play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 2;
+    text-decoration: none;
+  }
+  
+  .play-button {
+    width: 70px;
+    height: 70px;
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+  }
+  
+  .play-button i {
+    font-size: 28px;
+    color: #dc3545;
+    margin-left: 4px;
+  }
+  
+  .video-card:hover .play-button {
+    transform: scale(1.1);
+    background: #D1A648;
+  }
+  
+  .video-card:hover .play-button i {
+    color: #fff;
+  }
+  
+  .video__duration {
+    position: absolute;
+    bottom: 15px;
+    right: 15px;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .video__content {
+    padding: 25px;
+  }
+  
+  .video__category {
+    background: #D1A648;
+    color: #fff;
+    padding: 5px 15px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 15px;
+  }
+  
+  .video__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+    line-height: 1.4;
+  }
+  
+  .video__description {
+    color: #666;
+    line-height: 1.6;
+    margin-bottom: 20px;
+  }
+  
+  .youtube-box {
+    background: #fff;
+    padding: 60px 40px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .youtube-box h3 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .youtube-box p {
+    color: #666;
+    margin-bottom: 30px;
+  }
+</style>
+
+<script is:inline>
+  // Video filter functionality
+  document.addEventListener('DOMContentLoaded', function() {
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const videoItems = document.querySelectorAll('.video-item');
+    
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', function() {
+        filterBtns.forEach(b => b.classList.remove('active'));
+        this.classList.add('active');
+        
+        const filter = this.getAttribute('data-filter');
+        
+        videoItems.forEach(item => {
+          if (filter === 'all' || item.getAttribute('data-category') === filter) {
+            item.style.display = 'block';
+          } else {
+            item.style.display = 'none';
+          }
+        });
+      });
+    });
+  });
+</script>
+

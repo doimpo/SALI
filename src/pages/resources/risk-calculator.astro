@@ -1,0 +1,292 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Liver Health Risk Calculator | South Asian Liver Institute";
+const description = "Assess your liver health risk with our interactive calculator. Get personalized recommendations based on your lifestyle and health factors.";
+const keywords = "liver health calculator, liver disease risk, health assessment, liver screening, risk factors";
+---
+
+<BaseLayout title={title} description={description} keywords={keywords}>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/12.jpg" alt="Risk Calculator"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-12">
+          <h1 class="pagetitle__heading">Liver Health Risk Calculator</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item"><a href="/resources/risk-calculator">Resources</a></li>
+              <li class="breadcrumb-item active" aria-current="page">Risk Calculator</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator Section -->
+  <section class="calculator-section pt-130 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8 offset-lg-2">
+          <div class="calculator-intro text-center mb-50">
+            <h2>Assess Your Liver Health Risk</h2>
+            <p>Answer the following questions to understand your risk factors for liver disease. This tool is for educational purposes only and does not replace professional medical advice.</p>
+          </div>
+
+          <div class="calculator-form">
+            <form id="riskCalculator">
+              <!-- Age -->
+              <div class="form-group">
+                <label>What is your age?</label>
+                <select class="form-control" id="age" required>
+                  <option value="">Select age range</option>
+                  <option value="0">Under 30</option>
+                  <option value="1">30-40</option>
+                  <option value="2">41-50</option>
+                  <option value="3">51-60</option>
+                  <option value="4">Over 60</option>
+                </select>
+              </div>
+
+              <!-- BMI -->
+              <div class="form-group">
+                <label>What is your Body Mass Index (BMI)?</label>
+                <select class="form-control" id="bmi" required>
+                  <option value="">Select BMI range</option>
+                  <option value="0">Under 25 (Normal)</option>
+                  <option value="2">25-30 (Overweight)</option>
+                  <option value="4">Over 30 (Obese)</option>
+                </select>
+              </div>
+
+              <!-- Alcohol -->
+              <div class="form-group">
+                <label>How often do you consume alcohol?</label>
+                <select class="form-control" id="alcohol" required>
+                  <option value="">Select frequency</option>
+                  <option value="0">Never</option>
+                  <option value="1">Occasionally (1-2 times/month)</option>
+                  <option value="3">Regularly (1-2 times/week)</option>
+                  <option value="5">Daily or heavily</option>
+                </select>
+              </div>
+
+              <!-- Diabetes -->
+              <div class="form-group">
+                <label>Do you have diabetes or pre-diabetes?</label>
+                <select class="form-control" id="diabetes" required>
+                  <option value="">Select</option>
+                  <option value="0">No</option>
+                  <option value="2">Pre-diabetes</option>
+                  <option value="4">Yes, diagnosed diabetes</option>
+                </select>
+              </div>
+
+              <!-- Family History -->
+              <div class="form-group">
+                <label>Do you have a family history of liver disease?</label>
+                <select class="form-control" id="familyHistory" required>
+                  <option value="">Select</option>
+                  <option value="0">No</option>
+                  <option value="2">Yes</option>
+                  <option value="1">Not sure</option>
+                </select>
+              </div>
+
+              <!-- Hepatitis -->
+              <div class="form-group">
+                <label>Have you been tested for Hepatitis B or C?</label>
+                <select class="form-control" id="hepatitis" required>
+                  <option value="">Select</option>
+                  <option value="0">Yes, negative</option>
+                  <option value="5">Yes, positive</option>
+                  <option value="2">No, never tested</option>
+                </select>
+              </div>
+
+              <button type="submit" class="btn btn__primary btn__rounded btn__block">
+                <span>Calculate Risk</span>
+                <i class="icon-arrow-right"></i>
+              </button>
+            </form>
+
+            <!-- Results -->
+            <div id="results" class="results-box" style="display: none;">
+              <h3 id="riskLevel"></h3>
+              <p id="riskDescription"></p>
+              <div id="recommendations"></div>
+              <div class="results-actions">
+                <a href="/appointment" class="btn btn__primary btn__rounded mr-20">
+                  <span>Book Consultation</span>
+                </a>
+                <button onclick="resetCalculator()" class="btn btn__secondary btn__rounded">
+                  <span>Calculate Again</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Disclaimer -->
+  <section class="disclaimer-section pb-90 bg-gray">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
+          <div class="disclaimer-box">
+            <h4>⚠️ Important Disclaimer</h4>
+            <p>This risk calculator is for educational purposes only and does not provide medical diagnosis or treatment recommendations. Results should not replace professional medical evaluation.</p>
+            <p><strong>If you have concerns about your liver health, please consult with a healthcare provider or call us at <a href="tel:+918070670670">+91-8070 670 670</a>.</strong></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .calculator-intro h2 {
+    font-size: 32px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+  }
+  
+  .calculator-form {
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .form-group {
+    margin-bottom: 30px;
+  }
+  
+  .form-group label {
+    display: block;
+    font-size: 18px;
+    font-weight: 600;
+    color: #22336B;
+    margin-bottom: 15px;
+  }
+  
+  .form-control {
+    width: 100%;
+    padding: 15px 20px;
+    border: 2px solid #e0e0e0;
+    border-radius: 8px;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+  }
+  
+  .form-control:focus {
+    border-color: #22336B;
+    outline: none;
+  }
+  
+  .results-box {
+    margin-top: 40px;
+    padding: 40px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border-left: 5px solid #D1A648;
+  }
+  
+  .results-box h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 20px;
+  }
+  
+  .results-box.low-risk h3 { color: #28a745; }
+  .results-box.moderate-risk h3 { color: #ffc107; }
+  .results-box.high-risk h3 { color: #dc3545; }
+  
+  .results-actions {
+    margin-top: 30px;
+  }
+  
+  .disclaimer-box {
+    background: #fff3cd;
+    padding: 30px;
+    border-radius: 8px;
+    border-left: 4px solid #ffc107;
+  }
+  
+  .disclaimer-box h4 {
+    color: #856404;
+    font-weight: 700;
+    margin-bottom: 15px;
+  }
+  
+  .disclaimer-box p {
+    color: #856404;
+    margin-bottom: 10px;
+  }
+  
+  .disclaimer-box a {
+    color: #D1A648;
+    text-decoration: none;
+    font-weight: 600;
+  }
+</style>
+
+<script is:inline>
+  function resetCalculator() {
+    document.getElementById('riskCalculator').reset();
+    document.getElementById('results').style.display = 'none';
+  }
+  
+  document.getElementById('riskCalculator').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const age = parseInt(document.getElementById('age').value);
+    const bmi = parseInt(document.getElementById('bmi').value);
+    const alcohol = parseInt(document.getElementById('alcohol').value);
+    const diabetes = parseInt(document.getElementById('diabetes').value);
+    const familyHistory = parseInt(document.getElementById('familyHistory').value);
+    const hepatitis = parseInt(document.getElementById('hepatitis').value);
+    
+    const totalScore = age + bmi + alcohol + diabetes + familyHistory + hepatitis;
+    
+    const resultsBox = document.getElementById('results');
+    const riskLevel = document.getElementById('riskLevel');
+    const riskDescription = document.getElementById('riskDescription');
+    const recommendations = document.getElementById('recommendations');
+    
+    resultsBox.classList.remove('low-risk', 'moderate-risk', 'high-risk');
+    
+    let level, description, recs;
+    
+    if (totalScore <= 5) {
+      level = 'Low Risk';
+      description = 'Based on your responses, you appear to have a low risk for liver disease. Continue maintaining a healthy lifestyle!';
+      recs = '<h4>Recommendations:</h4><ul><li>Maintain a healthy weight</li><li>Exercise regularly</li><li>Limit alcohol consumption</li><li>Get vaccinated for Hepatitis B</li><li>Regular health check-ups</li></ul>';
+      resultsBox.classList.add('low-risk');
+    } else if (totalScore <= 12) {
+      level = 'Moderate Risk';
+      description = 'Your responses indicate moderate risk factors for liver disease. Consider scheduling a consultation with our specialists for evaluation.';
+      recs = '<h4>Recommendations:</h4><ul><li>Schedule liver function tests</li><li>Consult with a hepatologist</li><li>Reduce alcohol intake</li><li>Focus on weight management</li><li>Regular monitoring advised</li></ul>';
+      resultsBox.classList.add('moderate-risk');
+    } else {
+      level = 'High Risk';
+      description = 'Your responses suggest significant risk factors for liver disease. We strongly recommend scheduling a comprehensive evaluation with our liver specialists.';
+      recs = '<h4>Urgent Recommendations:</h4><ul><li>Book immediate consultation</li><li>Comprehensive liver screening needed</li><li>Lifestyle modifications required</li><li>Medical supervision recommended</li><li>Regular follow-up essential</li></ul>';
+      resultsBox.classList.add('high-risk');
+    }
+    
+    riskLevel.textContent = 'Your Risk Level: ' + level;
+    riskDescription.textContent = description;
+    recommendations.innerHTML = recs;
+    
+    resultsBox.style.display = 'block';
+    resultsBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  });
+</script>
+

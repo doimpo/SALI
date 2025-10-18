@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = "Educational Videos | South Asian Liver Institute";
+const description = "Watch educational videos about liver health, disease prevention, treatment procedures, and patient care from SALi's medical experts.";
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax text-center">
+    <div class="bg-img"><img src="/assets/images/page-titles/14.jpg" alt="Educational Videos"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <h1 class="pagetitle__heading">Educational Videos</h1>
+          <nav aria-label="breadcrumb">
+            <ol class="breadcrumb justify-content-center">
+              <li class="breadcrumb-item"><a href="/">Home</a></li>
+              <li class="breadcrumb-item">Resources</li>
+              <li class="breadcrumb-item active">Videos</li>
+            </ol>
+          </nav>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pt-130 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-8 offset-lg-2 text-center mb-50">
+          <h2>Learn from Our Experts</h2>
+          <p>Watch comprehensive video tutorials and educational content about liver health and treatments.</p>
+          <a href="/media/videos" class="btn btn__primary btn__rounded">
+            <i class="fab fa-youtube"></i>
+            <span>Watch All Videos</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

@@ -1,0 +1,573 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+// In production, this would fetch from a CMS or markdown files
+// For now, we'll use static generation with sample content
+export function getStaticPaths() {
+  return [
+    { params: { slug: 'understanding-fatty-liver-disease' } },
+    { params: { slug: 'life-after-liver-transplant' } },
+    { params: { slug: 'managing-liver-cirrhosis' } },
+    { params: { slug: 'liver-cancer-early-detection' } },
+    { params: { slug: 'hepatitis-prevention-guide' } },
+    { params: { slug: 'nutrition-for-liver-health' } },
+  ];
+}
+
+const { slug } = Astro.params;
+
+// Sample blog post data (in production, fetch from CMS)
+const blogPosts = {
+  'understanding-fatty-liver-disease': {
+    title: "Understanding Fatty Liver Disease: Prevention and Management",
+    excerpt: "Fatty liver disease affects millions worldwide. Learn about risk factors, early warning signs, and evidence-based management strategies.",
+    category: "Liver Health",
+    author: "SALi Medical Team",
+    date: "2025-01-15",
+    image: "/assets/images/blog/grid/1.jpg",
+    readTime: "8 min read"
+  },
+  'life-after-liver-transplant': {
+    title: "Life After Liver Transplant: What to Expect During Recovery",
+    excerpt: "Comprehensive guide to post-transplant care, immunosuppression management, and long-term health monitoring.",
+    category: "Liver Transplant",
+    author: "Prof. Dr. Tom Cherian",
+    date: "2025-01-10",
+    image: "/assets/images/blog/grid/2.jpg",
+    readTime: "12 min read"
+  },
+  'managing-liver-cirrhosis': {
+    title: "Managing Liver Cirrhosis: Diet, Lifestyle, and Treatment Options",
+    excerpt: "Evidence-based strategies for living well with cirrhosis and slowing disease progression.",
+    category: "Cirrhosis",
+    author: "SALi Hepatology Team",
+    date: "2025-01-05",
+    image: "/assets/images/blog/grid/3.jpg",
+    readTime: "10 min read"
+  },
+  'liver-cancer-early-detection': {
+    title: "Liver Cancer: Early Detection Saves Lives",
+    excerpt: "Comprehensive guide to liver cancer screening, risk factors, and early warning signs.",
+    category: "Liver Cancer",
+    author: "SALi Oncology Team",
+    date: "2024-12-28",
+    image: "/assets/images/services/4.jpg",
+    readTime: "7 min read"
+  },
+  'hepatitis-prevention-guide': {
+    title: "Complete Guide to Hepatitis Prevention and Treatment",
+    excerpt: "Everything you need to know about hepatitis prevention, vaccination, and treatment options.",
+    category: "Prevention",
+    author: "SALi Medical Team",
+    date: "2024-12-20",
+    image: "/assets/images/services/2.jpg",
+    readTime: "9 min read"
+  },
+  'nutrition-for-liver-health': {
+    title: "Nutrition for Optimal Liver Health: A Dietitian's Guide",
+    excerpt: "Expert nutrition advice for maintaining liver health and supporting liver function.",
+    category: "Nutrition",
+    author: "SALi Nutrition Team",
+    date: "2024-12-15",
+    image: "/assets/images/services/3.jpg",
+    readTime: "11 min read"
+  }
+};
+
+const post = blogPosts[slug];
+
+if (!post) {
+  return Astro.redirect('/404');
+}
+
+const title = `${post.title} | SALi Blog`;
+const description = post.excerpt;
+---
+
+<BaseLayout 
+  title={title} 
+  description={description}
+  type="article"
+  publishedTime={post.date}
+  author={post.author}
+  tags={[post.category, 'liver health', 'medical advice']}
+  image={post.image}
+>
+  <!-- Page Title -->
+  <section class="page-title page-title-layout1 bg-overlay bg-parallax">
+    <div class="bg-img"><img src={post.image} alt={post.title}></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-10 offset-lg-1">
+          <div class="page-title__content text-center">
+            <span class="page-title__category">{post.category}</span>
+            <h1 class="pagetitle__heading">{post.title}</h1>
+            <div class="page-title__meta">
+              <span class="meta-author">By {post.author}</span>
+              <span class="meta-date">{new Date(post.date).toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}</span>
+              <span class="meta-read">{post.readTime}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Post Content -->
+  <section class="blog-single pt-130 pb-90">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12 col-md-12 col-lg-8">
+          <article class="post-content">
+            <!-- Introduction -->
+            <div class="post-section mb-40">
+              <p class="lead">{post.excerpt}</p>
+              <p>At South Asian Liver Institute, we're committed to providing evidence-based information about liver health. This comprehensive guide covers everything you need to know about this important topic.</p>
+            </div>
+
+            <!-- Main Content -->
+            <div class="post-section mb-40">
+              <h2>Understanding the Condition</h2>
+              <p>Liver health is crucial for overall wellbeing. The liver performs over 500 vital functions in the body, including filtering blood, producing bile for digestion, storing energy, and metabolizing medications. When liver function is compromised, it can affect multiple organ systems.</p>
+              
+              <div class="info-box">
+                <h4>Key Facts</h4>
+                <ul>
+                  <li>The liver is the largest internal organ in the human body</li>
+                  <li>It has remarkable regenerative capabilities</li>
+                  <li>Early detection and treatment can prevent progression of most liver diseases</li>
+                  <li>Lifestyle factors play a significant role in liver health</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="post-section mb-40">
+              <h2>Risk Factors and Warning Signs</h2>
+              <p>Understanding risk factors helps in early detection and prevention. Common risk factors include:</p>
+              <ul>
+                <li><strong>Obesity and metabolic syndrome:</strong> Increases risk of fatty liver disease</li>
+                <li><strong>Excessive alcohol consumption:</strong> Can lead to alcoholic liver disease</li>
+                <li><strong>Viral hepatitis:</strong> Hepatitis B and C can cause chronic liver damage</li>
+                <li><strong>Diabetes:</strong> Associated with increased risk of liver disease</li>
+                <li><strong>Certain medications:</strong> Some drugs can affect liver function</li>
+              </ul>
+
+              <h3>Early Warning Signs</h3>
+              <p>Pay attention to these potential symptoms:</p>
+              <ul>
+                <li>Persistent fatigue and weakness</li>
+                <li>Loss of appetite or unexplained weight loss</li>
+                <li>Yellowing of skin or eyes (jaundice)</li>
+                <li>Abdominal pain or swelling</li>
+                <li>Dark urine or pale stools</li>
+                <li>Easy bruising or bleeding</li>
+              </ul>
+            </div>
+
+            <div class="post-section mb-40">
+              <h2>Prevention and Management Strategies</h2>
+              <p>Taking proactive steps can significantly improve liver health:</p>
+              
+              <h3>Lifestyle Modifications</h3>
+              <ul>
+                <li><strong>Maintain healthy weight:</strong> Aim for a BMI in the normal range</li>
+                <li><strong>Exercise regularly:</strong> At least 150 minutes of moderate activity per week</li>
+                <li><strong>Eat a balanced diet:</strong> Focus on whole foods, fruits, vegetables, and lean proteins</li>
+                <li><strong>Limit alcohol:</strong> Follow recommended guidelines or abstain completely</li>
+                <li><strong>Stay hydrated:</strong> Drink adequate water throughout the day</li>
+              </ul>
+
+              <h3>Medical Management</h3>
+              <p>Working with healthcare professionals is essential for optimal outcomes. At SALi, we offer:</p>
+              <ul>
+                <li>Comprehensive diagnostic testing and evaluation</li>
+                <li>Personalized treatment plans based on individual needs</li>
+                <li>Advanced therapeutic options including medication and procedures</li>
+                <li>Regular monitoring and follow-up care</li>
+                <li>Multidisciplinary team approach for complex cases</li>
+              </ul>
+            </div>
+
+            <div class="post-section mb-40">
+              <h2>When to Seek Medical Attention</h2>
+              <div class="alert-box">
+                <h4>⚠️ Seek Immediate Care If You Experience:</h4>
+                <ul>
+                  <li>Sudden severe abdominal pain</li>
+                  <li>Rapid onset of jaundice</li>
+                  <li>Confusion or altered mental status</li>
+                  <li>Vomiting blood or bloody stools</li>
+                  <li>Severe fatigue with difficulty staying awake</li>
+                </ul>
+                <p><strong>Emergency Contact: <a href="tel:+918070670670">+91-8070 670 670</a></strong></p>
+              </div>
+            </div>
+
+            <div class="post-section mb-40">
+              <h2>SALi's Approach to Treatment</h2>
+              <p>At South Asian Liver Institute, we provide comprehensive care using the latest medical advances:</p>
+              <ul>
+                <li><strong>Advanced Diagnostics:</strong> FibroScan, MRI, comprehensive lab testing</li>
+                <li><strong>Expert Specialists:</strong> Internationally trained hepatologists and surgeons</li>
+                <li><strong>Innovative Treatments:</strong> Latest medical and surgical options</li>
+                <li><strong>Holistic Care:</strong> Addressing physical, nutritional, and emotional health</li>
+                <li><strong>Long-term Support:</strong> Ongoing monitoring and follow-up</li>
+              </ul>
+            </div>
+
+            <!-- Conclusion -->
+            <div class="post-section mb-40">
+              <h2>Conclusion</h2>
+              <p>Understanding liver health is the first step toward maintaining optimal wellbeing. Whether you're concerned about prevention or managing an existing condition, early intervention and proper medical care make a significant difference in outcomes.</p>
+              <p>If you have concerns about your liver health or would like to schedule a consultation with our specialists, <a href="/appointment">book an appointment</a> or call us at <a href="tel:+918070670670">+91-8070 670 670</a>.</p>
+            </div>
+
+            <!-- Share Article -->
+            <div class="post-share">
+              <h4>Share This Article</h4>
+              <div class="share-buttons">
+                <a href="#" class="share-btn share-facebook"><i class="fab fa-facebook-f"></i> Facebook</a>
+                <a href="#" class="share-btn share-twitter"><i class="fab fa-twitter"></i> Twitter</a>
+                <a href="#" class="share-btn share-linkedin"><i class="fab fa-linkedin-in"></i> LinkedIn</a>
+                <a href="#" class="share-btn share-email"><i class="fas fa-envelope"></i> Email</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Related Posts -->
+          <div class="related-posts mt-60">
+            <h3 class="related-posts__title">Related Articles</h3>
+            <div class="row">
+              <div class="col-md-6">
+                <div class="related-post-item">
+                  <div class="related-post__img">
+                    <a href="/blog/managing-liver-cirrhosis">
+                      <img src="/assets/images/blog/grid/3.jpg" alt="Managing Liver Cirrhosis">
+                    </a>
+                  </div>
+                  <div class="related-post__content">
+                    <span class="related-post__cat">Cirrhosis</span>
+                    <h5 class="related-post__title">
+                      <a href="/blog/managing-liver-cirrhosis">Managing Liver Cirrhosis</a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="related-post-item">
+                  <div class="related-post__img">
+                    <a href="/blog/nutrition-for-liver-health">
+                      <img src="/assets/images/services/3.jpg" alt="Nutrition for Liver Health">
+                    </a>
+                  </div>
+                  <div class="related-post__content">
+                    <span class="related-post__cat">Nutrition</span>
+                    <h5 class="related-post__title">
+                      <a href="/blog/nutrition-for-liver-health">Nutrition for Liver Health</a>
+                    </h5>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="col-sm-12 col-md-12 col-lg-4">
+          <aside class="sidebar">
+            <!-- About Author -->
+            <div class="widget widget-author">
+              <h5 class="widget__title">About the Author</h5>
+              <div class="widget__content">
+                <div class="author-info">
+                  <h6>{post.author}</h6>
+                  <p>Our team of liver specialists and medical professionals are dedicated to providing expert insights on liver health, backed by years of clinical experience and research.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- Categories -->
+            <div class="widget widget-categories">
+              <h5 class="widget__title">Categories</h5>
+              <ul class="list-unstyled">
+                <li><a href="/blog">Liver Health</a></li>
+                <li><a href="/blog">Liver Transplant</a></li>
+                <li><a href="/blog">Cirrhosis</a></li>
+                <li><a href="/blog">Prevention</a></li>
+                <li><a href="/blog">Nutrition</a></li>
+              </ul>
+            </div>
+
+            <!-- CTA Widget -->
+            <div class="widget widget-cta">
+              <h5 class="widget__title">Need Medical Advice?</h5>
+              <p>Schedule a consultation with our liver specialists.</p>
+              <a href="/appointment" class="btn btn__primary btn__block">
+                <span>Book Appointment</span>
+                <i class="icon-arrow-right"></i>
+              </a>
+            </div>
+
+            <!-- Contact Widget -->
+            <div class="widget widget-contact">
+              <h5 class="widget__title">Contact Us</h5>
+              <p>Questions about liver health?</p>
+              <a href="tel:+918070670670" class="contact-link">
+                <i class="icon-phone"></i>
+                <span>+91-8070 670 670</span>
+              </a>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .page-title__category {
+    background: #D1A648;
+    color: #fff;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 600;
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  
+  .page-title__meta {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .post-content {
+    background: #fff;
+    padding: 50px;
+    border-radius: 8px;
+    box-shadow: 0 0 30px rgba(0,0,0,0.08);
+  }
+  
+  .lead {
+    font-size: 20px;
+    font-weight: 600;
+    color: #22336B;
+    line-height: 1.6;
+    margin-bottom: 25px;
+  }
+  
+  .post-content h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #22336B;
+    margin-top: 35px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid #D1A648;
+    padding-bottom: 10px;
+  }
+  
+  .post-content h3 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #22336B;
+    margin-top: 25px;
+    margin-bottom: 15px;
+  }
+  
+  .post-content p {
+    color: #666;
+    line-height: 1.8;
+    margin-bottom: 20px;
+  }
+  
+  .post-content ul, .post-content ol {
+    margin: 20px 0 20px 30px;
+    color: #666;
+  }
+  
+  .post-content li {
+    margin-bottom: 12px;
+    line-height: 1.6;
+  }
+  
+  .info-box, .alert-box {
+    background: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    margin: 25px 0;
+  }
+  
+  .alert-box {
+    background: #fff5f5;
+    border-left: 4px solid #dc3545;
+  }
+  
+  .info-box h4, .alert-box h4 {
+    font-size: 18px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 15px;
+  }
+  
+  .post-share {
+    border-top: 2px solid #f0f0f0;
+    padding-top: 30px;
+    margin-top: 40px;
+  }
+  
+  .share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 20px;
+  }
+  
+  .share-btn {
+    padding: 10px 20px;
+    border-radius: 50px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    transition: all 0.3s ease;
+  }
+  
+  .share-facebook { background: #1877f2; }
+  .share-twitter { background: #1da1f2; }
+  .share-linkedin { background: #0077b5; }
+  .share-email { background: #666; }
+  
+  .share-btn:hover {
+    transform: translateY(-3px);
+    opacity: 0.9;
+  }
+  
+  .related-posts__title {
+    font-size: 28px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 30px;
+  }
+  
+  .related-post-item {
+    background: #fff;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 20px;
+  }
+  
+  .related-post__img {
+    height: 180px;
+    overflow: hidden;
+  }
+  
+  .related-post__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+  
+  .related-post-item:hover .related-post__img img {
+    transform: scale(1.1);
+  }
+  
+  .related-post__content {
+    padding: 20px;
+  }
+  
+  .related-post__cat {
+    background: #D1A648;
+    color: #fff;
+    padding: 5px 12px;
+    border-radius: 50px;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  
+  .related-post__title {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  
+  .related-post__title a {
+    color: #22336B;
+    text-decoration: none;
+  }
+  
+  .related-post__title a:hover {
+    color: #D1A648;
+  }
+  
+  .sidebar .widget {
+    background: #fff;
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.08);
+    margin-bottom: 30px;
+  }
+  
+  .widget__title {
+    font-size: 20px;
+    font-weight: 700;
+    color: #22336B;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 2px solid #D1A648;
+  }
+  
+  .widget-categories ul li {
+    padding: 10px 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .widget-categories ul li:last-child {
+    border-bottom: none;
+  }
+  
+  .widget-categories a {
+    color: #666;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  .widget-categories a:hover {
+    color: #D1A648;
+  }
+  
+  .widget-cta {
+    background: linear-gradient(135deg, #22336B 0%, #1a2752 100%);
+    color: #fff;
+  }
+  
+  .widget-cta .widget__title {
+    color: #fff;
+    border-bottom-color: #D1A648;
+  }
+  
+  .widget-cta p {
+    color: rgba(255,255,255,0.9);
+  }
+  
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #22336B;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 18px;
+    transition: color 0.3s ease;
+  }
+  
+  .contact-link:hover {
+    color: #D1A648;
+  }
+</style>
+
