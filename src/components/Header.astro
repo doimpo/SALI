@@ -1,3 +1,7 @@
+---
+import LanguageSwitcher from './LanguageSwitcher.astro';
+---
+
 <!-- =========================
    Header Component
 =========================== -->
@@ -196,6 +200,10 @@
        <button class="close-mobile-menu d-block d-lg-none"><i class="fas fa-times"></i></button>
      </div><!-- /.navbar-collapse -->
       <div class="d-none d-xl-flex align-items-center position-relative ml-30">
+        <!-- Language Switcher -->
+        <div class="mr-20">
+          <LanguageSwitcher />
+        </div>
         <a href="/appointment" class="btn btn__primary btn__rounded">
           <i class="icon-calendar"></i>
           <span>Book Appointment</span>

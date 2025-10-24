@@ -1,4 +1,7 @@
 ---
+import { generateHreflangLinks, getCanonicalUrl, getCurrentLanguage } from '../utils/get-localized-path';
+import { translationConfig } from '../i18n/config';
+
 export interface Props {
   title?: string;
   description?: string;
@@ -11,6 +14,7 @@ export interface Props {
   author?: string;
   section?: string;
   tags?: string[];
+  language?: string;
 }
 
 const {
@@ -24,8 +28,17 @@ const {
   modifiedTime,
   author = 'South Asian Liver Institute',
   section,
-  tags = []
+  tags = [],
+  language
 } = Astro.props;
+
+// Get current language from URL or props
+const currentLanguage = language || getCurrentLanguage(Astro.url.pathname);
+const isLocalized = currentLanguage !== translationConfig.defaultLanguage;
+
+// Generate hreflang links for SEO
+const hreflangLinks = generateHreflangLinks(Astro.url.pathname);
+const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
 
 const siteUrl = 'https://southasianliverinstitute.netlify.app';
 const fullImageUrl = image.startsWith('http') ? image : `${siteUrl}${image}`;
@@ -39,9 +52,14 @@ const fullUrl = url.startsWith('http') ? url : `${siteUrl}${url}`;
 <meta name="keywords" content={keywords} />
 <meta name="author" content={author} />
 <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-<meta name="language" content="English" />
+<meta name="language" content={currentLanguage} />
 <meta name="revisit-after" content="7 days" />
-<link rel="canonical" href={fullUrl} />
+<link rel="canonical" href={canonicalUrl} />
+
+<!-- Hreflang Links for Multi-language SEO -->
+{hreflangLinks.map(link => (
+  <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+))}
 
 <!-- Performance & Security -->
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />

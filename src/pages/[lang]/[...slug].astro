@@ -1,0 +1,370 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getTranslations, getTranslatedText, getTranslatedMeta } from '../../utils/get-translations';
+import { generateHreflangLinks, getCanonicalUrl, getCurrentLanguage } from '../../utils/get-localized-path';
+import { translationConfig, isLanguageSupported } from '../../i18n/config';
+
+export async function getStaticPaths() {
+  const paths = [];
+  
+  // Generate paths for all supported languages
+  for (const language of translationConfig.supportedLanguages) {
+    if (language.enabled && language.code !== translationConfig.defaultLanguage) {
+      // Add static page paths
+      const staticPages = [
+        '', // Homepage - will be handled as undefined slug
+        'about/about-us', 'about/founder', 'services', 'services/liver-transplantation',
+        'services/liver-cirrhosis', 'services/fatty-liver', 'services/liver-cancer',
+        'services/gallbladder-cancer', 'services/pancreas-cancer', 'services/laparoscopic-surgery',
+        'services/endoscopy', 'services/interventional-treatments', 'services/ICU-facility',
+        'programmes/licap', 'programmes/ascites-club', 'programmes/liver-line',
+        'locations/hyderabad', 'locations/mumbai', 'locations/kolkata', 'locations/nagpur',
+        'locations/visakhapatnam', 'locations/rajkot', 'locations/vijayawada-guntur',
+        'locations/kakinada', 'locations/rajahmundry', 'locations/anantapur',
+        'locations/khammam', 'locations/kurnool', 'locations/jabalpur',
+        'media', 'media/videos', 'blog', 'resources/risk-calculator',
+        'resources/guide', 'resources/videos', 'gallery', 'faqs',
+        'appointment', 'contact', 'calendar', 'medical-disclaimer',
+        'privacy-policy', 'terms-of-service'
+      ];
+      
+      for (const page of staticPages) {
+        paths.push({
+          params: { 
+            lang: language.code, 
+            slug: page === '' ? undefined : page 
+          }
+        });
+      }
+      
+      // Add dynamic page paths (blog and media)
+      const dynamicPages = [
+        'blog/understanding-fatty-liver-disease',
+        'blog/life-after-liver-transplant',
+        'blog/managing-liver-cirrhosis',
+        'blog/liver-cancer-early-detection',
+        'blog/hepatitis-prevention-guide',
+        'blog/nutrition-for-liver-health',
+        'media/sali-achieves-milestone-2000-transplants',
+        'media/free-liver-screening-camp-hyderabad',
+        'media/world-liver-day-2025-awareness-campaign',
+        'media/advanced-diagnostic-center-mumbai',
+        'media/dr-tom-cherian-honored-excellence',
+        'media/licap-programme-1000-patients'
+      ];
+      
+      for (const page of dynamicPages) {
+        paths.push({
+          params: { lang: language.code, slug: page }
+        });
+      }
+    }
+  }
+  
+  return paths;
+}
+
+const { lang, slug } = Astro.params;
+
+// Validate language
+if (!isLanguageSupported(lang)) {
+  return Astro.redirect('/404');
+}
+
+// Get the original page path (without language prefix)
+// Handle homepage when slug is undefined or empty
+const originalPath = !slug || slug === '' ? '' : (slug === 'index' ? '' : `/${slug}`);
+const pageKey = originalPath === '' ? 'index' : originalPath.replace(/^\//, '');
+
+// Load translations for this page and language
+const translations = getTranslations(pageKey, lang);
+
+// If we have no translations yet for this page in the requested language,
+// fall back to the original English page to avoid showing a scaffold/config view.
+if (!translations) {
+  return Astro.redirect(originalPath || '/');
+}
+
+// Get translated content with fallbacks
+const translatedTitle = getTranslatedText(pageKey, lang, 'meta.title', 'South Asian Liver Institute - दक्षिण एशियाई लीवर संस्थान');
+const translatedDescription = getTranslatedText(pageKey, lang, 'meta.description', 'Premier liver care institute providing comprehensive hepatology services');
+const translatedKeywords = getTranslatedText(pageKey, lang, 'meta.keywords', 'liver care, hepatology, liver transplant');
+
+// Generate hreflang links for SEO
+const hreflangLinks = generateHreflangLinks(originalPath || '/');
+const canonicalUrl = getCanonicalUrl(Astro.url.pathname);
+
+// Get current language info
+const currentLanguage = getCurrentLanguage(Astro.url.pathname);
+---
+
+<BaseLayout 
+  title={translatedTitle}
+  description={translatedDescription}
+  keywords={translatedKeywords}
+  image="/assets/images/logo/sali-logo-blue.png"
+  language={currentLanguage}
+>
+  <Fragment slot="head">
+    <!-- Add hreflang links -->
+    {hreflangLinks.map(link => (
+      <link rel="alternate" hreflang={link.hreflang} href={link.href} />
+    ))}
+  </Fragment>
+  
+  <!-- Check if this is the homepage and render full structure -->
+  {pageKey === 'index' ? (
+    <Fragment>
+      <!-- ============================
+          Slider
+      ============================== -->
+      <section class="slider">
+        <div class="slick-carousel m-slides-0"
+          data-slick='{"slidesToShow": 1, "arrows": true, "dots": false, "speed": 700,"fade": true,"cssEase": "linear"}'>
+          <div class="slide-item align-v-h">
+            <div class="bg-img"><img src="/assets/images/sliders/1.jpg" alt={getTranslatedText(pageKey, lang, 'content.slide__title', 'Premier Liver Care Excellence')} loading="eager" width="1920" height="1080" fetchpriority="high"></div>
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                  <div class="slide__content">
+                    <h2 class="slide__title">{getTranslatedText(pageKey, lang, 'content.slide__title', 'Premier Liver Care Excellence')}</h2>
+                    <p class="slide__desc">{getTranslatedText(pageKey, lang, 'content.slide__desc', 'Think Liver, Think SALi. We provide the best liver care. The health and well-being of our patients is our priority, with world-class liver care and advanced treatment options.')}</p>
+                    <ul class="features-list list-unstyled mb-0 d-flex flex-wrap">
+                      <!-- feature item #1 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-heart"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.feature-1', 'Liver Assessment')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #2 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-medicine"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.feature-2', 'Treatment Plans')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #3 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-heart2"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.feature-3', 'Transplant Care')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #4 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-blood-test"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.feature-4', 'Lab Testing')}</h2>
+                      </li><!-- /.feature-item-->
+                    </ul><!-- /.features-list -->
+                  </div><!-- /.slide-content -->
+                </div><!-- /.col-xl-7 -->
+              </div><!-- /.row -->
+            </div><!-- /.container -->
+          </div><!-- /.slide-item -->
+          <div class="slide-item align-v-h">
+            <div class="bg-img"><img src="/assets/images/sliders/2.jpg" alt={getTranslatedText(pageKey, lang, 'content.slide2__title', 'Comprehensive Liver Care Solutions')} loading="lazy" width="1920" height="1080"></div>
+            <div class="container">
+              <div class="row align-items-center">
+                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-7">
+                  <div class="slide__content">
+                    <h2 class="slide__title">{getTranslatedText(pageKey, lang, 'content.slide2__title', 'Comprehensive Liver Care Solutions')}</h2>
+                    <p class="slide__desc">{getTranslatedText(pageKey, lang, 'content.slide2__desc', 'From diagnosis to transplantation, we provide complete liver care with advanced technology, experienced specialists, and compassionate support for every patient.')}</p>
+                    <ul class="features-list list-unstyled mb-0 d-flex flex-wrap">
+                      <!-- feature item #1 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-microscope"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.slide2__feature-1', 'Diagnosis')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #2 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-heart2"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.slide2__feature-2', 'Transplantation')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #3 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-stethoscope"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.slide2__feature-3', 'Follow-up Care')}</h2>
+                      </li><!-- /.feature-item-->
+                      <!-- feature item #4 -->
+                      <li class="feature-item">
+                        <div class="feature__icon">
+                          <i class="icon-drugs"></i>
+                        </div>
+                        <h2 class="feature__title">{getTranslatedText(pageKey, lang, 'content.slide2__feature-4', 'Medical Management')}</h2>
+                      </li><!-- /.feature-item-->
+                    </ul><!-- /.features-list -->
+                  </div><!-- /.slide-content -->
+                </div><!-- /.col-xl-7 -->
+              </div><!-- /.row -->
+            </div><!-- /.container -->
+          </div><!-- /.slide-item -->
+        </div><!-- /.carousel -->
+      </section><!-- /.slider -->
+
+      <!-- ============================
+          contact info - Minimal Design
+      ============================== -->
+      <section class="contact-info contact-info--minimal py-0">
+        <div class="container">
+          <div class="row row-no-gutter boxes-wrapper">
+            <div class="col-sm-12 col-md-4">
+              <div class="contact-box contact-box--emergency">
+                <div class="contact__icon">
+                  <i class="icon-call3"></i>
+                </div>
+                <div class="contact__content">
+                  <h3 class="contact__title">{getTranslatedText(pageKey, lang, 'content.emergency__title', 'Emergency Cases')}</h3>
+                  <p class="contact__desc">{getTranslatedText(pageKey, lang, 'content.emergency__desc', 'Contact our friendly reception staff for any medical enquiry.')}</p>
+                  <a href="tel:+918070670670" class="contact__phone">
+                    <i class="icon-phone"></i>
+                    <span>+91-8070 670 670</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <div class="contact-box contact-box--schedule">
+                <div class="contact__icon">
+                  <i class="icon-health-report"></i>
+                </div>
+                <div class="contact__content">
+                  <h3 class="contact__title">{getTranslatedText(pageKey, lang, 'content.appointment__title', 'Book an Appointment')}</h3>
+                  <p class="contact__desc">{getTranslatedText(pageKey, lang, 'content.appointment__desc', 'Schedule your consultation with our expert doctors.')}</p>
+                  <a href="/appointment" class="contact__btn">
+                    <span>{getTranslatedText(pageKey, lang, 'content.appointment__btn', 'Book Now')}</span>
+                    <i class="icon-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-12 col-md-4">
+              <div class="contact-box contact-box--hours">
+                <div class="contact__icon">
+                  <i class="icon-heart2"></i>
+                </div>
+                <div class="contact__content">
+                  <h3 class="contact__title">{getTranslatedText(pageKey, lang, 'content.hours__title', 'Opening Hours')}</h3>
+                  <div class="contact__hours">
+                    <div class="hours__item">
+                      <span class="hours__day">Mon - Fri</span>
+                      <span class="hours__time">{getTranslatedText(pageKey, lang, 'content.hours__weekday', '8:00 AM - 7:00 PM')}</span>
+                    </div>
+                    <div class="hours__item">
+                      <span class="hours__day">Saturday</span>
+                      <span class="hours__time">{getTranslatedText(pageKey, lang, 'content.hours__saturday', '9:00 AM - 10:00 PM')}</span>
+                    </div>
+                    <div class="hours__item">
+                      <span class="hours__day">Sunday</span>
+                      <span class="hours__time">{getTranslatedText(pageKey, lang, 'content.hours__sunday', '10:00 AM - 12:00 PM')}</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================
+        About Layout 2
+      =========================== -->
+      <section class="about-layout2 pb-0">
+        <div class="container">
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-7 offset-lg-1">
+              <div class="heading-layout2">
+                <h3 class="heading__title mb-60">{getTranslatedText(pageKey, lang, 'content.about__title', 'Think Liver, Think SALi. We provide the best liver care.')}</h3>
+              </div><!-- /heading -->
+            </div><!-- /.col-12 -->
+          </div><!-- /.row -->
+          <div class="row">
+            <div class="col-sm-12 col-md-12 col-lg-5">
+              <div class="text-with-icon">
+                <div class="text__icon">
+                  <i class="icon-doctor"></i>
+                </div>
+                <div class="text__content">
+                  <p class="heading__desc font-weight-bold color-secondary mb-30">{getTranslatedText(pageKey, lang, 'content.about__desc', 'South Asian Liver Institute is India\'s premier destination for comprehensive liver care. With over 2,000 successful liver transplants and 13 centers across India, we deliver world-class hepatology services with compassion, expertise, and cutting-edge technology.')}</p>
+                  <a href="/about/about-us" class="btn btn__secondary btn__rounded mb-70">
+                    <span>{getTranslatedText(pageKey, lang, 'content.about__btn', 'Learn More About SALi')}</span> <i class="icon-arrow-right"></i>
+                  </a>
+                </div>
+              </div>
+              <div class="video-banner-layout2 bg-overlay">
+                <img src="/assets/images/about/2.jpg" alt="South Asian Liver Institute - Expert Medical Team" class="w-100" loading="lazy" width="540" height="680">
+                <a class="video__btn video__btn-white popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4">
+                  <div class="video__player">
+                    <i class="fa fa-play"></i>
+                  </div>
+                  <span class="video__btn-title color-white">{getTranslatedText(pageKey, lang, 'content.video__btn', 'Watch Our Video!')}</span>
+                </a>
+              </div><!-- /.video-banner -->
+            </div><!-- /.col-lg-6 -->
+            <div class="col-sm-12 col-md-12 col-lg-7">
+              <div class="about__text bg-white">
+                <p class="heading__desc mb-30">{getTranslatedText(pageKey, lang, 'content.about__text1', 'South Asian Liver Institute (SALi) is dedicated to providing world-class liver care across India. Since our founding, we have been at the forefront of hepatology and liver transplantation, offering comprehensive, patient-centered care that combines clinical excellence with compassion.')}</p>
+                <p class="heading__desc mb-30">{getTranslatedText(pageKey, lang, 'content.about__text2', 'We develop individualized treatment plans for every liver condition, from fatty liver disease to complex transplantation. Our multidisciplinary team, led by internationally trained specialists, includes expert transplant surgeons, hepatologists, interventional radiologists, and dedicated support staff committed to optimal patient outcomes.')}</p>
+                <ul class="list-items list-unstyled">
+                  <li>{getTranslatedText(pageKey, lang, 'content.about__list1', 'Advanced diagnostics including FibroScan, MRI, and comprehensive liver function testing to accurately diagnose and stage liver diseases.')}</li>
+                  <li>{getTranslatedText(pageKey, lang, 'content.about__list2', 'Expert transplant surgeons with over 650 successful liver transplants achieving 91% survival rate and 250+ complex liver cancer resections.')}</li>
+                  <li>{getTranslatedText(pageKey, lang, 'content.about__list3', 'Complete spectrum of care from prevention and early detection to transplantation and long-term follow-up at our partner hospitals.')}</li>
+                </ul>
+              </div>
+            </div><!-- /.col-lg-6 -->
+          </div><!-- /.row -->
+        </div><!-- /.container -->
+      </section><!-- /.About Layout 2 -->
+    </Fragment>
+  ) : (
+    <!-- Main translated content (clean, production-friendly) -->
+    <section class="translated-page py-5">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <h1>{getTranslatedText(pageKey, lang, 'content.heading-0', getTranslatedText(pageKey, lang, 'content.slide__title', translatedTitle))}</h1>
+            <p class="lead">{getTranslatedText(pageKey, lang, 'content.paragraph-0', getTranslatedText(pageKey, lang, 'content.slide__desc', translatedDescription))}</p>
+            
+            <div class="mt-4">
+              <h2>{getTranslatedText(pageKey, lang, 'content.heading-1', '')}</h2>
+              <p>{getTranslatedText(pageKey, lang, 'content.paragraph-1', '')}</p>
+            </div>
+            
+            <!-- Simple auto-list of additional translated bullets if present -->
+            <ul class="list-unstyled mt-3">
+              {Array.from({ length: 12 }).map((_, idx) => {
+                const key = `content.list-item-${idx}`;
+                const val = getTranslatedText(pageKey, lang, key, '');
+                return val ? (<li>{val}</li>) : null;
+              })}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+  )}
+</BaseLayout>
+
+<style>
+  .translated-page {
+    min-height: 70vh;
+  }
+  
+  [dir="rtl"] .translated-page {
+    text-align: right;
+  }
+  
+  .alert-info {
+    background-color: #e3f2fd;
+    border-color: #2196f3;
+    color: #0d47a1;
+  }
+</style>

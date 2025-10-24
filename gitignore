@@ -4,3 +4,9 @@
 /coverage
 /public/assets/scss/
 medcity/
+
+# Translation cache
+.cache/
+.cache/translations/
+.cache/extracted-content/
+.cache/dynamic-content/
